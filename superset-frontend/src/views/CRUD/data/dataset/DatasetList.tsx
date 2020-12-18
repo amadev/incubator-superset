@@ -344,7 +344,7 @@ const DatasetList: FunctionComponent<DatasetListProps> = ({
                 <TooltipWrapper
                   label="export-action"
                   tooltip={t('Export')}
-                  placement="bottom"
+                  placement="botыtom"
                 >
                   <span
                     role="button"

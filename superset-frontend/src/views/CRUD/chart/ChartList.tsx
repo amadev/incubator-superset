@@ -368,7 +368,7 @@ function ChartList(props: ChartListProps) {
       id: 'owners',
       input: 'select',
       operator: 'rel_m_m',
-      unfilteredLabel: 'All',
+      unfilteredLabel: t('All'),
       fetchSelects: createFetchRelated(
         'chart',
         'owners',
@@ -389,7 +389,7 @@ function ChartList(props: ChartListProps) {
       id: 'created_by',
       input: 'select',
       operator: 'rel_o_m',
-      unfilteredLabel: 'All',
+      unfilteredLabel: t('All'),
       fetchSelects: createFetchRelated(
         'chart',
         'created_by',
@@ -410,7 +410,7 @@ function ChartList(props: ChartListProps) {
       id: 'viz_type',
       input: 'select',
       operator: 'eq',
-      unfilteredLabel: 'All',
+      unfilteredLabel: t('All'),
       selects: getChartMetadataRegistry()
         .keys()
         .map(k => ({ label: k, value: k }))
@@ -434,7 +434,7 @@ function ChartList(props: ChartListProps) {
       id: 'datasource_id',
       input: 'select',
       operator: 'eq',
-      unfilteredLabel: 'All',
+      unfilteredLabel: t('All'),
       fetchSelects: createFetchDatasets(
         createErrorHandler(errMsg =>
           addDangerToast(

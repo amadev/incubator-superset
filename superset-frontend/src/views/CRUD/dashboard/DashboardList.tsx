@@ -355,7 +355,7 @@ function DashboardList(props: DashboardListProps) {
       id: 'owners',
       input: 'select',
       operator: 'rel_m_m',
-      unfilteredLabel: 'All',
+      unfilteredLabel: t('All'),
       fetchSelects: createFetchRelated(
         'dashboard',
         'owners',
@@ -376,7 +376,7 @@ function DashboardList(props: DashboardListProps) {
       id: 'created_by',
       input: 'select',
       operator: 'rel_o_m',
-      unfilteredLabel: 'All',
+      unfilteredLabel: t('All'),
       fetchSelects: createFetchRelated(
         'dashboard',
         'created_by',
@@ -397,7 +397,7 @@ function DashboardList(props: DashboardListProps) {
       id: 'published',
       input: 'select',
       operator: 'eq',
-      unfilteredLabel: 'Any',
+      unfilteredLabel: t('Any'),
       selects: [
         { label: t('Published'), value: true },
         { label: t('Unpublished'), value: false },
