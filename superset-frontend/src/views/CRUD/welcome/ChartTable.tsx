@@ -152,7 +152,7 @@ function ChartTable({
             },
           },
           {
-            name: 'View All »',
+            name: (t('View All') + ' »'),
             buttonStyle: 'link',
             onClick: () => {
               window.location.href = '/chart/list';

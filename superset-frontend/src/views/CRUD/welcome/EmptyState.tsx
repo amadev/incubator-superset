@@ -59,11 +59,11 @@ export default function EmptyState({ tableName, tab }: EmptyStateProps) {
     SAVED_QUERIES: 'empty-queries.svg',
   };
   const mine = (
-    <div>{`No ${
+    <div>{t(`No ${
       tableName === 'SAVED_QUERIES'
         ? t('saved queries')
         : t(`${tableName.toLowerCase()}`)
-    } yet`}</div>
+    } yet`)}</div>
   );
   const recent = (
     <div className="no-recents">
@@ -142,7 +142,7 @@ export default function EmptyState({ tableName, tab }: EmptyStateProps) {
             window.location = favRedirects[tableName];
           }}
         >
-          SEE ALL{' '}
+          {t('See all') + ' '}
           {tableName === 'SAVED_QUERIES'
             ? t('SQL LAB QUERIES')
             : t(`${tableName}`)}
