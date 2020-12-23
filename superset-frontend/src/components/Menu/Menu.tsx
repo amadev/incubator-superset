@@ -100,7 +100,8 @@ const StyledHeader = styled.header`
   }
 
   .navbar-inverse .navbar-nav > li > a {
-    color: ${({ theme }) => theme.colors.grayscale.dark1};
+    color: white;
+    font-weight: bold;
     border-bottom: none;
     transition: background-color ${({ theme }) => theme.transitionTiming}s;
     &:after {

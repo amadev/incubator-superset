@@ -28,7 +28,8 @@ const StyledHeader = styled.header`
     margin-bottom: ${({ theme }) => theme.gridUnit * 4}px;
   }
   .navbar-header .navbar-brand {
-    font-weight: ${({ theme }) => theme.typography.weights.bold};
+    font-weight: bold;
+    color: #000000;
   }
   .navbar-right {
     padding: 8px 0;
@@ -66,6 +67,7 @@ const StyledHeader = styled.header`
     }
   }
   .navbar-inverse {
+    background: #C3CDD5;
     .navbar-nav {
       & > .active > a {
         background: ${({ theme }) => theme.colors.secondary.light4};
