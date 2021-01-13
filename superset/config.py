@@ -1005,3 +1005,6 @@ elif importlib.util.find_spec("superset_config") and not is_test():
 # It's possible to add a dataset health check logic which is specific to your system.
 # It will get executed each time when user open a chart's explore view.
 DATASET_HEALTH_CHECK = None
+
+# Backend for cubesviewer studio
+CUBES_BACKEND = "http://localhost:5000"

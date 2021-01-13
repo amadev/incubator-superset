@@ -197,6 +197,7 @@ class SupersetAppInitializer:
             TabStateView,
         )
         from superset.views.tags import TagView
+        from superset.views.cubes import Cubes
 
         #
         # Setup API views
@@ -311,6 +312,7 @@ class SupersetAppInitializer:
         appbuilder.add_view_no_menu(TableModelView)
         appbuilder.add_view_no_menu(TableSchemaView)
         appbuilder.add_view_no_menu(TabStateView)
+        appbuilder.add_view_no_menu(Cubes)
 
         if feature_flag_manager.is_feature_enabled("TAGGING_SYSTEM"):
             appbuilder.add_view_no_menu(TagView)
@@ -351,6 +353,12 @@ class SupersetAppInitializer:
             category_icon="fa-flask",
             category="SQL Lab",
             category_label=__("SQL Lab"),
+        )
+        appbuilder.add_link(
+            __("OLAP"),
+            href="/cubes/",
+            icon="fa-olap",
+            category="SQL Lab",
         )
         if self.config["CSV_EXTENSIONS"].intersection(
             self.config["ALLOWED_EXTENSIONS"]

@@ -811,7 +811,7 @@ class SupersetSecurityManager(  # pylint: disable=too-many-public-methods
 
         return (
             pvm.view_menu.name
-            in {"SQL Lab", "SQL Editor", "Query Search", "Saved Queries"}
+            in {"SQL Lab", "SQL Editor", "Query Search", "Saved Queries", "OLAP"}
             or pvm.permission.name
             in {
                 "can_sql_json",

@@ -72,9 +72,10 @@
     {% endblock %}
 
     {% block body %}
-      <div id="app" data-bootstrap="{{ bootstrap_data }}">
+      <div id="app" data-bootstrap="{{ bootstrap_data }}" {% if embed_html %}style="flex: none"{% endif %}>
         <img src="/static/assets/images/loading.gif" style="width: 50px; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%)">
       </div>
+    {% if embed_html %}{{ embed_html | safe }}{% endif %}
     {% endblock %}
 
     <!-- Modal for misc messages / alerts  -->
@@ -102,5 +103,6 @@
         {{ js_bundle(entry) }}
       {% endif %}
     {% endblock %}
+
   </body>
 </html>
