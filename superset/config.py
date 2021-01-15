@@ -974,6 +974,9 @@ GLOBAL_ASYNC_QUERIES_JWT_SECRET = "test-secret-change-me"
 GLOBAL_ASYNC_QUERIES_TRANSPORT = "polling"
 GLOBAL_ASYNC_QUERIES_POLLING_DELAY = 500
 
+# Backend for cubesviewer studio
+CUBES_BACKEND = "http://localhost:5000"
+
 if CONFIG_PATH_ENV_VAR in os.environ:
     # Explicitly import config module that is not necessarily in pythonpath; useful
     # for case where app is being executed via pex.
@@ -1005,6 +1008,3 @@ elif importlib.util.find_spec("superset_config") and not is_test():
 # It's possible to add a dataset health check logic which is specific to your system.
 # It will get executed each time when user open a chart's explore view.
 DATASET_HEALTH_CHECK = None
-
-# Backend for cubesviewer studio
-CUBES_BACKEND = "http://localhost:5000"
