@@ -29,7 +29,7 @@ The API consists of a primary draw method which accepts a configuration object, 
     options = {
       xaxis: {
         minorTickFreq: 4
-      }, 
+      },
       grid: {
         minorVerticalLines: true
       }
@@ -67,7 +67,7 @@ Existing graph types are found in `js/types/`.
 
 ### Plugins
 
-Plugins extend the core of flotr with new functionality.  They can add interactions, new decorations, etc.  Examples 
+Plugins extend the core of flotr with new functionality.  They can add interactions, new decorations, etc.  Examples
 include titles, labels and selection.
 
 The plugins included are found in `js/plugins/`.
@@ -75,10 +75,10 @@ The plugins included are found in `js/plugins/`.
 Development
 -----------
 
-This project uses [smoosh](https://github.com/fat/smoosh) to build and [jasmine](http://pivotal.github.com/jasmine/) 
-with [js-imagediff](https://github.com/HumbleSoftware/js-imagediff) to test.  Tests may be executed by 
-[jasmine-headless-webkit](http://johnbintz.github.com/jasmine-headless-webkit/) with 
-`cd spec; jasmine-headless-webkit -j jasmine.yml -c` or by a browser by navigating to 
+This project uses [smoosh](https://github.com/fat/smoosh) to build and [jasmine](http://pivotal.github.com/jasmine/)
+with [js-imagediff](https://github.com/HumbleSoftware/js-imagediff) to test.  Tests may be executed by
+[jasmine-headless-webkit](http://johnbintz.github.com/jasmine-headless-webkit/) with
+`cd spec; jasmine-headless-webkit -j jasmine.yml -c` or by a browser by navigating to
 `flotr2/spec/SpecRunner.html`.
 
 Shoutouts
@@ -86,4 +86,3 @@ Shoutouts
 
 Thanks to Bas Wenneker, Fabien Ménager and others for all the work on the original Flotr.
 Thanks to Jochen Berger and Jordan Santell for their contributions to Flotr2.
-

@@ -355,10 +355,7 @@ class SupersetAppInitializer:
             category_label=__("SQL Lab"),
         )
         appbuilder.add_link(
-            __("OLAP"),
-            href="/cubes/",
-            icon="fa-olap",
-            category="SQL Lab",
+            __("OLAP"), href="/cubes/", icon="fa-olap", category="SQL Lab",
         )
         if self.config["CSV_EXTENSIONS"].intersection(
             self.config["ALLOWED_EXTENSIONS"]

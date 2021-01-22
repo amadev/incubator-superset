@@ -38,11 +38,10 @@ from sqlalchemy.orm import Mapper, Session
 from sqlalchemy.orm.exc import MultipleResultsFound
 from sqlalchemy_utils import UUIDType
 
-from superset.utils.core import QueryStatus
 from superset import app
+from superset.utils.core import QueryStatus
 
 logger = logging.getLogger(__name__)
-config = app.config
 
 
 def json_to_dict(json_str: str) -> Dict[Any, Any]:
@@ -427,8 +426,8 @@ class AuditMixinNullable(AuditMixin):
 
     @property
     def changed_on_humanized(self) -> str:
-        if config["BABEL_DEFAULT_LOCALE"]:
-            humanize.i18n.activate(config["BABEL_DEFAULT_LOCALE"])
+        if app.config["BABEL_DEFAULT_LOCALE"]:  # type: ignore
+            humanize.i18n.activate(app.config["BABEL_DEFAULT_LOCALE"])  # type: ignore
         return humanize.naturaltime(datetime.now() - self.changed_on)
 
     @renders("changed_on")
