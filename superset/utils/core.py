@@ -1305,7 +1305,12 @@ def get_since_until(  # pylint: disable=too-many-arguments
         elif time_range == "No filter":
             since = until = None
         else:
-            rel, num, grain = time_range.split()
+            try:
+                rel, num, grain = time_range.split()
+            except ValueError:
+                rel = "Last"
+                num = "1"
+                grain = "days"
             if rel == "Last":
                 since = relative_start - relativedelta(  # type: ignore
                     **{grain: int(num)}  # type: ignore
