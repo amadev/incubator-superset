@@ -23,13 +23,13 @@
         "Данные"
       ],
       "Datasets": [
-        "Набор данных"
+        "Наборы данных"
       ],
       "Charts": [
         "Графики"
       ],
       "Dashboards": [
-        "Отчёты"
+        "Дашборды"
       ],
       "CSS Templates": [
         "Шаблоны CSS"
@@ -41,7 +41,7 @@
         "Безопасность"
       ],
       "Import Dashboards": [
-        "Импорт Отчетов"
+        "Импорт дашбордов"
       ],
       "SQL Editor": [
         "Редактор SQL"
@@ -65,7 +65,7 @@
         "Журнал Действий"
       ],
       "Dashboard Emails": [
-        "Рассылки отчетов"
+        "Рассылки дашбордов"
       ],
       "Chart Email Schedules": [
         "Расписание рассылки графиков"
@@ -95,10 +95,10 @@
         "Ошибка 1001 - база данных находится под необычной нагрузкой."
       ],
       "Issue 1002 - The database returned an unexpected error.": [
-        "Ошибка 1002 - База данных возвратила непредвиденную ошибку."
+        "Ошибка 1002 - База данных сообщила о непредвиденной ошибке."
       ],
       "Issue 1003 - There is a syntax error in the SQL query. Perhaps there was a misspelling or a typo.": [
-        "Ошибка 1003 - Существует ошибка синтаксиса в запросе SQL. Возможно, там была опечатка."
+        "Ошибка 1003 - Ошибка синтаксиса в запросе SQL. Возможно, там была опечатка."
       ],
       "Issue 1004 - The column was deleted or renamed in the database.": [
         "Ошибка 1004 - Колонка была удалена или переименована в базе данных."
@@ -107,28 +107,28 @@
         "Ошибка 1005 - Таблица был удалена или переименована в базе данных."
       ],
       "Issue 1006 - One or more parameters specified in the query are missing.": [
-        "Ошибка 1006 - один или несколько параметров, указанных в запросе отсутствует."
+        "Ошибка 1006 - Один или несколько параметров, указанных в запросе, отсутствуют."
       ],
       "Invalid certificate": [
         "Неверный сертификат"
       ],
       "Unsafe return type for function %(func)s: %(value_type)s": [
-        "Небезопасный тип для функции %(func)s: %(value_type)s"
+        "Небезопасный тип возвращаемого знаечения для функции %(func)s: %(value_type)s"
       ],
       "Unsupported return value for method %(name)s": [
-        "Неподдерживаемое значение для метода %(name)s"
+        "Возвращаемое значение для метода %(name)s не поддерживается"
       ],
       "Unsafe template value for key %(key)s: %(value_type)s": [
-        "Небезопасное значение для ключа %(key)s: %(value_type)s"
+        "Небезопасное значение швблона для ключа %(key)s: %(value_type)s"
       ],
       "Unsupported template value for key %(key)s": [
-        "Неподдерживаемое значение для ключа %(key)s"
+        "Неподдерживаемое значение шаблона для ключа %(key)s"
       ],
       "Only `SELECT` statements are allowed against this database": [
-        "Только `выражение SELECT` допускаются к этой базе данных"
+        "Только выражения `SELECT` допускаются к этой базе данных"
       ],
       "Only `SELECT` statements can be used with the CREATE TABLE feature.": [
-        "Только `выражение SELECT` может использоваться с функцией CREATE TABLE."
+        "Только выражения `SELECT` могут использоваться с функцией CREATE TABLE."
       ],
       "Viz is missing a datasource": [
         "У визуализации отсутствует источник данных"
@@ -140,7 +140,7 @@
         "Невозможно выбрать дату [from], которая позже текущего дня"
       ],
       "Cached value not found": [
-        "Сохраненная значение не найдено"
+        "Сохраненное значение не найдено"
       ],
       "Columns missing in datasource: %(invalid_columns)s": [
         "Стобцы отсутствуют в источнике данных: %(invalid_columns)s"
@@ -155,25 +155,25 @@
         "Выберите столбец с датой и необходимый период в секции «Время» или снимите флажок «Включая дату»"
       ],
       "Time Table View": [
-        "Время Table View"
+        "Вид Time Table"
       ],
       "Pick at least one metric": [
         "Выберите хотя бы одно значение"
       ],
       "When using 'Group By' you are limited to use a single metric": [
-        "При использовании поля [Группировка] вы не ограничены использованием одного среза"
+        "При использовании поля [Группировка] вы можете использовать только одно значение"
       ],
       "Pivot Table": [
         "Сводная таблица"
       ],
       "Please choose at least one 'Group by' field ": [
-        "Выберите хотя бы один срез в поле [Группировка]"
+        "Выберите хотя бы одно поле [Группировка]"
       ],
       "Please choose at least one metric": [
-        "Пожалуйста, выберите хотя бы один показатель"
+        "Пожалуйста, выберите хотя бы одно значение"
       ],
       "Group By' and 'Columns' can't overlap": [
-        "Нельзя использовать один и тот же срез в двух полях"
+        "Поля [Группировка] и [Столбцы] не могут пересекаться"
       ],
       "Treemap": [
         "Дерево"
@@ -185,10 +185,10 @@
         "Пузырьковая диаграмма"
       ],
       "Please use 3 different metric labels": [
-        "Пожалуйста, используйте 3 различных метки для метрики"
+        "Пожалуйста, используйте 3 различных метки значения"
       ],
       "Pick a metric for x, y and size": [
-        "Выберите срез для X, Y и размер"
+        "Выберите значения для X, Y и размер"
       ],
       "Bullet Chart": [
         "Маркированный график"
@@ -197,7 +197,7 @@
         "Выберите показатель для отображения"
       ],
       "Big Number with Trendline": [
-        "Большое количество с Trendline"
+        "Большое число с Trendline"
       ],
       "Pick a metric!": [
         "Выберите показатель!"
@@ -212,13 +212,13 @@
         "Выберите период для временных рядов"
       ],
       "An enclosed time range (both start and end) must be specified when using a Time Comparison.": [
-        "Прилагаются диапазон времени (как начало и конец) должен быть определен при использовании времени сравнения."
+        "Закрытый временной диапазон (начало и конец) должен быть определен при использовании Временного сравнения."
       ],
       "Time Series - Multiple Line Charts": [
-        "Time Series - несколько линейных диаграмм"
+        "Временные ряды - Многолинейные диаграммы"
       ],
       "Time Series - Dual Axis Line Chart": [
-        "Time Series - Двойная Осевая линия диаграммы"
+        "Временные ряды - Двухосная линейная диаграмма"
       ],
       "Pick a metric for left axis!": [
         "Выберите значение для левой оси!"
@@ -227,19 +227,19 @@
         "Выберите значение для правой оси!"
       ],
       "Please choose different metrics on left and right axis": [
-        "Пожалуйста, выберите разные срезы данных для левой и правой оси"
+        "Пожалуйста, выберите разные значения данных для левой и правой оси"
       ],
       "Time Series - Bar Chart": [
-        "Time Series - Гистограмма"
+        "Временные ряды – Столбиковая диаграмма"
       ],
       "Time Series - Period Pivot": [
-        "Time Series - Период Pivot"
+        "Временные ряды – Сводный периодический график"
       ],
       "Time Series - Percent Change": [
-        "Time Series - Процентное изменение"
+        "Временные ряды - Процентное изменение"
       ],
       "Time Series - Stacked": [
-        "Time Series - Stacked"
+        "Временные ряды – Столбчатая диаграмма с накоплением"
       ],
       "Histogram": [
         "Гистограмма"
@@ -248,25 +248,25 @@
         "Должен быть указан хотя бы один числовой столбец"
       ],
       "Distribution - Bar Chart": [
-        "Распределение - Гистограмма"
+        "Распределение - Столбиковая диаграмма"
       ],
       "Can't have overlap between Series and Breakdowns": [
-        "Срезы в полях [Столбцы данных] и [Ряды данных] должны быть разными"
+        "Значения в полях [Столбцы данных] и [Ряды данных] должны быть разными"
       ],
       "Pick at least one field for [Series]": [
         "Выберите хотя бы одно значение для поля [Столбцы данных]"
       ],
       "Sunburst": [
-        "Sunburst"
+        "Лучевая диаграмма"
       ],
       "Sankey": [
-        "Sankey"
+        "Диаграмма Санкей"
       ],
       "Pick exactly 2 columns as [Source / Target]": [
-        "Выберите ровно два среза в поле [Источник / Назначение]"
+        "Выберите ровно два столбца в поле [Источник / Назначение]"
       ],
       "There's a loop in your Sankey, please provide a tree. Here's a faulty link: {}": [
-        "В полях [Источника] и [Назначения] есть одинаковый срез данных - {}. Срезы не должны пересекаться!"
+        "В вашей диаграмме Санкей образовалась петля. Пожалуйста, создайте дерево. Ошибочное звено: "
       ],
       "Directed Force Layout": [
         "Компоновка Directed Force"
@@ -293,22 +293,22 @@
         "Тепловая карта"
       ],
       "Horizon Charts": [
-        "Horizon Графики"
+        "Горизонтальная диаграмма"
       ],
       "Mapbox": [
-        "MapBox"
+        "Интерактивная карта"
       ],
       "[Longitude] and [Latitude] must be set": [
         "Столбцы [Долгота] и [Широта] должны присутствовать"
       ],
       "Must have a [Group By] column to have 'count' as the [Label]": [
-        "Должен иметь столбец [Группа по], чтобы иметь «счетчик» в качестве [Метрика]"
+        "Должен иметь столбец [Группировка], чтобы был «счетчик» в качестве [Метка]"
       ],
       "Choice of [Label] must be present in [Group By]": [
-        "Выбор [Метрика] должны присутствовать в [Группировка]"
+        "Выбор [Метка] должны присутствовать в поле [Группировка]"
       ],
       "Choice of [Point Radius] must be present in [Group By]": [
-        "Срез [Радиуса точки] должен присутствовать в поле [Группировка]"
+        "Выбор [Радиуса точки] должен присутствовать в поле [Группировка]"
       ],
       "[Longitude] and [Latitude] columns must be present in [Group By]": [
         "Столбцы [Долгота] и [Широта] должны присутствовать в поле [Группировка]"
@@ -323,7 +323,7 @@
         "Неверная пространственная точка: %s"
       ],
       "Encountered invalid NULL spatial entry,                                        please consider filtering those out": [
-        "Нулевая пространственная запись,                                        возможно стоит отлфильтровать"
+        "Нулевая пространственная запись,                                        возможно стоит отфильтровать"
       ],
       "Deck.gl - Scatter plot": [
         "Deck.gl - Диаграмма рассеяния"
@@ -350,22 +350,22 @@
         "Deck.gl - Дуга"
       ],
       "Event flow": [
-        "поток событий"
+        "Поток событий"
       ],
       "Time Series - Paired t-test": [
-        "Серия Время - Соединенный Т-тест"
+        "Временные ряды - t-критерий Стьюдента"
       ],
       "Time Series - Nightingale Rose Chart": [
-        "Time Series - Nightingale Rose Chart"
+        "Временные ряды – Диаграмма Nightingale Rose"
       ],
       "Partition Diagram": [
-        "Partition Диаграмма"
+        "Разделённая диаграмма"
       ],
       "Choose either fields to [Group By] and [Metrics] and/or [Percentage Metrics], or [Columns], not both": [
-        "Выберите либо поля [Группировать по] и [Метрики] и/или [Процентные метрики], или [Столбцы]"
+        "Выберите либо поля [Группировать по] и [Значения] и/или [Процентные значения], или [Столбцы]"
       ],
       "Box Plot": [
-        "Вставка участка"
+        "Блочная диаграмма"
       ],
       "Distribution - NVD3 - Pie Chart": [
         "Распределение - NVD3 - Круговая диаграмма"
@@ -377,10 +377,10 @@
         "Удалено слоев аннотации %(num)d"
       ],
       "All Text": [
-        "весь текст"
+        "Весь текст"
       ],
       "Deleted %(num)d annotation": [
-        ""
+        "Удалено аннотаций %(num)d"
       ],
       "End date must be after start date": [
         "Невозможно выбрать дату"
@@ -395,7 +395,7 @@
         "Аннотация не найдена"
       ],
       "Annotation parameters are invalid.": [
-        "Неверные параметры."
+        "Неверные параметры аннотации."
       ],
       "Annotation could not be created.": [
         "Аннотация не может быть создана"
@@ -407,19 +407,19 @@
         "Ошибка удаления аннотации"
       ],
       "Annotation layer parameters are invalid.": [
-        "Неверные параметры."
+        "Неверные параметры слоя аннотации."
       ],
       "Annotation layer could not be deleted.": [
-        "Слои аннотаций не может быть удален."
+        "Слой аннотации не может быть удален."
       ],
       "Annotation layer could not be created.": [
         "Ваш запрос не может быть сохранен"
       ],
       "Annotation layer could not be updated.": [
-        "Ваш запрос не может быть сохранен"
+        "Аннотация не может быть обновлена"
       ],
       "Annotation layer not found.": [
-        "Слой аннотаций не найден ."
+        "Слой аннотации не найден."
       ],
       "Annotation layer delete failed.": [
         "Ошибка удаления слоя аннотаций."
@@ -431,7 +431,7 @@
         "Имя должно быть уникальным"
       ],
       "Deleted %(num)d chart": [
-        ""
+        "Удалено графиков %(num)d"
       ],
       "Request is incorrect: %(error)s": [
         "Неверный запрос: %(error)s"
@@ -443,7 +443,7 @@
         "нижний процентиль должен быть больше 0 и меньше 100. Должен быть ниже верхнего процентиля."
       ],
       "upper percentile must be greater than 0 and less than 100. Must be higher than lower percentile.": [
-        "Верхний процентиль должен быть больше, чем 0 и меньше чем 100. Должен быть выше, чем нижний процентиль."
+        "Верхний процентиль должен быть больше, чем 0, и меньше, чем 100. Должен быть выше, чем нижний процентиль."
       ],
       "`width` must be greater or equal to 0": [
         "`Width` должно быть больше или равно 0"
@@ -455,25 +455,25 @@
         "`Row_offset` должно быть больше или равно 0"
       ],
       "There are associated alerts or reports: %s,": [
-        "Связанные оповещения или уведомления: %s,"
+        "Связанные оповещения или сообщения: %s,"
       ],
       "Database does not exist": [
         "База данных не существует"
       ],
       "Dashboards do not exist": [
-        "Отчёты не существуют"
+        "Дашборды не существуют"
       ],
       "Datasource type is required when datasource_id is given": [
-        "Datasource типа требуется, когда datasource_id дается"
+        "Требуется тип источника данных, если есть id источника данных"
       ],
       "Chart parameters are invalid.": [
         "Неверные параметры графика"
       ],
       "Chart could not be created.": [
-        "Ваш запрос не может быть сохранен"
+        "Ваш график не может быть сохранен"
       ],
       "Chart could not be updated.": [
-        "Ваш запрос не может быть сохранен"
+        "Ваш график не может быть обновлён"
       ],
       "Chart could not be deleted.": [
         "График не может быть удален."
@@ -482,37 +482,37 @@
         "Есть сопутствующие предупреждения или сообщения"
       ],
       "Changing this chart is forbidden": [
-        "Изменение этой диаграммы запрещено"
+        "Изменение этого графика запрещено"
       ],
       "Charts could not be deleted.": [
         "Графики не могут быть удалены."
       ],
       "Import chart failed for an unknown reason": [
-        "Импорт диаграммы не удалось по неизвестным причинам"
+        "Импорт диаграммы не удался по неизвестным причинам"
       ],
       "Owners are invalid": [
         "Владельцы недействительны"
       ],
       "Datasource does not exist": [
-        "Источник данных не существует"
+        "Источника данных не существует"
       ],
       "`operation` property of post processing object undefined": [
-        "`Operation` свойство объекта после обработки не определен"
+        "Свойство объекта `Operation` после обработки не определено"
       ],
       "Unsupported post processing operation: %(operation)s": [
-        "Неподдерживаемая операция: %(operation)s"
+        "Неподдерживаемая операция постобработки: %(operation)s"
       ],
       "Adding new datasource [{}]": [
-        "Добавить новый источник [{}]"
+        "Добавление нового источника данных [{}]"
       ],
       "Refreshing datasource [{}]": [
         "Обновление источника данных [{}]"
       ],
       "Metric(s) {} must be aggregations.": [
-        "Метрика (ы) {} должно быть аггрегатами."
+        "Показатели {} должны быть сгруппированы."
       ],
       "Unsupported extraction function: ": [
-        "Неподдерживаемая функция: "
+        "Неподдерживаемая функция извлечения: "
       ],
       "Columns": [
         "Столбцы"
@@ -548,13 +548,13 @@
         "Показатели"
       ],
       "Show Druid Metric": [
-        "Показать Druid Метрики"
+        "Показать метрику Druid"
       ],
       "Add Druid Metric": [
-        "Добавить Druid Метрику"
+        "Добавить метрику Druid"
       ],
       "Edit Druid Metric": [
-        "Редактировать Druid Метрику"
+        "Редактировать метрику Druid"
       ],
       "Metric": [
         "Показатель"
@@ -569,7 +569,7 @@
         "JSON"
       ],
       "Druid Datasource": [
-        "Druid - Источники Данных"
+        "Источники Данных Druid"
       ],
       "Warning Message": [
         "Предупреждающее сообщение"
@@ -605,10 +605,10 @@
         "Тайм-аут Кэша"
       ],
       "Metadata Last Refreshed": [
-        "Метаданные Последний Освеженный"
+        "Последнее обновление метаданных"
       ],
       "Duration (in seconds) of the caching timeout for this cluster. A timeout of 0 indicates that the cache never expires. Note this defaults to the global timeout if undefined.": [
-        "Продолжительность (в секундах) времени кэша для данного кластера."
+        "Длительность (в секундах) таймаута кэша для данного кластера. Таймаут, равный 0, - кеш не удаляется. Это стандартное глобальное значение, если не определено другое"
       ],
       "Druid supports basic authentication. See [auth](http://druid.io/docs/latest/design/auth.html) and druid-basic-security extension": [
         "Druid поддерживает базовую аутентификацию. См. [auth](http://druid.io/docs/latest/design/auth.html)"
@@ -623,13 +623,13 @@
         "Редактировать Источник Данных Druid"
       ],
       "The list of charts associated with this table. By altering this datasource, you may change how these associated charts behave. Also note that charts need to point to a datasource, so this form will fail at saving if removing charts from a datasource. If you want to change the datasource for a chart, overwrite the chart from the 'explore view'": [
-        "Список графиков, связанных с этой таблицей. Изменяя этот источник данных, можно изменить поведение связанных с ним графиков. Также обратите внимание, что графики должны указывать на источник данных, поэтому эта форма не будет сохранена при удалении срезов из источника данных. Если вы хотите изменить источник данных для среза, сделайте это в свойствах самого графика."
+        "Список графиков, связанных с этой таблицей. Изменяя этот источник данных, можно изменить поведение связанных с ним графиков. Также обратите внимание, что графики должны указывать на источник данных, поэтому эта форма не будет сохранена при удалении графиков из источника данных. Если вы хотите изменить источник данных для графика, сделайте это в свойствах самого графика."
       ],
       "Timezone offset (in hours) for this datasource": [
         "Смещение часового пояса (в часах) для этого источника данных"
       ],
       "Time expression to use as a predicate when retrieving distinct values to populate the filter component. Only applies when `Enable Filter Select` is on. If you enter `7 days ago`, the distinct list of values in the filter will be populated based on the distinct value over the past week": [
-        "Выражение времени для использования в качестве предиката при получении различных значений для заполнения компонента фильтра. Применяется только в том случае, если включен параметр «включить выбор фильтра». Если Вы введете «7 дней назад», то список различных значений в фильтре будет заполнен на основе определенного значения за последнюю неделю"
+        "Выражение времени используется в качестве предиката при получении различных значений для заполнения компонента фильтра. Применяется только в том случае, если включен параметр «включить выбор фильтра». Если Вы введете «7 дней назад», то список различных значений в фильтре будет заполнен на основе определенного значения за последнюю неделю"
       ],
       "Whether to populate the filter's dropdown in the explore view's filter section with a list of distinct values fetched from the backend on the fly": [
         "Получение списка фильтруемых значений, выполняя онлайн-запрос к серверу"
@@ -638,7 +638,7 @@
         "Перенаправление на эту конечную точку при нажатии на источник данных из списка источников данных"
       ],
       "Duration (in seconds) of the caching timeout for this datasource. A timeout of 0 indicates that the cache never expires. Note this defaults to the cluster timeout if undefined.": [
-        "Продолжительность (в секундах) времени кэша для данного источника данных."
+        "Длительность (в секундах) таймаута кэша для этого источника данных. Таймаут, равный 0, - кеш не удаляется. Это стандартное глобальное значение, если не определено другое."
       ],
       "Associated Charts": [
         "Связанные диаграммы"
@@ -680,7 +680,7 @@
         "Обновить метаданные из кластера [{}]"
       ],
       "Only `SELECT` statements are allowed": [
-        "Разрешены только SELECT запросы"
+        "Разрешены только `SELECT` запросы"
       ],
       "Only single queries supported": [
         "Поддерживаются только одиночные запросы"
@@ -695,7 +695,7 @@
         "Виртуальный запрос набора данных не может состоять из нескольких операторов"
       ],
       "Virtual dataset query must be read-only": [
-        "Виртуальный запрос набора данных должны быть только для чтения"
+        "Виртуальный запрос набора данных должен быть только для чтения"
       ],
       "Error in jinja expression in RLS filters: %(msg)s": [
         "Ошибка в jinja выражении: %(msg)s"
@@ -707,7 +707,7 @@
         "Пустой запрос?"
       ],
       "Metric '%(metric)s' does not exist": [
-        "Метрика '%(metric)s' не существует"
+        "Значение '%(metric)s' не существует"
       ],
       "Invalid filter operation type: %(op)s": [
         "Неверный тип операции: %(op)s"
@@ -728,7 +728,7 @@
         "Редактировать столбец"
       ],
       "Whether to make this column available as a [Time Granularity] option, column has to be DATETIME or DATETIME-like": [
-        "Сделать этот столбец доступным в разделе [Время]. Столбец должен быть в формате DATETIME"
+        "Чтобы делать этот столбец доступным в разделе [Время] столбец должен быть в формате DATETIME или DATETIME-like"
       ],
       "The data type that was inferred by the database. It may be necessary to input a type manually for expression-defined columns in some cases. In most case users should not need to alter this.": [
         "Задать тип данных. В некоторых случаях может потребоваться ввести тип вручную для столбцов, которые формируются специальными запросами. В большинстве случаев изменять содержимое этого поля не обязательно."
@@ -746,7 +746,7 @@
         "Формат Datetime"
       ],
       "Invalid date/timestamp format": [
-        "Формат Даты / Времени"
+        "Неверный формат Даты / Времени"
       ],
       "Show Metric": [
         "Показать показатель"
@@ -767,31 +767,31 @@
         "Дополнительные параметры"
       ],
       "Row level security filter": [
-        "фильтр безопасности на уровне строк"
+        "Фильтр безопасности на уровне строк"
       ],
       "Show Row level security filter": [
-        "Показать Роу фильтр уровня безопасности"
+        "Показать фильтр безопасности на уровне строк"
       ],
       "Add Row level security filter": [
-        "Добавить строку фильтра безопасности уровня"
+        "Добавить фильтр безопасности на уровне строк"
       ],
       "Edit Row level security filter": [
-        "Редактирование строки фильтра уровня безопасности"
+        "Редактирование фильтра безопасности на уровне строк "
       ],
       "Regular filters add where clauses to queries if a user belongs to a role referenced in the filter. Base filters apply filters to all queries except the roles defined in the filter, and can be used to define what users can see if no RLS filters within a filter group apply to them.": [
-        "Обычные фильтры добавляют условия к запросам, если пользователь принадлежит роли указанной в фильтре."
+        "Обычные фильтры добавляют условия к запросам, если пользователь принадлежит роли, указанной в фильтре. Основные фильтры применяются ко всем запросам, кроме ролей, заданных в фильтре, и могут использоваться для ограничения пользовательского доступа, если к ним не применены фильтры RLS в группе фильтров."
       ],
       "These are the tables this filter will be applied to.": [
-        "Эти таблицы, к которым этот фильтр будет применен."
+        "Таблицы, к которым этот фильтр будет применен."
       ],
       "For regular filters, these are the roles this filter will be applied to. For base filters, these are the roles that the filter DOES NOT apply to, e.g. Admin if admin should see all data.": [
-        "Для обычных запросов, это роли к которым будет применен этот фильтр."
+        "Для обычных фильтров: роли, к которым будет применен фильтр. Для основных фильтров: роли, для которых не будет применён фильтр. Например, Admin, если администратор должен видеть все данные."
       ],
       "Filters with the same group key will be ORed together within the group, while different filter groups will be ANDed together. Undefined group keys are treated as unique groups, i.e. are not grouped together. For example, if a table has three filters, of which two are for departments Finance and Marketing (group key = 'department'), and one refers to the region Europe (group key = 'region'), the filter clause would apply the filter (department = 'Finance' OR department = 'Marketing') AND (region = 'Europe').": [
-        "Фильтры с общим ключом группы будут объеденены по условию ИЛИ. Различные группы будут объединены по условию И"
+        "Фильтры с одинаковым групповым ключом будут объединены в группе оператором OR, тогда как группы с разными фильтрами будут объединены оператором AND. Неопределённые групповые ключи рассматриваются как уникальные группы, то есть не объединяются. Например, если в таблице есть три фильтра, два из которых для секторов Финансов и Маркетинга (групповой ключ = «сектор») и один относится к региону Европы (групповой ключ = «регион»), то условие фильтра будет выглядеть так: (сектор = «Финансы» OR сектор = «Маркетинг») AND (регион = «Европа»)."
       ],
       "This is the condition that will be added to the WHERE clause. For example, to only return rows for a particular client, you might define a regular filter with the clause `client_id = 9`. To display no rows unless a user belongs to a RLS filter role, a base filter can be created with the clause `1 = 0` (always false).": [
-        "Это условие, которое будет добавлено в WHERE"
+        "Это условие, которое будет добавлено к оператору WHERE. Например, чтобы вернуть строки определенному клиенту, вы можете определить обычный фильтр с условием `client_id = 9`. Чтобы не отображать строки, если пользователь не принадлежит к роли фильтра RLS, можно создать основной фильтр с условием `1 = 0` (всегда false)."
       ],
       "Tables": [
         "Таблицы"
@@ -800,7 +800,7 @@
         "Роли"
       ],
       "Clause": [
-        "пункт"
+        "Условие"
       ],
       "Creator": [
         "Автор"
@@ -818,13 +818,13 @@
         "Имя таблицы, которая существует в исходной базе данных"
       ],
       "Schema, as used only in some databases like Postgres, Redshift and DB2": [
-        "Схема, используется только в некоторых базах данных, таких как Postgres, Redshift и DB2"
+        "Схема используется только в некоторых базах данных, таких как Postgres, Redshift и DB2"
       ],
       "This fields acts a Superset view, meaning that Superset will run a query against this string as a subquery.": [
         "Это поле будет выполнять запрос в качестве подзапроса."
       ],
       "Predicate applied when fetching distinct value to populate the filter control component. Supports jinja template syntax. Applies only when `Enable Filter Select` is on.": [
-        "Предикат применяется при получении значений для компонента - «Фильтр». Поддерживает синтаксис jinja. Применяется только в том случае, если включен параметр «Включить Онлайн Фильтр»."
+        "Предикат применяется при получении значений для компонента - «Фильтр». Поддерживает синтаксис jinja. Применяется только в том случае, если включен параметр «Включить Выбор Фильтра»."
       ],
       "Redirects to this endpoint when clicking on the table from the table list": [
         "Перенаправление на эту конечную точку при нажатии на таблицу в общем списке"
@@ -833,10 +833,10 @@
         "Если таблица была сгенерирована с помощью визуализации в SQL Lab"
       ],
       "A set of parameters that become available in the query using Jinja templating syntax": [
-        "Набор параметров, которые становятся доступными в запросе с использованием дзиндзя Templating синтаксиса"
+        "Набор параметров, которые становятся доступными в запросе с использованием Jinja синтаксиса шаблонизации"
       ],
       "Duration (in seconds) of the caching timeout for this table. A timeout of 0 indicates that the cache never expires. Note this defaults to the database timeout if undefined.": [
-        "Продолжительность (в секундах) времени кэша для данной таблицы."
+        "Длительность (в секундах) таймаута кэша для этой таблицы. Таймаут, равный 0, - кеш не удаляется. Это стандартное глобальное значение, если не определено другое."
       ],
       "Database": [
         "База данных"
@@ -860,7 +860,7 @@
         "Основной столбец с датой"
       ],
       "SQL Lab View": [
-        "Лаборатория"
+        "Лаборатория SQL"
       ],
       "Template parameters": [
         "Параметры шаблона"
@@ -878,19 +878,19 @@
         "Метаданные обновлены для следующих таблиц: %(tables)s"
       ],
       "The following tables added new columns: %(tables)s": [
-        "Следущие таблицы добавили новые столбцы: %(tables)s"
+        " Новые столбцы появились в следующих таблицах: %(tables)s"
       ],
       "The following tables removed columns: %(tables)s": [
-        "Следущие таблицы удалили столбцы: %(tables)s"
+        "Столбцы удалены в следующих таблицах: %(tables)s"
       ],
       "The following tables update column metadata: %(tables)s": [
-        "Следущие таблицы обновили метаданные столбца: %(tables)s"
+        "Метаданные столбцов обновились в следующих таблицах: %(tables)s"
       ],
       "Unable to refresh metadata for the following table(s): %(tables)s": [
         "Невозможно обновить метаданные для следующих таблиц: %(tables)s"
       ],
       "Deleted %(num)d css template": [
-        ""
+        "Удалено шаблонов css %(num)d"
       ],
       "CSS template could not be deleted.": [
         "Шаблон CSS не может быть удален."
@@ -899,37 +899,37 @@
         "Шаблоны CSS не найдены"
       ],
       "Deleted %(num)d dashboard": [
-        "Отчетов удалено: %(num)d"
+        "Дашбордов удалено: %(num)d"
       ],
       "Title or Slug": [
-        "Название или Slug"
+        "Заголовок или "
       ],
       "Must be unique": [
         "Должно быть уникальным"
       ],
       "Dashboard parameters are invalid.": [
-        "Неверные параметры отчета"
+        "Неверные параметры дашборда"
       ],
       "Dashboard not found.": [
-        "Отчёт не найден"
+        "Дашборд не найден"
       ],
       "Dashboard could not be created.": [
-        "Отчет не может быть сохранен."
+        "Дашборд не может быть сохранен."
       ],
       "Dashboards could not be deleted.": [
-        "Отчет не может быть удален."
+        "Дашборд не может быть удален."
       ],
       "Dashboard could not be updated.": [
-        "Ваш запрос не может быть сохранен"
+        "Дашборд не может быть сохранен"
       ],
       "Dashboard could not be deleted.": [
-        "Отчет не может быть удален."
+        "Дашборд не может быть удален."
       ],
       "Changing this Dashboard is forbidden": [
-        "Изменение этого Dashboard запрещено"
+        "Изменение этого дашборда запрещено"
       ],
       "Import dashboard failed for an unknown reason": [
-        "Импорт приборной панели не удалось по неизвестным причинам"
+        "Импорт дашборда не удался по неизвестным причинам"
       ],
       "No data in file": [
         "Нет данных в файле"
@@ -941,25 +941,25 @@
         "Не удалось установить соединение, пожалуйста, проверьте параметры подключения"
       ],
       "Unexpected error occurred, please check your logs for details": [
-        "Неожиданная ошибка, пожалуйста, проверьте журналы для деталей"
+        "Неожиданная ошибка, пожалуйста, проверьте журналы"
       ],
       "Table name undefined": [
-        "Имя Таблицы неопределено"
+        "Имя Таблицы не определено"
       ],
       "Invalid connection string, a valid string usually follows: dirver://user:password@database-host/database-name": [
-        "Неверная строка соединения"
+        "Недействительная строка соединения. Действительная строка соединения: dirver://user:password@database-host/database-name."
       ],
       "SQLite database cannot be used as a data source for security reasons.": [
-        "База данных SQLite не может быть использована как источник данных"
+        "База данных SQLite не может быть использована как источник данных."
       ],
       "Field cannot be decoded by JSON. %(msg)s": [
-        "Поле не может быть считано с помощью JSON. %(msg)s"
+        "Поле не может быть считано JSON. %(msg)s"
       ],
       "The metadata_params in Extra field is not configured correctly. The key %(key)s is invalid.": [
-        "Параметр metadata_params в полв Extra определен неправильно. Ключ %(key)s неверный."
+        "Параметр metadata_params в поле Extra определен неправильно. Ключ %(key)s неверный."
       ],
       "Database parameters are invalid.": [
-        "Невеные параметры базы данных"
+        "Неверные параметры базы данных"
       ],
       "A database with the same name already exists": [
         "База данных с таким именем уже существует"
@@ -968,34 +968,34 @@
         "Поле, обязательное для заполнения"
       ],
       "Field cannot be decoded by JSON.  %{json_error}s": [
-        "Поле не может быть считано с помощью JSON. %{json_error}s"
+        "Поле не может быть считано JSON. %{json_error}s"
       ],
       "The metadata_params in Extra field is not configured correctly. The key %{key}s is invalid.": [
-        "Параметр metadata_params в полв Extra определен неправильно. Ключ %(key)s неверный."
+        "Параметр metadata_params в поле Extra определен неправильно. Ключ %(key)s неверный."
       ],
       "Database not found.": [
         "База данных не найдена"
       ],
       "Database could not be created.": [
-        "Ваш запрос не может быть сохранен"
+        "База данных не может быть сохранена"
       ],
       "Database could not be updated.": [
-        "Ваш запрос не может быть сохранен"
+        "База данных не может быть обновлена"
       ],
       "Could not connect to database.": [
         "Не удалось подключиться к базе данных."
       ],
       "Cannot delete a database that has tables attached": [
-        "Невозможно удалить базу данных, которая имеет таблицы присоединенные"
+        "Невозможно удалить базу данных, которая имеет присоединённые таблицы"
       ],
       "Database could not be deleted.": [
         "База данных не может быть удалена"
       ],
       "Stopped an unsafe database connection": [
-        "Остановленно небезопасное соединение базы данных"
+        "Остановлено небезопасное соединение базы данных"
       ],
       "Import database failed for an unknown reason": [
-        "базы данных Ошибка импорта по неизвестной причине"
+        "Ошибка импорта базы данных по неизвестной причине"
       ],
       "Deleted %(num)d dataset": [
         "Удалено наборов данных: %(num)d"
@@ -1004,7 +1004,7 @@
         "Null или Empty"
       ],
       "Database not allowed to change": [
-        "База данных не допускается изменение"
+        " Изменение базы данных не допускается "
       ],
       "One or more columns do not exist": [
         "Один или несколько столбцов не существует"
@@ -1019,22 +1019,22 @@
         "Один или более показателей не существуют"
       ],
       "One or more metrics are duplicated": [
-        "Выберите один или несколько показателей дублированны"
+        "Один или несколько показателей дублируются"
       ],
       "One or more metrics already exist": [
-        "Выберите один или несколько показателей уже существуют"
+        "Один или несколько показателей уже существуют"
       ],
       "Table [%(table_name)s] could not be found, please double check your database connection, schema, and table name": [
         "Не удалось найти таблицу [{}]. Проверьте подключение к базе данных, схему и имя таблицы."
       ],
       "Dataset parameters are invalid.": [
-        "Не верные параменты набора данных"
+        "Неверные параметры набора данных"
       ],
       "Dataset could not be created.": [
-        "Ваш запрос не может быть сохранен"
+        "Набор данных не может быть создан"
       ],
       "Dataset could not be updated.": [
-        "Ваш запрос не может быть сохранен"
+        "Набор данных не может быть сохранен"
       ],
       "Dataset could not be deleted.": [
         "Набор данных не может быть удален"
@@ -1046,28 +1046,28 @@
         "Изменение этого набора данных запрещено"
       ],
       "Import dataset failed for an unknown reason": [
-        "Импорт набора данных не удалось по неизвестным причинам"
+        "Импорт набора данных не удался по неизвестным причинам"
       ],
       "Unknown Presto Error": [
-        "Неизвестная ошибка"
+        "Неизвестная ошибка Presto"
       ],
       "We can't seem to resolve the column \"%(column_name)s\" at line %(location)s.": [
         "Невозможно определить столбец \"%(column_name)s\" в %(location)s."
       ],
       "The table \"%(table_name)s\" does not exist. A valid table must be used to run this query.": [
-        "Таблица \"%(table_name)s\" не существует."
+        "Таблица \"%(table_name)s\" не существует. Должна быть действительная таблица для создания запроса"
       ],
       "Deleted %(num)d saved query": [
         "Удалено запросов: %(num)d"
       ],
       "Saved queries could not be deleted.": [
-        "Запрос невозможно удалить."
+        "Сохранённый запрос невозможно удалить."
       ],
       "Saved query not found.": [
         "Сохраненный запрос не найден."
       ],
       "Deleted %(num)d report schedule": [
-        ""
+        "Удалено отчётных расписаний: %(num)d "
       ],
       "Alert query returned more then one row. %s rows returned": [
         "Запрос вернул больше одной строки. Строк: %s"
@@ -1076,46 +1076,46 @@
         "Запрос вернул больше одного столбца. Столбцов: %s"
       ],
       "Dashboard does not exist": [
-        "Отчет не существует"
+        "Дашборда не существует"
       ],
       "Chart does not exist": [
-        "Диаграмма не существует"
+        "Диаграммы не существует"
       ],
       "Database is required for alerts": [
         "База данных необходима для предупреждения"
       ],
       "Type is required": [
-        "Тип требуется"
+        "Требуется тип"
       ],
       "Choose a chart or dashboard not both": [
-        "Выберите график или отчет"
+        "Выберите график или дашборд"
       ],
       "Report Schedule parameters are invalid.": [
         "Параметры расписания отчета недействительны."
       ],
       "Report Schedule could not be deleted.": [
-        "Ваш запрос не может быть сохранен"
+        "Ваш запрос не может быть удалён"
       ],
       "Report Schedule could not be created.": [
-        "Ваш запрос не может быть сохранен"
+        "Ваш запрос не может быть создан"
       ],
       "Report Schedule could not be updated.": [
-        "Ваш запрос не может быть сохранен"
+        "Ваш запрос не может быть обновлён"
       ],
       "Report Schedule not found.": [
         "Расписание отчета не найдено."
       ],
       "Report Schedule delete failed.": [
-        "Расписание отчета Не удалось удалить."
+        "Расписание отчета не удалось удалить."
       ],
       "Report Schedule log prune failed.": [
-        "Не удалось очистить."
+        " Ошибка очистки журнала расписания отчетов."
       ],
       "Report Schedule execution failed when generating a screenshot.": [
-        "выполнение расписания не удалось при создании скриншота."
+        "Выполнение расписания не удалось при создании скриншота."
       ],
       "Report Schedule execution got an unexpected error.": [
-        "выполнение Расписание отчета получило неожиданную ошибку."
+        "Выполнение расписания отчета завершилось непредвиденной ошибкой."
       ],
       "Report Schedule is still working, refusing to re-compute.": [
         "Расписание отчета по-прежнему работает, отказавшись от повторных вычислений."
@@ -1124,19 +1124,19 @@
         "Расписание отчета превысило время ожидания."
       ],
       "Alert query returned more then one row.": [
-        "Запрос оповещения возвратил более одной строки."
+        "Запрос оповещения вернул более одной строки."
       ],
       "Alert validator config error.": [
         "Ошибка конфигурации."
       ],
       "Alert query returned more then one column.": [
-        "Запрос оповещения возвратил более одного столбца."
+        "Запрос оповещения вернул более одного столбца."
       ],
       "Alert query returned a non-number value.": [
-        "Оповещение запроса возвратил значение не-число."
+        " Запрос оповещения вернул нечисловое значение."
       ],
       "Alert fired during grace period.": [
-        "Оповещение возникло втечение периода ожидания."
+        "Оповещение возникло в период ожидания."
       ],
       "Alert ended grace period.": [
         "Оповещение завершило период ожидания."
@@ -1145,43 +1145,43 @@
         "Оповещение о периоде ожидания"
       ],
       "Report Schedule sellenium user not found": [
-        "Расписание Отчет sellenium пользователь не найден"
+        "Отчётное расписание sellenium пользователь не найден"
       ],
       "Report Schedule state not found": [
-        "Расписание Отчетого состояние не найдено"
+        "Статус расписания отчётов не найден"
       ],
       "Report schedule unexpected error": [
-        "Сообщить график непредвиденная ошибка"
+        "Расписание отчётов сообщило о непредвиденной ошибке"
       ],
       "Changing this report is forbidden": [
         "Изменение этого отчета запрещено"
       ],
       "\n            <b><a href=\"%(url)s\">Explore in Superset</a></b><p></p>\n            <img src=\"cid:%(msgid)s\">\n            ": [
-        "\n            <b><a href=\"%(url)s\">Посмотреть в Суперсет</a></b><p></p>\n            <img src=\"cid:%(msgid)s\">\n            "
+        "\n            <b><a href=\"%(url)s\">Посмотреть в Superset</a></b><p></p>\n            <img src=\"cid:%(msgid)s\">\n            "
       ],
       "%(prefix)s %(title)s": [
         "%(prefix)s %(title)s"
       ],
       "\n            *%(name)s*\n\n            <%(url)s|Explore in Superset>\n            ": [
-        "\n            *%(name)s*\n\n            <%(url)s|Посмотреть в Суперсет>\n            "
+        "\n            *%(name)s*\n\n            <%(url)s|Посмотреть в Superset>\n            "
       ],
       "\n        *%(name)s*\n\n        <%(url)s|Explore in Superset>\n        ": [
-        "\n        *%(name)s*\n\n        <%(url)s|Посмотреть в Суперсет>\n        "
+        "\n        *%(name)s*\n\n        <%(url)s|Посмотреть в Superset>\n        "
       ],
       "<b><a href=\"%(url)s\">Explore in Superset</a></b><p></p>": [
-        "<b><a href=\"%(url)s\">Посмотреть в Суперсет</a></b><p></p>"
+        "<b><a href=\"%(url)s\">Посмотреть в Superset</a></b><p></p>"
       ],
       "%(name)s.csv": [
         "%(name)s.csv"
       ],
       "\n        *%(slice_name)s*\n\n        <%(slice_url_user_friendly)s|Explore in Superset>\n        ": [
-        "\n        *%(slice_name)s*\n\n        <%(slice_url_user_friendly)s|Посмотреть в Суперсет>\n        "
+        "\n        *%(slice_name)s*\n\n        <%(slice_url_user_friendly)s|Посмотреть в Superset>\n        "
       ],
       "[Alert] %(label)s": [
         "[Оповещение] %(label)s"
       ],
       "New": [
-        "новый"
+        "Новый"
       ],
       "SQL Query": [
         "SQL Запрос"
@@ -1190,13 +1190,13 @@
         "График"
       ],
       "Dashboard": [
-        "Отчёт"
+        "Дашборд"
       ],
       "Profile": [
         "Профиль"
       ],
       "Info": [
-        "Информация"
+        "Инфо"
       ],
       "Logout": [
         "Выход из системы"
@@ -1208,7 +1208,7 @@
         "Количество записей"
       ],
       "No records found": [
-        "Записи не найдены"
+        "Записей не найдено"
       ],
       "Filter List": [
         "Фильтры"
@@ -1220,10 +1220,10 @@
         "Обновить"
       ],
       "Import dashboards": [
-        "Импорт Отчетов"
+        "Импорт дашбордов"
       ],
       "Import Dashboard(s)": [
-        "Импорт Отчетов"
+        "Импорт дашборда (-ов)"
       ],
       "File": [
         "Файл"
@@ -1238,7 +1238,7 @@
         "Нет доступа!"
       ],
       "You do not have permissions to access the datasource(s): %(name)s.": [
-        "У вас нет разрешений на доступ к источнику данных: %(name)s."
+        "У вас нет разрешений для доступа к источнику данных: %(name)s."
       ],
       "Request Permissions": [
         "Запросить права доступа"
@@ -1247,13 +1247,13 @@
         "Отменить"
       ],
       "Use the edit buttom to change this field": [
-        "Использование редактирования, чтобы изменить днище этого поля"
+        "Используйте кнопку редактировать, чтобы изменить это поле"
       ],
       "Test Connection": [
         "Тестовое соединение"
       ],
       "[Superset] Access to the datasource %(name)s was granted": [
-        "Доступ к базе данных предоставлен для пользователя — %(name)s"
+        "Доступ к базе данных предоставлен — %(name)s"
       ],
       "Last day": [
         "Последний день"
@@ -1271,28 +1271,28 @@
         "Последний год"
       ],
       "Referenced columns not available in DataFrame.": [
-        "Ссылочные столбцы не доступны в DataFrame."
+        "Указанные столбцы не доступны в датафрейме."
       ],
       "Column referenced by aggregate is undefined: %(column)s": [
-        "Столбцы используемые в аггрегате не определены: %(column)s"
+        "Столбцы, указанные в заполнителе не определены: %(column)s"
       ],
       "Operator undefined for aggregator: %(name)s": [
-        "Оператор не определен для аггрегата: %(name)s"
+        "Оператор не определен для заполнителя: %(name)s"
       ],
       "Invalid numpy function: %(operator)s": [
         "Неверная функция numpy: %(operator)s"
       ],
       "Pivot operation requires at least one index": [
-        "Операция требует, по меньшей мере, один индекс"
+        "Операция Pivot требует по меньшей мере один индекс"
       ],
       "Pivot operation must include at least one aggregate": [
-        "Операция должна включать, по меньшей мере, один заполнитель"
+        "Операция Pivot должна включать хотя бы один заполнитель"
       ],
       "Undefined window for rolling operation": [
-        "Не определено окно для операции прокатки"
+        "Не определено окно для операции rolling"
       ],
       "Invalid rolling_type: %(type)s": [
-        "Неверный тип скользящего: %(type)s"
+        "Неверный rolling_type: %(type)s"
       ],
       "Invalid options for %(rolling_type)s: %(options)s": [
         "Неверные параметры %(rolling_type)s: %(options)s"
@@ -1304,7 +1304,7 @@
         "Недопустимая строка geohash"
       ],
       "Invalid longitude/latitude": [
-        "Неверная долгота и Широта"
+        "Неверная долгота/широта"
       ],
       "Invalid geodetic string": [
         "Invalid геодезическая строка"
@@ -1313,25 +1313,25 @@
         "`Fbprophet` пакет не установлен"
       ],
       "Time grain missing": [
-        "Не хватает детализации времени"
+        "Не хватает периода времени"
       ],
       "Unsupported time grain: %(time_grain)s": [
         "Неподдерживаемый период времени: %(time_grain)s"
       ],
       "Periods must be a positive integer value": [
-        "Периоды должен быть положительным целым числом"
+        "Периоды должны включать целые положительные числа"
       ],
       "Confidence interval must be between 0 and 1 (exclusive)": [
         "Доверительный интервал должен быть между 0 и 1 (эксклюзивным)"
       ],
       "DataFrame must include temporal column": [
-        "DataFrame должен включать в себя временную колонку"
+        "Датафрейм должен включать в себя временную колонку"
       ],
       "DataFrame include at least one series": [
         "Пожалуйста, выберите хотя бы одну последовательность"
       ],
       "percentiles must be a list or tuple with two numeric values, of which the first is lower than the second value": [
-        "персентили должны быть списком с двумя численными значениями"
+        "персентили должны быть списком с двумя численными значениями, из которых первое должно быть меньше второго"
       ],
       "User": [
         "Пользователь"
@@ -1358,25 +1358,25 @@
         "Сообщение об ошибке"
       ],
       "Log Retentions (days)": [
-        "Вход удержания (дни)"
+        "Срок хранения системного журнала (дни)"
       ],
       "A semicolon ';' delimited list of email addresses": [
-        "Через точку с запятой «;» запятыми список адресов электронной почты"
+        "Через точку с запятой «;» разделяется список адресов электронной почты"
       ],
       "How long to keep the logs around for this alert": [
-        "Как долго хранить журналы вокруг этого предупреждения"
+        "Как долго хранить журналы этого предупреждения"
       ],
       "Once an alert is triggered, how long, in seconds, before Superset nags you again.": [
-        "После того, как оповещение срабатывает, как долго, в секундах, перед тем Superset сделает повтор."
+        "Период между повторными оповещениями Superset в секундах."
       ],
       "A SQL statement that defines whether the alert should get triggered or not. The query is expected to return either NULL or a number value.": [
-        "SQL выражение определяющее должно ли сработать оповещение."
+        "Выражение SQL определяющее должно ли сработать оповещение. Запрос вернет либо NULL, либо числовое значение."
       ],
       "annotation start time or end time is required.": [
-        "аннотация: время начала или окончания времени требуется."
+        "аннотации требуется время начала или окончания времени."
       ],
       "Annotation end time must be no earlier than start time.": [
-        "время окончания аннотации не должно быть раньше, чем время старта."
+        "Время окончания аннотации не должно быть раньше, чем время старта."
       ],
       "Annotations": [
         "Аннотации"
@@ -1397,13 +1397,13 @@
         "Метка"
       ],
       "Start": [
-        "Время начала"
+        "Старт"
       ],
       "End": [
         "Конец"
       ],
       "JSON Metadata": [
-        "Параметры JSON"
+        "Метаданные JSON"
       ],
       "Show Annotation Layer": [
         "Показать слои аннотаций"
@@ -1421,16 +1421,16 @@
         "Источник данных %(name)s уже существует"
       ],
       "Table [%{table}s] could not be found, please double check your database connection, schema, and table name, error: {}": [
-        "Не удалось найти таблицу [{}]. Проверьте подключение к базе данных, схему и имя таблицы."
+        "Не удалось найти таблицу [{}]. Проверьте подключение к базе данных, схему и имя таблицы, ошибка: {}."
       ],
       "json isn't valid": [
-        "json не валиден"
+        "json недействителен"
       ],
       "Export to YAML": [
         "Экспорт в YAML"
       ],
       "Export to YAML?": [
-        "Экспорт в YAML?"
+        "Экспортировать в YAML?"
       ],
       "Delete": [
         "Удалить"
@@ -1463,10 +1463,10 @@
         "У вас нет разрешения на утверждение этого запроса"
       ],
       "Cannot import dashboard: %(db_error)s.\nMake sure to create the database before importing the dashboard.": [
-        "Невозможно импортировать отчет: %(db_error)s."
+        "Невозможно импортировать дашборд: %(db_error)s."
       ],
       "An unknown error occurred. Please contact your Superset administrator": [
-        "Произошла неизвестная ошибка. Пожалуйста, обратитесь к администратору SUPERSET"
+        "Произошла неизвестная ошибка. Пожалуйста, обратитесь к администратору Superset"
       ],
       "You don't have the rights to ": [
         "У вас нет прав на "
@@ -1484,31 +1484,31 @@
         "Посмотреть - %(table)s"
       ],
       "Chart [{}] has been saved": [
-        "Chart [{}] Сохранено"
+        "Диаграмма [{}] сохранена"
       ],
       "Chart [{}] has been overwritten": [
-        "Диаграмма [{}] была перезаписана"
+        "Диаграмма [{}] перезаписана"
       ],
       "dashboard": [
-        "отчёт"
+        "дашборд"
       ],
       "Chart [{}] was added to dashboard [{}]": [
-        "Диаграмма [{}] был добавлен в приборной панели [{}]"
+        "Диаграмма [{}] была добавлена в дашборд [{}]"
       ],
       "Dashboard [{}] just got created and chart [{}] was added to it": [
-        "Панель [{}] только что создали и график [{}] был добавлен к нему"
+        "Дашборд [{}] создан и график [{}] был добавлен к нему"
       ],
       "This dashboard was changed recently. Please reload dashboard to get latest version.": [
-        "Этот отчет был изменен. Пожалуйста, обновите отчет, чтобы получить последнюю версию."
+        "Этот дашборд был изменен. Пожалуйста, обновите дашборд, чтобы получить последнюю версию."
       ],
       "Could not load database driver: %(driver_name)s": [
         "Невозможно загрузить драйвер базы данных: %(driver_name)s"
       ],
       "Invalid connection string, a valid string usually follows:\n'DRIVER://USER:PASSWORD@DB-HOST/DATABASE-NAME'": [
-        "Неверная строка подключения"
+        "Неверная строка подключения. Верная строка:\n'DRIVER://USER:PASSWORD@DB-HOST/DATABASE-NAME'"
       ],
       "Malformed request. slice_id or table_name and db_name arguments are expected": [
-        "Неправильный запрос. Ожидаются аргументы slice_id или table_name и db_name"
+        "Некорректный запрос. Ожидаются аргументы slice_id или table_name и db_name"
       ],
       "Chart %(id)s not found": [
         "График %(id)s не найден"
@@ -1523,13 +1523,13 @@
         "Не удалось найти DruidCluster с именем cluster_name = ‘%(name)s’"
       ],
       "Data could not be deserialized. You may want to re-run the query.": [
-        "Данные не могут быть десериализации. Вы можете повторно выполнить запрос."
+        "Облако данных не может быть десериализованы. Вы можете повторно выполнить запрос."
       ],
       "%(validator)s was unable to check your query.\nPlease recheck your query.\nException: %(ex)s": [
-        "%(validator)s не смог проверить запрос. Ошибка %(ex)s"
+        "%(validator)s не смог проверить запрос. Ошибка %(ex)sПерепроверьте запрос.\n"
       ],
       "Failed to start remote query on a worker. Tell your administrator to verify the availability of the message queue.": [
-        "Ошибка старта запроса"
+        "Ошибка запуска запроса. Попросите администратора проверить доступность очереди сообщений."
       ],
       "Query record was not created as expected.": [
         "Запись запроса не была создана должным образом."
@@ -1553,10 +1553,10 @@
         "Имя Шаблона"
       ],
       "Schedule Email Reports for Dashboards": [
-        "Расписание отчетов по электронной почте для приборных"
+        "Планирование отчетов по электронной почте для дашбордов"
       ],
       "Manage Email Reports for Dashboards": [
-        "Управление рассылками для отчетов"
+        "Управление рассылками отчётов для дашбордов"
       ],
       "Changed On": [
         "Изменено"
@@ -1565,22 +1565,22 @@
         "Действия"
       ],
       "Crontab": [
-        "Crontab"
+        " Кронтаб"
       ],
       "Recipients": [
         "Получатели"
       ],
       "Slack Channel": [
-        "отними канал"
+        "Неактивный канал"
       ],
       "Deliver As Group": [
-        "Доставьте как Группа"
+        "Доставить как Группу"
       ],
       "Delivery Type": [
         "Тип доставки"
       ],
       "Schedule Email Reports for Charts": [
-        "Расписание Email Отчеты для диаграмм"
+        " Планирование отчетов по электронной почте для диаграмм"
       ],
       "Manage Email Reports for Charts": [
         "Управление отчетов по электронной почте для диаграмм"
@@ -1613,7 +1613,7 @@
         "Не удалось определить тип источника данных"
       ],
       "Could not find viz object": [
-        "Не удалось найти объект а именно"
+        "Не удалось найти объект визуализации"
       ],
       "Show Chart": [
         "Показать диаграмму"
@@ -1628,7 +1628,7 @@
         "Эти параметры генерируются автоматически при нажатии кнопки сохранения. Опытные пользователи могут изменить определенные объекты в формате JSON."
       ],
       "Duration (in seconds) of the caching timeout for this chart. Note this defaults to the datasource/table timeout if undefined.": [
-        "Продолжительность (в секундах) таймаута кэширования для этого графика."
+        "Длительность (в секундах) таймаута кэша для этого графика."
       ],
       "Last Modified": [
         "Изменено"
@@ -1637,34 +1637,34 @@
         "Параметры"
       ],
       "Visualization Type": [
-        "Тип диаграммы"
+        "Тип визуализации"
       ],
       "Show Dashboard": [
-        "Показать Отчёт"
+        "Показать дашборд"
       ],
       "Add Dashboard": [
-        "Добавить Отчёт"
+        "Добавить дашборд"
       ],
       "Edit Dashboard": [
-        "Редактировать Отчёт"
+        "Редактировать дашборд"
       ],
       "This json object describes the positioning of the widgets in the dashboard. It is dynamically generated when adjusting the widgets size and positions by using drag & drop in the dashboard view": [
-        "Этот объект JSON описывает расположение виджетa в отчёте. Он автоматически генерируется при настройке размера и позиций виджета на листе отчёта."
+        "Этот объект JSON описывает расположение виджетa в отчёте. Он автоматически генерируется при настройке размера и позиций виджета на странице дашборда."
       ],
       "The CSS for individual dashboards can be altered here, or in the dashboard view where changes are immediately visible": [
-        "В этом поле можно задать индивидуальный стиль для отчёта с помощью CSS"
+        "CSS для отдельных дашбордов можно изменить здесь или в самом дашборде."
       ],
       "To get a readable URL for your dashboard": [
-        "Получить читаемый URL-адрес для отчёта"
+        "Получить читаемый URL-адрес для дашборда"
       ],
       "This JSON object is generated dynamically when clicking the save or overwrite button in the dashboard view. It is exposed here for reference and for power users who may want to alter specific parameters.": [
-        "Параметры отчёта в формате JSON."
+        "Эти объекты JSON генерируются автоматически при нажатии кнопки сохранения. Опытные пользователи могут задать собственные параметры."
       ],
       "Owners is a list of users who can alter the dashboard.": [
         "Владельцы - это список пользователей, которые могут изменять отчёт."
       ],
       "Determines whether or not this dashboard is visible in the list of all dashboards": [
-        "Определяет, является ли видна эта панель в списке всех приборных панелей"
+        "Определяет, отображается ли этот дашборд в общем списке дашбордов"
       ],
       "Title": [
         "Заголовок"
@@ -1688,7 +1688,7 @@
         "Экспорт"
       ],
       "Export dashboards?": [
-        "Экспортировать отчет?"
+        "Экспортировать дашборды?"
       ],
       "Name of table to be created from csv data.": [
         "Имя таблицы, которая будет сформирована из данных csv."
@@ -1697,10 +1697,10 @@
         "CSV Файл"
       ],
       "Select a CSV file to be uploaded to a database.": [
-        "Выберите файл CSV, который будет загружен в БД."
+        "Выберите файл CSV, чтобы загрузить в БД."
       ],
       "Only the following file extensions are allowed: %(allowed_extensions)s": [
-        "Только следущие расширения файла возможны: %(allowed_extensions)s"
+        "Только следующие расширения файла возможны: %(allowed_extensions)s"
       ],
       "Specify a schema (if database flavor supports this).": [
         "Укажите схему (если это поддерживается базой данных)."
@@ -1712,19 +1712,19 @@
         "Разделитель, используемый CSV-файлом (для пробелов используется \\s+)."
       ],
       "Table Exists": [
-        "Метод добавления"
+        "Таблица существует"
       ],
       "If table exists do one of the following: Fail (do nothing), Replace (drop and recreate table) or Append (insert data).": [
         "Если таблица уже существует, выполните одно из следующих действий: Fail (ничего не делать), Replace (удалить и заново создать таблицу) или Append (добавить данные)."
       ],
       "Fail": [
-        "Потерпеть поражение"
+        "Игнорировать"
       ],
       "Replace": [
-        "Замещать"
+        "Заменить"
       ],
       "Append": [
-        "Добавлять"
+        "Добавить"
       ],
       "Header Row": [
         "Строка заголовков"
@@ -1736,10 +1736,10 @@
         "Столбец индекса"
       ],
       "Column to use as the row labels of the dataframe. Leave empty if no index column.": [
-        "Столбец для использования в качестве меток строк данных. Оставьте пустым, если столбец индекса отсутствует."
+        "Столбец для использования в качестве названия строк датафрейма. Оставьте пустым, если столбец индекса отсутствует."
       ],
       "Mangle Duplicate Columns": [
-        "Дубликаты"
+        "Исключить повторяющиеся столбцы"
       ],
       "Specify duplicate columns as \"X.0, X.1\".": [
         "Если есть столбцы с одинаковым именем, то присвоить им порядковые номера - столбец1, столбец2, … и т.д."
@@ -1751,10 +1751,10 @@
         "Пропустить пробелы после разделителя."
       ],
       "Skip Rows": [
-        "Игнорировать"
+        "Пропустить"
       ],
       "Number of rows to skip at start of file.": [
-        "Количество первых строк, которые нужно проигнорировать."
+        "Количество строк, которые нужно проигнорировать в начале файла."
       ],
       "Rows to Read": [
         "Строки для чтения"
@@ -1766,16 +1766,16 @@
         "Пропустить пустые строки"
       ],
       "Skip blank lines rather than interpreting them as NaN values.": [
-        "Пропустите пустые строки, а не интерпретировать их как значения NaN."
+        "Пропустить пустые строки, а не интерпретировать их как значения NaN."
       ],
       "Parse Dates": [
-        "Разбор Дат"
+        "Анализ дат"
       ],
       "A comma separated list of columns that should be parsed as dates.": [
-        "Разделенный запятыми список столбцов, которые должны быть разобраны как даты."
+        "Разделенный запятыми список столбцов, которые должны быть проанализированы как даты."
       ],
       "Infer Datetime Format": [
-        "Формат даты и времени"
+        "Определить формат даты и времени"
       ],
       "Use Pandas to interpret the datetime format automatically.": [
         "Используйте Pandas для автоматической интерпретации формата даты и времени."
@@ -1784,33 +1784,33 @@
         "Десятичный символ"
       ],
       "Character to interpret as decimal point.": [
-        "Символ, который интерпретируется как десятичная точка."
+        "Символ для интерпретации десятичной точки."
       ],
       "Dataframe Index": [
-        "Индекс"
+        "Индекс датафрейма"
       ],
       "Write dataframe index as a column.": [
-        "Записывайте индекс данных в виде столбца."
+        "Записывайте индекс датафрейма в виде столбца."
       ],
       "Column Label(s)": [
         "Обозначения столбцов"
       ],
       "Column label for index column(s). If None is given and Dataframe Index is True, Index Names are used.": [
-        "Обозначение столбца для столбцов с индексами. Если поле пустое, а настройка [Индекс] включена, то используются имена индексов."
+        "Обозначение столбца для столбцов с индексами. Если поле пустое, а индекс датафрейма включён, то используются имена индексов."
       ],
       "Null values": [
-        "Null значения"
+        "Значения Null "
       ],
       "Json list of the values that should be treated as null. Examples: [\"\"], [\"None\", \"N/A\"], [\"nan\", \"null\"]. Warning: Hive database supports only single value. Use [\"\"] for empty string.": [
-        "Список значение, которые считаются нулем. Пример: [\"\"], [\"None\", \"N/A\"], [\"nan\", \"null\"]."
+        "Список значений, которые должны обрабатываться как нулевые. Примеры: [\"\"], [\"None\", \"N/A\"], [\"nan\", \"null\"]. Предупреждение: БД Hive поддерживает только одно значение. Используйте [\"\"] в качестве пустой строки."
       ],
       "Name of table to be created from excel data.": [
         "Имя таблицы, которая будет сформирована из данных excel."
       ],
       "Excel File": [
-        "Excel файл"
+        "Файл Excel "
       ],
-      "Select a Excel file to be uploaded to a database.": [
+      "Select an Excel file to be uploaded to a database.": [
         "Выберите файл excel, который будет загружен в БД."
       ],
       "Sheet Name": [
@@ -1831,8 +1831,8 @@
       "Expose this DB in SQL Lab": [
         "Показать базу данных в SQL Редакторе"
       ],
-      "Operate the database in asynchronous mode, meaning  that the queries are executed on remote workers as opposed to on the web server itself. This assumes that you have a Celery worker setup as well as a results backend. Refer to the installation docs for more information.": [
-        "Работа базы данных в асинхронном режиме означает выполнение запросов на отдельных нодах, а не в самом приложении."
+      "Operate the database in asynchronous mode, meaning that the queries are executed on remote workers as opposed to on the web server itself. This assumes that you have a Celery worker setup as well as a results backend. Refer to the installation docs for more information.": [
+        "Работа базы данных в асинхронном режиме означает выполнение запросов на отдельных нодах, а не в самом приложении. Предполагается, что у вас есть установка Celery worker, а также результаты бэкенда. Дополнительные сведения см. в документации по установке. "
       ],
       "Allow CREATE TABLE AS option in SQL Lab": [
         "Разрешить выполнять инструкцию CREATE TABLE AS в редакторе SQL"
@@ -1844,16 +1844,16 @@
         "Позволяет пользователям запускать инструкции (UPDATE, DELETE, CREATE, …) без SELECT в редакторе SQL"
       ],
       "When allowing CREATE TABLE AS option in SQL Lab, this option forces the table to be created in this schema": [
-        "При разрешении опции CREATE TABLE AS в редакторе SQL эта опция создаст таблицу в выбранной схеме"
+        "При разрешении инструкции CREATE TABLE AS в редакторе SQL эта опция создаст таблицу в выбранной схеме"
       ],
       "If Presto, all the queries in SQL Lab are going to be executed as the currently logged on user who must have permission to run them.<br/>If Hive and hive.server2.enable.doAs is enabled, will run the queries as service account, but impersonate the currently logged on user via hive.server2.proxy.user property.": [
         "Если вы используете Presto, все запросы в SQL-Редакторе будут выполняться от авторизованного пользователя, который должен иметь разрешение на их выполнение. <br/> Если включен Hive, то запросы будут выполняться через техническую учетную запись, но ассоциировать зарегистрированного пользователя можно через свойство hive.server2.proxy.user."
       ],
       "Allow SQL Lab to fetch a list of all tables and all views across all database schemas. For large data warehouse with thousands of tables, this can be expensive and put strain on the system.": [
-        "Разрешить SQl лаборатории получать списки всех таблиц из всех схем баз данных."
+        "Разрешить SQL-редактору получать списки всех таблиц из всех схем баз данных. При наличии объёмного хранилища данных с тысячами таблиц это может оказать серьёзную нагрузку на систему."
       ],
       "Duration (in seconds) of the caching timeout for charts of this database. A timeout of 0 indicates that the cache never expires. Note this defaults to the global timeout if undefined.": [
-        "Продолжительность (в секундах) таймаута кэширования графиков данной базы данных."
+        "Длительность (в секундах) таймаута кэша для этой таблицы. Таймаут, равный 0, - кеш не удаляется. Это стандартное глобальное значение, если не определено другое."
       ],
       "If selected, please set the schemas allowed for csv upload in Extra.": [
         "Если выбрано, пожалуйста, установите схемы, разрешенные для загрузки CSV в Extra."
@@ -1868,7 +1868,7 @@
         "Разрешить CREATE VIEW AS"
       ],
       "Allow DML": [
-        "Allow DML"
+        "Разрешить DML"
       ],
       "CTAS Schema": [
         "Схема по умолчанию"
@@ -1886,16 +1886,16 @@
         "Корневой сертификат"
       ],
       "Async Execution": [
-        "асинхронный Execution"
+        "Асинхронное выполнение"
       ],
       "Impersonate the logged on user": [
         "Ассоциировать пользователя"
       ],
       "Allow Csv Upload": [
-        "Разрешить Csv Загрузить"
+        "Разрешить Загрузку Csv"
       ],
       "Allow Multi Schema Metadata Fetch": [
-        "Разрешить нескольких схем метаданных Fetch"
+        " Разрешить сбор метаданных для нескольких схем"
       ],
       "Backend": [
         "Бэкенд"
@@ -1907,56 +1907,56 @@
         "Неверная строка подключения"
       ],
       "CSV to Database configuration": [
-        "Настройка CSV для БД"
+        "Конфигурация CSV в БД"
       ],
       "Database \"%(database_name)s\" schema \"%(schema_name)s\" is not allowed for csv uploads. Please contact your Superset Admin.": [
         "Запрещено загружать CSV в базу данных \"%(database_name)s\" схему \"%(schema_name)s\""
       ],
       "You cannot specify a namespace both in the name of the table: \"%(csv_table.table)s\" and in the schema field: \"%(csv_table.schema)s\". Please remove one": [
-        "Невозможно указывывать неймспейс в таблице и схеме сразу: \"%(csv_table.table)s\", \"%(csv_table.schema)s\"\n\n#: superset/views/database/views.py:246\n#, python-format\nmsgid ",
-        "CSV-файл не может быть загружен \"%(filename)s\" загружен в таблицу \"%(table_name)s\" базы данных \"%(db_name)s\""
+        "Указывать неймспейс в таблице и схеме сразу невозможно: \"%(csv_table.table)s\", \"%(csv_table.schema)s\"\n\n#: superset/views/database/views.py:246\n#, python-format\nmsgid ",
+        "CSV-файл \"%(filename)s\" не может быть загружен в таблицу \"%(table_name)s\" базы данных \"%(db_name)s\""
       ],
       "CSV file \"%(csv_filename)s\" uploaded to table \"%(table_name)s\" in database \"%(db_name)s\"": [
         "CSV-файл \"%(csv_filename)s\" загружен в таблицу \"%(table_name)s\" базы данных \"%(db_name)s\""
       ],
       "Excel to Database configuration": [
-        "Настройка Excetl для БД"
+        "Конфигурация Excel в БД"
       ],
       "Database \"%(database_name)s\" schema \"%(schema_name)s\" is not allowed for excel uploads. Please contact your Superset Admin.": [
         "Запрещено загружать Excel в базу данных \"%(database_name)s\" схему \"%(schema_name)s\""
       ],
       "You cannot specify a namespace both in the name of the table: \"%(excel_table.table)s\" and in the schema field: \"%(excel_table.schema)s\". Please remove one": [
-        "Невозможно указывывать неймспейс в таблице и схеме сразу: \"%(excel_table.table)s\", \"%(excel_table.schema)s\""
+        "Указывать неймспейс в таблице и схеме сразу невозможно: \"%(excel_table.table)s\", \"%(excel_table.schema)s\""
       ],
       "Unable to upload Excel file \"%(filename)s\" to table \"%(table_name)s\" in database \"%(db_name)s\". Error message: %(error_msg)s": [
-        "Excel-файл не может быть загружен \"%(filename)s\" загружен в таблицу \"%(table_name)s\" базы данных \"%(db_name)s\""
+        "Excel-файл \"%(filename)s\" не может быть загружен в таблицу \"%(table_name)s\" базы данных \"%(db_name)s\""
       ],
       "Excel file \"%(excel_filename)s\" uploaded to table \"%(table_name)s\" in database \"%(db_name)s\"": [
         "Excel-файл \"%(excel_filename)s\" загружен в таблицу \"%(table_name)s\" базы данных \"%(db_name)s\""
       ],
       "Logs": [
-        "бревна"
+        "Журналы"
       ],
       "Show Log": [
         "Показать журнал"
       ],
       "Add Log": [
-        "Добавить Вход"
+        "Добавить журнал"
       ],
       "Edit Log": [
         "Редактировать журнал"
       ],
       "Action": [
-        "Действия"
+        "Действие"
       ],
       "dttm": [
-        "Время"
+        "Дата и время"
       ],
       "Add Item": [
         "Добавить элемент"
       ],
       "The query couldn't be loaded": [
-        "Запрос невозможно загрузить"
+        "Невозможно загрузить запрос"
       ],
       "Your query was saved": [
         "Ваш запрос был сохранен"
@@ -1965,22 +1965,22 @@
         "Ваш запрос не может быть сохранен"
       ],
       "Your query was updated": [
-        "Ваш запрос был сохранен"
+        "Ваш запрос был обновлён"
       ],
       "Your query could not be updated": [
-        "Ваш запрос не может быть сохранен"
+        "Ваш запрос не может быть обновлён"
       ],
       "Your query has been scheduled. To see details of your query, navigate to Saved Queries": [
-        "Ваш запрос был запланирован. Чтобы просмотреть подробную информацию о запросе, перейдите к сохраненному запросов"
+        "Ваш запрос был запланирован. Чтобы просмотреть подробную информацию о запросе, перейдите к сохранённым запросам"
       ],
       "Your query could not be scheduled": [
         "Ваш запрос не может быть запланирован"
       ],
       "Failed at retrieving results": [
-        "Невозможно выполнить запрос"
+        "Не удалось получить результаты"
       ],
       "An error occurred while storing the latest query id in the backend. Please contact your administrator if this problem persists.": [
-        "Произошла ошибка при сохранение последнего идентификатора запроса."
+        "Произошла ошибка при сохранении последнего идентификатора запроса на сервер. Пожалуйста, обратитесь к администратору."
       ],
       "Unknown error": [
         "Неизвестная ошибка"
@@ -1989,13 +1989,13 @@
         "Запрос прерван."
       ],
       "Unable to migrate table schema state to backend. Superset will retry later. Please contact your administrator if this problem persists.": [
-        "Немогу переместить состояние схемы таблицы."
+        "Невозможно передать состояние схемы таблицы на сервер. Superset попробует сделать это позже. Пожалуйста, обратитесь к администратору."
       ],
       "Unable to migrate query state to backend. Superset will retry later. Please contact your administrator if this problem persists.": [
-        "Немогу переместить состояние запроса."
+        "Невозможно передать состояние запроса на сервер. Superset попробует сделать это позже. Пожалуйста, обратитесь к администратору."
       ],
       "Unable to migrate query editor state to backend. Superset will retry later. Please contact your administrator if this problem persists.": [
-        "Немогу переместить состояние редактора запроса."
+        "Невозможно передать состояние редактора на сервер. Superset попробует сделать это позже. Пожалуйста, обратитесь к администратору."
       ],
       "Unable to add a new tab to the backend. Please contact your administrator.": [
         "Невозможно добавить новую вкладку для внутреннего интерфейса. Пожалуйста, обратитесь к администратору."
@@ -2004,52 +2004,52 @@
         "Копирование %s"
       ],
       "An error occurred while setting the active tab. Please contact your administrator.": [
-        "Произошла ошибка при установке активной вкладки."
+        "Произошла ошибка при установке активной вкладки. Пожалуйста, обратитесь к администратору."
       ],
       "An error occurred while fetching tab state": [
         "Произошла ошибка при получении данных вкладки"
       ],
       "An error occurred while removing tab. Please contact your administrator.": [
-        "Произошла ошибка при удалении вкладки."
+        "Произошла ошибка при удалении вкладки. Пожалуйста, обратитесь к администратору."
       ],
       "An error occurred while removing query. Please contact your administrator.": [
-        "Произошла ошибка при удалении запроса."
+        "Произошла ошибка при удалении запроса. Пожалуйста, обратитесь к администратору."
       ],
       "An error occurred while setting the tab database ID. Please contact your administrator.": [
-        "Произошла ошибка при установке ID базы данных для вкладки."
+        "Произошла ошибка при установке ID базы данных для вкладки. Пожалуйста, обратитесь к администратору."
       ],
       "An error occurred while setting the tab schema. Please contact your administrator.": [
-        "Произошла ошибка при установке схемы."
+        "Произошла ошибка при установке схемы вкладки. Пожалуйста, обратитесь к администратору."
       ],
       "An error occurred while setting the tab autorun. Please contact your administrator.": [
-        "Произошла ошибка при установке автозапуска."
+        "Произошла ошибка при установке автозапуска. Пожалуйста, обратитесь к администратору."
       ],
       "An error occurred while setting the tab title. Please contact your administrator.": [
-        "Произошла ошибка при установке заголовка."
+        "Произошла ошибка при установке заголовка. Пожалуйста, обратитесь к администратору."
       ],
       "An error occurred while storing your query in the backend. To avoid losing your changes, please save your query using the \"Save Query\" button.": [
-        "Произошла ошибка при сохранении Вашего запроса."
+        "Произошла ошибка при сохранении вашего запроса. Чтобы не потерять изменения, пожалуйста, сохраните запрос, используя кнопку \"Save Query\"."
       ],
       "An error occurred while setting the tab template parameters. Please contact your administrator.": [
-        "при настройке параметров шаблона Вкладки произошла ошибка. Пожалуйста, обратитесь к администратору."
+        "При настройке параметров шаблона вкладки произошла ошибка. Пожалуйста, обратитесь к администратору."
       ],
       "An error occurred while fetching table metadata": [
         "Произошла ошибка при получении метаданных из таблицы"
       ],
       "An error occurred while fetching table metadata. Please contact your administrator.": [
-        "Произошла ошибка при получении метаданных из таблицы"
+        "Произошла ошибка при получении метаданных из таблицы. Пожалуйста, обратитесь к администратору."
       ],
       "An error occurred while expanding the table schema. Please contact your administrator.": [
-        "Произошла ошибка при расширении схемы таблицы."
+        "Произошла ошибка при расширении табличной схемы. Пожалуйста, обратитесь к администратору."
       ],
       "An error occurred while collapsing the table schema. Please contact your administrator.": [
-        "Произошла ошибка при сжатии схемы таблицы."
+        "Произошла ошибка при сжатии схемы таблицы. Пожалуйста, обратитесь к администратору."
       ],
       "An error occurred while removing the table schema. Please contact your administrator.": [
-        "Произошла ошибка при удалении схемы таблицы."
+        "Произошла ошибка при удалении табличной схемы. Пожалуйста, обратитесь к администратору."
       ],
       "Sjsonhared query": [
-        "общий запрос"
+        "Общий запрос"
       ],
       "The datasource couldn't be loaded": [
         "Источник данных невозможно загрузить"
@@ -2058,7 +2058,7 @@
         "Произошла ошибка при создании источника данных"
       ],
       "SQL Lab uses your browser's local storage to store queries and results.\n Currently, you are using ${currentUsage.toFixed(\n            2,\n          )} KB out of ${LOCALSTORAGE_MAX_USAGE_KB} KB. storage space.\n To keep SQL Lab from crashing, please delete some query tabs.\n You can re-access these queries by using the Save feature before you delete the tab. Note that you will need to close other SQL Lab windows before you do this.": [
-        "SQL лабоработия использует локальное хранилище браузера для хранения запросов и результатов."
+        "SQL лабоработия использует локальное хранилище браузера для хранения запросов и результатов.\nСейчас вы используете ${currentUsage.toFixed(\n             2,\n          )} KB out of ${LOCALSTORAGE_MAX_USAGE_KB} KB. storage space.\nЧтобы редактор SQL работал исправно, удалите несколько вкладок с запросами. \nВы можете вернуться к запросу, сохранив его перед тем, как закрыть вкладку. Перед этим вам нужно закрыть остальные окна редактора SQL."
       ],
       "Estimate Selected Query Cost": [
         "Оценить выбранный запрос"
@@ -2076,7 +2076,7 @@
         "Произошла ошибка"
       ],
       "Explore the result set in the data exploration view": [
-        "Исследуйте набор результатов в целях разведки данных"
+        "Исследуйте набор результатов в режиме просмотра данных"
       ],
       "Explore": [
         "Обзор"
@@ -2085,28 +2085,28 @@
         "Запрос выполнен за %s секунд,"
       ],
       "and the explore view times out at %s seconds ": [
-        "и просмотр останавливается за %s секунд"
+        "и время для ознакомления составляет %s секунд"
       ],
       "following this flow will most likely lead to your query timing out. ": [
         "вероятно запрос не будет выполнен из-за ограничений по времени"
       ],
-      "We recommend your summarize your data further before following that flow. ": [
-        "Рекомендуется суммировать данные перед продолжением"
+      "We recommend you summarize your data further before following that flow. ": [
+        "Рекомендуется обобщить данные перед продолжением"
       ],
       "If activated you can use the ": [
         "Если активировано Вы можете использовать "
       ],
       "feature to store a summarized data set that you can then explore.": [
-        "функция для хранения обобщенного набора данных, который вы можете исследовать."
+        "функция для хранения обобщенного набора данных, который вы можете изучить."
       ],
       "Column name(s) ": [
         "Имя столбца"
       ],
       "cannot be used as a column name. The column name/alias \"__timestamp\"\n          is reserved for the main temporal expression, and column aliases ending with\n          double underscores followed by a numeric value (e.g. \"my_col__1\") are reserved\n          for deduplicating duplicate column names. Please use aliases to rename the\n          invalid column names.": [
-        "не может быть использована как имя столбца."
+        "не может быть использовано как имя столбца. Имя колонки /alias \"__timestamp\"\n \tзарезервировано для основного временного выражения, альтернативные имена столбцов заканчиваются на \n\tдвойные подчеркивания, за которыми следует числовое значение (например, \"my_col__1\"), зарезервированы \n\tдля дедупликации повторяющихся имён колонок. Пожалуйста, используйте альтернативные имена для \n недопустимые имена столбцов."
       ],
       "Raw SQL": [
-        "Raw SQL"
+        "Исходный SQL"
       ],
       "Source SQL": [
         "Источник SQL"
@@ -2115,28 +2115,28 @@
         "SQL"
       ],
       "Row limit must be positive integer": [
-        "предельное число строк должно быть положительным целым числом"
+        "Лимит строк должен быть положительным целым числом"
       ],
       " and not greater than %s": [
-        " и не больше чем %s"
+        " и не больше, чем %s"
       ],
       "Row limit": [
-        "Лимит рядов"
+        "Лимит строк"
       ],
       "Max: ${this.props.maxRow}": [
         "Max: ${this.props.maxRow}"
       ],
       "Ok": [
-        "Хорошо"
+        "OK"
       ],
       "No query history yet...": [
         "История запросов пуста…"
       ],
       "It seems you don't have access to any database": [
-        "Кажется у Вас нет доступа к базе данных"
+        "Кажется, у Вас нет доступа к базе данных"
       ],
       "An error occurred when refreshing queries": [
-        "Произошла ошибка при создании обновлении запросов"
+        "Произошла ошибка при обновлении запросов"
       ],
       "Filter by user": [
         "Фильтр по пользователю"
@@ -2148,7 +2148,7 @@
         "Строка поиска запросов"
       ],
       "[From]-": [
-        "[С]-"
+        "[От]-"
       ],
       "[To]-": [
         "[До]-"
@@ -2175,7 +2175,7 @@
         "Удалить запрос из журнала"
       ],
       "An error occurred saving dataset": [
-        "Произошла ошибка при сохранении источника данных"
+        "Произошла ошибка при сохранении набора данных"
       ],
       ".CSV": [
         "Экспорт в CSV"
@@ -2208,7 +2208,7 @@
         "Получить результаты"
       ],
       "Track Job": [
-        "Отслеживать работу"
+        "Отслеживать задачу"
       ],
       "Run Selection": [
         "Выполнить выбранное"
@@ -2220,10 +2220,10 @@
         "Стоп"
       ],
       "Run query asynchronously (Ctrl + ↵)": [
-        "Выполнить асинхронный запрос"
+        "Выполнить асинхронный запрос (Ctrl + ↵)"
       ],
       "Run query synchronously (Ctrl + ↵)": [
-        "Выполнить синхронный запрос"
+        "Выполнить синхронный запрос (Ctrl + ↵)"
       ],
       "Save & Explore": [
         "Сохранить и посмотреть"
@@ -2238,7 +2238,7 @@
         "Метка для вашего запроса"
       ],
       "Write a description for your query": [
-        "Заполните описание к вашему запросу"
+        "Напишите описание к вашему запросу"
       ],
       "Update": [
         "Обновить"
@@ -2259,7 +2259,7 @@
         "Запланировать запрос"
       ],
       "Schedule": [
-        "График"
+        "Расписание"
       ],
       "Loading ...": [
         "Идет загрузка…"
@@ -2276,11 +2276,11 @@
       "Share": [
         "Поделиться"
       ],
-      "No stored results found, you need to re-run your query": [
-        "Не найдено ни сохраненных результатов, необходимо повторно запустить ваш запрос"
+      "No stored results found; you need to re-run your query": [
+        "Не найдено сохраненных результатов, необходимо повторно запустить ваш запрос"
       ],
       "Run a query to display results here": [
-        "Выполнить запрос для отображения результатов"
+        "Выполнить запрос и отобразить результаты"
       ],
       "Preview: `%s`": [
         "Предпросмотр: %s"
@@ -2310,13 +2310,13 @@
         "новое название таблицы"
       ],
       "It appears that the number of rows in the query results displayed\n           was limited on the server side to\n           the %s limit.": [
-        "Вероятно количество записей было ограничено сервером до %s."
+        "Вероятно количество строк в результатах запроса было ограничено сервером до %s."
       ],
       "Schedule the query periodically": [
-        "График запроса периодически"
+        "Запланировать запрос периодически"
       ],
       "You must run the query successfully first": [
-        "Вы должны выполнить запрос успешно первый"
+        "Сначала вы должны успешно выполнить запрос"
       ],
       "Estimate the cost before running a query": [
         "Оценка стоимости перед выполнением запроса"
@@ -2349,13 +2349,13 @@
         "Скрыть панель инструментов"
       ],
       "Close all other tabs": [
-        "Закройте все остальные вкладки"
+        "Закрыть все остальные вкладки"
       ],
       "Duplicate tab": [
-        "вкладка Дублированный"
+        "Дублировать вкладку"
       ],
       "Copy partition query to clipboard": [
-        "Скопировать часть запроса в буфер обмена"
+        "Копировать запрос раздела в буфер обмена"
       ],
       "latest partition:": [
         "последний раздел:"
@@ -2370,31 +2370,31 @@
         "Отсортировать столбцы в алфавитном порядке"
       ],
       "Original table column order": [
-        "Расположение столбцов как в исходной таблице"
+        "Расположение столбцов по умолчанию"
       ],
       "Copy SELECT statement to the clipboard": [
         "Скопировать выражение SELECT в буфер обмена"
       ],
       "Show CREATE VIEW statement": [
-        "Показать VIEW заявление CREATE"
+        "Показать выражение CREATE VIEW"
       ],
       "CREATE VIEW statement": [
-        "CREATE VIEW заявление"
+        "Выражение CREATE VIEW"
       ],
       "Remove table preview": [
         "Убрать предпросмотр таблицы"
       ],
       "Assign a set of parameters as": [
-        "Назначают набор параметров, как"
+        "Назначить набор параметров, как"
       ],
       "below (example:": [
         "ниже (например:"
       ],
       "), and they become available in your SQL (example:": [
-        "), И они станут доступны в вашем SQL (например:"
+        "), и они станут доступны в вашем SQL (например:"
       ],
       ") by using": [
-        ") используя"
+        ") с помощью"
       ],
       "Template Parameters": [
         "Параметры шаблона"
@@ -2409,10 +2409,10 @@
         "Создать новый график"
       ],
       "Choose a dataset": [
-        "Выберите источник данных"
+        "Выберите набор данных"
       ],
       "If the dataset you are looking for is not available in the list, follow the instructions on how to add it in the Superset tutorial.": [
-        "Если нужного набора данных нет в списке, посмотрите инструкцию как его добавить."
+        "Если нужного набора данных нет в списке, узнайте как добавить его в руководстве Superset."
       ],
       "Choose a visualization type": [
         "Выберите тип диаграммы"
@@ -2427,7 +2427,7 @@
         "Обновление графика остановлено"
       ],
       "An error occurred while rendering the visualization: %s": [
-        "Произошла ошибка при построении графика: %s"
+        "Произошла ошибка при построении диаграммы: %s"
       ],
       "Network error.": [
         "Ошибка сети."
@@ -2445,7 +2445,7 @@
         "день месяца"
       ],
       "every day of the week": [
-        "Каждый день недели"
+        "каждый день недели"
       ],
       "day of the week": [
         "день недели"
@@ -2475,10 +2475,10 @@
         "минута"
       ],
       "reboot": [
-        "перезагружать"
+        "перезагрузить"
       ],
       "Every": [
-        "каждый"
+        "Каждый"
       ],
       "in": [
         "в"
@@ -2499,7 +2499,7 @@
         "минут UTC"
       ],
       "Invalid cron expression": [
-        "Недопустимое выражение хрон"
+        "Неверное выражение cron"
       ],
       "Clear": [
         "Очистить"
@@ -2619,10 +2619,10 @@
         "Дек"
       ],
       "OK": [
-        "Хорошо"
+        "OK"
       ],
       "Click to see difference": [
-        "Нажмите, чтобы увидеть разницу"
+        "Нажмите, чтобы увидеть различия"
       ],
       "Altered": [
         "Изменения"
@@ -2631,10 +2631,10 @@
         "Изменения графика"
       ],
       "Superset Chart": [
-        "График"
+        "График Superset"
       ],
       "Check out this chart in dashboard:": [
-        "Посмотреть этот график в отчете:"
+        "Посмотреть этот график в дашборде:"
       ],
       "Select ...": [
         "Выбрать …"
@@ -2643,19 +2643,19 @@
         "Данные были загружены в кэш"
       ],
       "Loaded from cache": [
-        "Загружается из кэша"
+        "Загружено из кэша"
       ],
       "Click to force-refresh": [
-        "Нажмите для принудительного обновления"
+        "Принудительное обновление"
       ],
       "cached": [
-        "кэшируются"
+        "кэшировано"
       ],
       "Certified by %s": [
         "Сертифицировано %s"
       ],
       "Sorry, your browser does not support copying. Use Ctrl / Cmd + C!": [
-        "Извините, Ваш браузер не поддерживание копирование. Используйте сочетание клавиш [CTRL + C] для WIN или [CMD + C] для MAC"
+        "Извините, ваш браузер не поддерживает копирование. Используйте сочетание клавиш [CTRL + C] для WIN или [CMD + C] для MAC"
       ],
       "Copied!": [
         "Копирование завершено"
@@ -2673,7 +2673,7 @@
         "Выберите базу данных"
       ],
       "Force refresh schema list": [
-        "Принудительное списка схем"
+        "Принудительное обновление списка схем"
       ],
       "Select a schema (%s)": [
         "Выберите схему (%s)"
@@ -2691,13 +2691,13 @@
         "Удалить"
       ],
       "Type \"%s\" to confirm": [
-        "Наберите \"%s\" чтобы подтвердить"
+        "Введите \"%s\" чтобы подтвердить"
       ],
       "DELETE": [
         "УДАЛИТЬ"
       ],
       "click to edit": [
-        "нажмите для изменения заголовка"
+        "редактировать"
       ],
       "You don't have the rights to alter this title.": [
         "Недостаточно прав для изменения заголовка."
@@ -2706,10 +2706,10 @@
         "Непредвиденная ошибка"
       ],
       "Click to favorite/unfavorite": [
-        "Отметить как избранное"
+        "В избранное/убрать из избранного"
       ],
-      "An error occurred while fethching Dashboards": [
-        "Произошла ошибка при получении отчетов"
+      "An error occurred while fetching Dashboards": [
+        "Произошла ошибка при получении дашбордов"
       ],
       "Run Query": [
         "Выполнить запрос"
@@ -2718,7 +2718,7 @@
         "Ошибка при получении списка таблиц"
       ],
       "Select table or type table name": [
-        "Выберите имя таблицы или таблицы типа"
+        "Выберите таблицу или введите имя таблицы"
       ],
       "Type to search ...": [
         "Введите для поиска…"
@@ -2736,7 +2736,7 @@
         "%s%s"
       ],
       "Share Dashboard": [
-        "Поделиться отчетом"
+        "Поделиться дашбордом"
       ],
       "This may be triggered by:": [
         "Это может быть вызвано:"
@@ -2751,10 +2751,10 @@
         "%s Ошибка"
       ],
       "See More": [
-        "Узнать больше"
+        "Больше"
       ],
       "See Less": [
-        "См Less"
+        "Меньше"
       ],
       "Copy Message": [
         "Копировать сообщение"
@@ -2772,13 +2772,13 @@
         "Возникла проблема. Запрос прервался после %s секунд"
       ],
       "Timeout Error": [
-        "Тайм-аут ошибка"
+        "Превышение лимита времени"
       ],
       "Cell Content": [
         "Содержимое ячейки"
       ],
       "The import was successful": [
-        "Успешный импорт"
+        "Импорт произведен успешно"
       ],
       "OVERWRITE": [
         "ПЕРЕЗАПИСАТЬ"
@@ -2811,34 +2811,34 @@
         "О программе"
       ],
       "There is not enough space for this component. Try decreasing its width, or increasing the destination width.": [
-        "Не достаточно места для этого компонента."
+        "Не достаточно места для этого компонента. Попробуйте уменьшить размер компонента либо увеличить размер конечной точки."
       ],
-      "Can not move top level tab into nested tabs": [
-        "Невозможно переместить верхнюю вкладку уровня в вложенные вкладки"
+      "Cannot move top level tab into nested tabs": [
+        "Невозможно переместить вкладку верхнего уровня во вложенные вкладки"
       ],
       "This chart has been moved to a different filter scope.": [
         "Эта диаграмма была перемещена в другую область фильтра."
       ],
       "There was an issue fetching the favorite status of this dashboard.": [
-        "К сожалению, произошла ошибка при получении статуса этого отчета."
+        "Произошла ошибка при получении статуса этого дашборда."
       ],
       "There was an issue favoriting this dashboard.": [
-        "К сожалению, произошла ошибка при сохранения этого отчета."
+        "Не удалось добавить этот дашборд в избранное."
       ],
       "This dashboard is now ${nowPublished}": [
-        "Этот отчет ${nowPublished}"
+        "Этот дашборд ${nowPublished}"
       ],
       "You do not have permissions to edit this dashboard.": [
-        "У вас нет разрешений на редактирования этого отчета."
+        "У вас нет разрешений на редактирование этого дашборда."
       ],
       "This dashboard was saved successfully.": [
-        "Отчёт успешно сохранен."
+        "Дашборд успешно сохранен."
       ],
       "Could not fetch all saved charts": [
-        "Не удалось получить все сохраненные диаграммы"
+        "Не удалось извлечь все сохраненные диаграммы"
       ],
       "Sorry there was an error fetching saved charts: ": [
-        "К сожалению, произошла ошибка при загрузке сохраненных графиков: "
+        "Произошла ошибка при извлечении сохраненных графиков: "
       ],
       "Visualization": [
         "Тип диаграммы"
@@ -2847,13 +2847,13 @@
         "Источник данных"
       ],
       "Added": [
-        "Добавленной"
+        "Добавлено"
       ],
       "Components": [
-        "Составные части"
+        "Компоненты"
       ],
       "Any color palette selected here will override the colors applied to this dashboard's individual charts": [
-        "Выбранные здесь цвета перекроют цвета графиков"
+        "Выбранные здесь цвета повлияют на цвета отдельных графиков в этом дашборде."
       ],
       "Color Scheme": [
         "Цветовая схема"
@@ -2871,40 +2871,40 @@
         "У вас есть несохраненные изменения."
       ],
       "This dashboard is currently force refreshing; the next force refresh will be in %s.": [
-        "Отчет обновляется, следущее обноление через %s."
+        "Отчет принудительно обновляется; следующее принудительное обновление будет через %s."
       ],
       "Your dashboard is too large. Please reduce the size before save it.": [
-        "Отчет слишком большой."
+        "Отчет слишком большой. Пожалуйста, уменьшите его объём перед сохранением."
       ],
       "Discard Changes": [
         "Отменить изменения"
       ],
       "An error occurred while fetching available CSS templates": [
-        "Произошла ошибка при получении доступных шаблонов"
+        "Произошла ошибка при извлечении доступных шаблонов CSS"
       ],
       "Superset Dashboard": [
-        "Отчёт"
+        "Отчёт Superset"
       ],
       "Check out this dashboard: ": [
-        "Отладка отчёта: "
+        "Просмотреть этот отчёт: "
       ],
       "Save as": [
         "Сохранить как"
       ],
       "Share dashboard": [
-        "Поделиться отчётом"
+        "Поделиться дашбордом"
       ],
       "Refresh dashboard": [
-        "Обновить отчёт"
+        "Обновить дашборд"
       ],
       "Set auto-refresh interval": [
-        "Установить интервал обновления"
+        "Установить интервал авто-обновления"
       ],
       "Set filter mapping": [
-        "Установить фильтр отображения"
+        "Установить распределение фильтров"
       ],
       "Edit dashboard properties": [
-        "Редактировать свойства отчёта"
+        "Редактировать свойства дашборда"
       ],
       "Edit CSS": [
         "Редактировать CSS"
@@ -2913,46 +2913,46 @@
         "Скачать как изображение"
       ],
       "Toggle FullScreen": [
-        "Переключить на полный экран"
+        "На весь экран"
       ],
       "There is no chart definition associated with this component, could it have been deleted?": [
-        "Там нет графика, связанного с этим компонентом, он мог быть удален?"
+        "Диаграммы, связанной с этим компонентом, не существует. Она была удалена?"
       ],
       "Delete this container and save to remove this message.": [
-        "Удалить этот контейнер и сохранить, чтобы удалить это сообщение."
+        "Удалить этот контейнер и сохранить, чтобы убрать это сообщение."
       ],
       "An error has occurred": [
-        "произошла ошибка"
+        "Произошла ошибка"
       ],
       "You do not have permission to edit this dashboard": [
-        "У вас нет доступа к этому отчету"
+        "Вы не имеете прав редактировать этот дашборд"
       ],
       "A valid color scheme is required": [
-        "Действительная цветовая схема требуется"
+        "Требуется действительная цветовая схема"
       ],
       "The dashboard has been saved": [
-        "Отчёт успешно сохранен."
+        "Дашборд сохранен."
       ],
       "Apply": [
         "Применить"
       ],
       "Dashboard Properties": [
-        "Свойства отчёта"
+        "Свойства дашборда"
       ],
       "Basic Information": [
         "Основная информация"
       ],
       "URL Slug": [
-        "Читаемый URL"
+        "Строка URL"
       ],
       "A readable URL for your dashboard": [
-        "Читаемый URL-адрес для отчёта"
+        "Читаемый URL-адрес для дашборда"
       ],
       "Access": [
         "Доступ"
       ],
       "Owners is a list of users who can alter the dashboard. Searchable by name or username.": [
-        "Владельцы - это список пользователей, которые могут изменять отчёт."
+        "Владельцы - это список пользователей, которые могут изменять дашборд."
       ],
       "Colors": [
         "Цвета"
@@ -2961,13 +2961,13 @@
         "Дополнительно"
       ],
       "This dashboard is not published, it will not show up in the list of dashboards. Click here to publish this dashboard.": [
-        "Отчет не опубликован."
+        "Дашборд не опубликован. Его не будет в общем списке дашбордов. Нажмите здесь, чтобы его опубликовать."
       ],
       "This dashboard is not published which means it will not show up in the list of dashboards. Favorite it to see it there or access it by using the URL directly.": [
-        "Отчет не опубликован."
+        "Дашборд не опубликован. Его не будет в общем списке дашбордов. Чтобы просмотреть дашборд, добавьте его в избранное или используйте URL."
       ],
       "This dashboard is published. Click to make it a draft.": [
-        "Этот отчет будет опубликован. Нажмите, чтобы сделать его черновиком."
+        "Этот дашборд опубликован. Щелкните, чтобы сделать его черновиком."
       ],
       "Draft": [
         "Черновик"
@@ -3012,25 +3012,25 @@
         "Вы уверены, что хотите продолжить?"
       ],
       "Save for this session": [
-        "Сохранить для этой сессии"
+        "Сохранить в этой сессии"
       ],
       "You must pick a name for the new dashboard": [
-        "Вы должны выбрать имя для нового отчёта"
+        "Вы должны выбрать имя для нового дашборда"
       ],
       "Save Dashboard": [
-        "Сохранить отчёт"
+        "Сохранить дашборд"
       ],
       "Overwrite Dashboard [%s]": [
-        "Перезаписать отчёт [%s]"
+        "Перезаписать дашборд [%s]"
       ],
       "Save as:": [
         "Сохранить как:"
       ],
       "[dashboard name]": [
-        "[название отчёта]"
+        "[название дашборда]"
       ],
       "also copy (duplicate) charts": [
-        "также копировать (дублирующие) диаграммы"
+        "также копировать (дублировать) диаграммы"
       ],
       "Filter your charts": [
         "Фильтровать графики"
@@ -3038,14 +3038,14 @@
       "Annotation layers are still loading.": [
         "Слои аннотаций загружаются."
       ],
-      "One ore more annotation layers failed loading.": [
+      "One or more annotation layers failed loading.": [
         "Один или несколько слоев аннотации не удалось загрузить."
       ],
       "Cached %s": [
-        "Закэшировано %s"
+        "Кэшировано %s"
       ],
       "Fetched %s": [
-        "Получено %s"
+        "Извлечено %s"
       ],
       "Minimize Chart": [
         "Свернуть график"
@@ -3066,7 +3066,7 @@
         "Поделиться графиком"
       ],
       "Export CSV": [
-        "Export CSV"
+        "Экспорт в CSV"
       ],
       "Applied Filters (%d)": [
         "Примененные фильтры (%d)"
@@ -3081,19 +3081,19 @@
         "Поиск..."
       ],
       "No filter is selected.": [
-        "не выбран ни один фильтр."
+        "Не выбран ни один фильтр."
       ],
       "Editing 1 filter:": [
-        "Редактирование 1 фильтр:"
+        "Редактирование 1 фильтра:"
       ],
       "Batch editing %d filters:": [
         "Множественное редактирование фильтров: %d"
       ],
       "Configure filter scopes": [
-        "Настройка фильтра"
+        "Настройка областей фильтра"
       ],
       "There are no filters in this dashboard.": [
-        "Нет фильтров в этом отчете."
+        "В этом дашборде нет фильтров."
       ],
       "Expand all": [
         "Расширить все"
@@ -3108,10 +3108,10 @@
         "Этот компонент разметки имеет ошибку. Отмените последние изменения."
       ],
       "Delete dashboard tab?": [
-        "Удалить вкладку отчета?"
+        "Удалить вкладку дашборда?"
       ],
       "Divider": [
-        "делитель"
+        "Делитель"
       ],
       "Header": [
         "Строка заголовков"
@@ -3132,10 +3132,10 @@
         "Все графики"
       ],
       "Warning! Changing the dataset may break the chart if the metadata (columns/metrics) does not exist in the target dataset": [
-        "Осторожно! Изменение этого набора данных может поломать графики"
+        "Осторожно! Изменение этого набора данных может повредить график, если метаданные (колонки/показатели) отсутствуют в целевом наборе данных. "
       ],
       "Changing the dataset may break the chart if the chart relies on columns or metadata that does not exist in the target dataset": [
-        "Изменение набора данных может нарушить график, если диаграмма опирается на столбах или метаданных, которые не существуют в целевом наборе данных"
+        "Изменение набора данных может нарушить график, если он основан на несуществующих колонках или метаданных в целевом наборе данных"
       ],
       "dataset": [
         "Набор данных"
@@ -3159,10 +3159,10 @@
         "Тип данных"
       ],
       "The pattern of timestamp format. For strings use ": [
-        "Шаблон таймстемп. Для строк используйте "
+        "Шаблон временной метки. Для строк используйте "
       ],
       "python datetime string pattern": [
-        "Python DateTime Строка шаблона"
+        " Строка шаблона Python DateTime "
       ],
       " expression which needs to adhere to the ": [
         " выражение которое должно быть добавлено к "
@@ -3171,7 +3171,7 @@
         "ISO 8601"
       ],
       " standard to ensure that the lexicographical ordering\n                      coincides with the chronological ordering. If the\n                      timestamp format does not adhere to the ISO 8601 standard\n                      you will need to define an expression and type for\n                      transforming the string into a date or timestamp. Note\n                      currently time zones are not supported. If time is stored\n                      in epoch format, put `epoch_s` or `epoch_ms`. If no pattern\n                      is specified we fall back to using the optional defaults on a per\n                      database/column name level via the extra parameter.": [
-        " стандарт подтверждающий, что лексикографический порядок совпадает с хронологическим порядком."
+        " стандарт, подтверждающий, что лексикографический порядок\n\tсовпадает с хронологическим порядком. Если\n\tформат временной метки не совмещён со стандартом ISO 8601,\n\tвам необходимо преобразовать выражение и тип строки в\n\tформат даты или временной метки. Обратите внимание, что\n\tна данный момент временные зоны не поддерживаются\n\tЕсли время хранится в формате epoch, вводите `epoch_s` или `epoch_ms`.\n\tЕсли шаблон не настроен, вернитесь к использованию параметров\n\tпо умолчанию на уровне имени базы данных/столбца с\n\tпомощью дополнительного параметра."
       ],
       "Is Dimension": [
         "Измерение"
@@ -3189,16 +3189,16 @@
         "Удаленные столбцы: %s"
       ],
       "New columns added: %s": [
-        "Новые столбцы добавлены: %s"
+        "Добавлены новые столбцы: %s"
       ],
       "Metadata has been synced": [
-        "Метаданные синхронизированные"
+        "Метаданные синхронизированы"
       ],
       "Column name [%s] is duplicated": [
-        "Название столбца дублировано [%s]"
+        "Название столбца [%s] скопировано"
       ],
       "Metric name [%s] is duplicated": [
-        "Название метрики [%s] дублировано"
+        "Название метрики [%s] скопировано"
       ],
       "Calculated column [%s] requires an expression": [
         "Вычисляемые столбцы [%s] требуют выражения"
@@ -3210,22 +3210,22 @@
         "URL по умолчанию"
       ],
       "Default URL to redirect to when accessing from the dataset list page": [
-        "По умолчанию URL для перенаправления при обращении к странице со списком набора данных"
+        "URL по умолчанию служит для перенаправления при обращении со страницы со списком набора данных"
       ],
       "Autocomplete filters": [
-        "автозаполнения фильтры"
+        " Автозаполнение фильтров "
       ],
       "Whether to populate autocomplete filters options": [
-        "Заполнять ли опции автодополнения фильтров"
+        "Следует ли включать параметры фильтров автозаполнения"
       ],
       "Autocomplete Query Predicate": [
-        "Автодополнить условия запроса"
+        "Автозаполнение условий запроса"
       ],
-      "When using \"Autocomplete filters\", this can be used to improve performance of the query fetching the values. Use this option to apply a predicate (WHERE clause) to the query selecting the distinct values from the table. Typically the intent would be to limit the scan by applying a relative time filter on a partitioned or indexed time-related field.": [
-        "Когда включены фильтры автодополнения, это может улучшить производительность запросов."
+      "When using \"Autocomplete filters\", this can be used to improve performance of the query fetching the values. Use this option to apply a predicate (WHERE clause) to the query selecting the distinct values from the table. Typically, the intent would be to limit the scan by applying a relative time filter on a partitioned or indexed time-related field.": [
+        "Включение автозаполнения фильтров может улучшить производительность запросов. Используйте эту функцию, чтобы применить к запросу логическое выражение (WHERE) для выбора определённых значений из таблицы. Обычно суть заключается в ограничении сканирования путем применения фильтра относительного времени к разделенному или индексированному временному полю."
       ],
       "Extra data to specify table metadata. Currently supports certification data of the format: `{ \"certification\": { \"certified_by\": \"Data Platform Team\", \"details\": \"This table is the source of truth.\" } }`.": [
-        "Дополнительные данные для оределения метаданных таблицы."
+        "Дополнительные данные для определения метаданных таблицы. На данный момент поддерживаются данные формата: `{ \"certification\": { \"certified_by\": \"Data Platform Team\", \"details\": \"This table is the source of truth.\" } }`."
       ],
       "Owners of the dataset": [
         "Владельцы набора данных"
@@ -3234,7 +3234,7 @@
         "Количество секунд до истечения срока действия кэша"
       ],
       "Hours offset": [
-        "часы офсет"
+        "Часовой сдвиг"
       ],
       "Spatial": [
         "пространственная"
@@ -3246,25 +3246,25 @@
         "название источника данных"
       ],
       "When specifying SQL, the datasource acts as a view. Superset will use this statement as a subquery while grouping and filtering on the generated parent queries.": [
-        "Когда введен SQL источник данных работает как вид (view)."
+        "Если указан SQL, источник данных работает как режим представления. Superset будет использовать данное выражение в качестве подзапроса при группировке и фильтрации родительских запросов."
       ],
       "The JSON metric or post aggregation definition.": [
-        "JSON метрика"
+        "Показатели JSON"
       ],
       "Physical": [
         "Физический"
       ],
       "The pointer to a physical table (or view). Keep in mind that the chart is associated to this Superset logical table, and this logical table points the physical table referenced here.": [
-        "Уакзатель на физическую таблицу или вид."
+        "Указатель на физическую таблицу (режим представления). Помните, что график связан с логической таблицей в Superset, и она указывает на связанную физическую таблицу"
       ],
       "Click the lock to make changes.": [
-        "Нажмите на замок, чтобы сделать изменения."
+        "Нажмите на замок, чтобы внести изменения."
       ],
       "Click the lock to prevent further changes.": [
         "Нажмите на замок, чтобы предотвратить будущие изменения."
       ],
       "Warning message to display in the metric selector": [
-        "Предупреждающее сообщение для отображения при выборе показателя"
+        "Предупреждающее сообщение для отображения в селекторе показателя"
       ],
       "Certified By": [
         "Сертифицировано"
@@ -3273,7 +3273,7 @@
         "Лицо или группа, которая сертифицировала этот показатель"
       ],
       "Certification Details": [
-        "сертификация Подробнее"
+        "Детали сертификата"
       ],
       "Details of the certification": [
         "Информация о сертификации"
@@ -3282,7 +3282,7 @@
         "Осторожно."
       ],
       "Changing these settings will affect all charts using this dataset, including charts owned by other people.": [
-        "Изменение этих настроек повлияет на все графики этого набора данных."
+        "Изменение этих настроек повлияет на все графики, которые используют этот набор данных."
       ],
       "Source": [
         "Источник"
@@ -3291,25 +3291,25 @@
         "Синхронизировать столбцы из источника"
       ],
       "Calculated Columns": [
-        "Рассчитаные столбцы"
+        "Вычисленные столбцы"
       ],
       "The dataset has been saved": [
-        "Источник данных сохранен"
+        "Набор данных сохранен"
       ],
       "The dataset configuration exposed here\n                affects all the charts using this dataset.\n                Be mindful that changing settings\n                here may affect other charts\n                in undesirable ways.": [
         "Конфигурация набора данных влияет на все графики данного набора данных."
       ],
       "Are you sure you want to save and apply changes?": [
-        "Вы уверены, что Вы хотите сохранить и применить изменения?"
+        "Вы уверены, что хотите сохранить и применить изменения?"
       ],
       "Confirm save": [
-        "Подтверждение сохранения"
+        "Подтвердить сохранение"
       ],
       "Edit Dataset ": [
         "Редактировать набор данных"
       ],
       "Use Legacy Datasource Editor": [
-        "Использование устаревшего Datasource Editor"
+        "Использование устаревшего редактора источников данных"
       ],
       "Time Range": [
         "Период времени"
@@ -3327,13 +3327,13 @@
         "Временной интервал"
       ],
       "A reference to the [Time] configuration, taking granularity into account": [
-        "Ссылка на [Время] конфигурацию, принимая во внимание детализацию"
+        "Ссылка на конфигурацию [Время] с учётом детализации"
       ],
       "Group by": [
         "Группировка"
       ],
       "One or many controls to group by": [
-        "Выберите один или несколько срезов в поле группировки данных"
+        "Выберите один или несколько controls to group by"
       ],
       "One or many metrics to display": [
         "Выберите один или несколько показателей для отображения"
@@ -3348,7 +3348,7 @@
         "Цвет"
       ],
       "Use this to define a static color for all circles": [
-        "Используйте это цвет для заливки всех кругов одним цветом"
+        "Используйте это для определения цвета всех кругов"
       ],
       "Right Axis Metric": [
         "Показатель для правой оси"
@@ -3366,37 +3366,37 @@
         "Показатель, используемый для расчета цвета"
       ],
       "One or many controls to pivot as columns": [
-        "Выберите один или несколько срезов для отображения показателей в столбцах сводной таблицы"
+        "Выберите один или несколько элементов управления для сведения в колонны"
       ],
-      "Defines the origin where time buckets start, accepts natural dates as in `now`, `sunday` or `1970-01-01`": [
-        "Определяет значения временных интервалов"
+      "Defines the origin where time buckets start, accepts natural dates as in `now`, `Sunday` or `1970-01-01`": [
+        "Определяет начало периодов, принимает даты по типу `сейчас`, `воскресенье` или `1970-01-01`"
       ],
       "The time granularity for the visualization. Note that you can type and use simple natural language as in `10 seconds`, `1 day` or `56 weeks`": [
-        "Интервал времени, в границах которого строится график. Обратите внимание, что для определения диапазона времени, вы можете использовать естественный язык. Например, можно указать словосочетания - «10 seconds», «1 day» или «56 weeks»"
+        "Интервал времени, в границах которого строится график. Обратите внимание, что для определения диапазона времени, вы можете использовать естественный язык. Например, можно указать словосочетания - «10 секунд», «1 день» или «56 недель»"
       ],
       "The time column for the visualization. Note that you can define arbitrary expression that return a DATETIME column in the table. Also note that the filter below is applied against this column or expression": [
-        "Столбец данных с датой или временем."
+        "Столбец данных с датой или временем. Обратите внимание, что вы можете определить произвольное выражение, которое возвращает столбец DATETIME в таблице. Также запомните, что фильтр ниже применяется к этому столбцу или выражению."
       ],
       "The time granularity for the visualization. This applies a date transformation to alter your time column and defines a new time granularity. The options here are defined on a per database engine basis in the Superset source code.": [
-        "Группировка по периоду времени - день, месяц, год, … и т.д"
+        "Временная детализация. Применяется преобразование даты для изменения столбца времени и определяется новая степень детализации времени. Параметры здесь определены для каждого элемента СУБД в исходном коде Superset."
       ],
       "The time range for the visualization. All relative times, e.g. \"Last month\", \"Last 7 days\", \"now\", etc. are evaluated on the server using the server's local time (sans timezone). All tooltips and placeholder times are expressed in UTC (sans timezone). The timestamps are then evaluated by the database using the engine's local timezone. Note one can explicitly set the timezone per the ISO 8601 format if specifying either the start and/or end time.": [
-        "Временной диапазон визуализации."
+        "Временной диапазон визуализации. Все относительные времена – \"В прошлом месяце\", \"За последние 7 дней\", \"сейчас\" и т. д. – вычисляются на сервере с помощью локального времени (sans timezone). Все подсказки и заполнители выражаются в формате UTC (sans timezone). Временные метки вычисляются по БД с учётом локального времени. Обратите внимание, что можно явно установить часовой пояс в формате ISO 8601, если указать время начала и / или окончания. Обратите внимание, что можно установить часовой пояс по ISO 8601, если указать либо начальное, либо конечное время. "
       ],
       "Series limit": [
         "Лимит кол-ва рядов"
       ],
       "Limits the number of time series that get displayed. A sub query (or an extra phase where sub queries are not supported) is applied to limit the number of time series that get fetched and displayed. This feature is useful when grouping by high cardinality dimension(s).": [
-        "Ограничивает количество отображаемых временных рядов."
+        "Ограничивает количество отображаемых временных рядов. Подзапрос применяется для ограничения количества отображаемых и извлекаемых временных рядов. Функция полезна при группировке большого количества измерений."
       ],
       "Sort By": [
         "Сортировка"
       ],
       "Metric used to define the top series": [
-        "Показатель, используемый для определения какие временные ряды будут отображаться при ограничении количества выводимых рядов"
+        "Показатель, используемый для определения, какие временные ряды будут отображаться при ограничении количества выводимых рядов"
       ],
       "Series": [
-        "Ряд данных"
+        "Ряды данных"
       ],
       "Defines the grouping of entities. Each series is shown as a specific color on the chart and has a legend toggle": [
         "Группировка в ряды данных. Каждый ряд отображается в виде определенного цвета и имеет легенду."
@@ -3411,13 +3411,13 @@
         "Ось X"
       ],
       "Metric assigned to the [X] axis": [
-        "Показатель, отраженный на оси X"
+        "Показатель, привязанный к оси X"
       ],
       "Y Axis": [
         "Ось Y"
       ],
       "Metric assigned to the [Y] axis": [
-        "Показатель, отраженный на оси Y"
+        "Показатель, привязанный к оси Y"
       ],
       "Bubble Size": [
         "Размер пузырька"
@@ -3426,28 +3426,28 @@
         "Формат Оси Y"
       ],
       "When `Calculation type` is set to \"Percentage change\", the Y Axis Format is forced to `.1%`": [
-        "Когда тип вычислений установлен в 'Изменения процентов', формат оси Y `.1%`"
+        "Когда тип вычислений установлен в 'Изменение процентов', формат оси Y `.1%`"
       ],
       "The color scheme for rendering chart": [
-        "Цветовая схема, применяемая для раскрашивания диаграммы"
+        " Цветовая схема для отрисовки диаграммы "
       ],
       "Color Map": [
-        "Цвет"
+        "Цветовая палитра"
       ],
       "%s option(s)": [
         "%s параметр(ы)"
       ],
       "No such column found. To filter on a metric, try the Custom SQL tab.": [
-        "Нет такой столбец не найден. Для фильтра на метрическом, попробуйте вкладку Пользовательского SQL."
+        "Такой столбец не найден. Для фильтрации по показателю, попробуйте Пользовательскую SQL-вкладку."
       ],
       "%s column(s) and metric(s)": [
-        "%s столбцов и метрик"
+        "%s столбцов и показателей"
       ],
       "%s column(s)": [
         "столбцов: %s "
       ],
       "To filter on a metric, use Custom SQL tab.": [
-        "Для фильтра на метрическом, используйте вкладку Пользовательского SQL."
+        "Для фильтрации по показателям, используйте Пользовательскую SQL-вкладку."
       ],
       "%s operators(s)": [
         "операторов: %s"
@@ -3462,13 +3462,13 @@
         "выбрать WHERE или HAVING ..."
       ],
       "filters by columns": [
-        "фильт по столбцам"
+        "фильтр по столбцам"
       ],
       "filters by metrics": [
         "фильтр по показателям"
       ],
       "\n                This filter was inherited from the dashboard's context.\n                It won't be saved when saving the chart.\n              ": [
-        "Данный фильтр был наследован от контекста отчета."
+        "Данный фильтр был назначен из контекста дашборда. Он не будет сохранён при сохранении диаграммы."
       ],
       "%s aggregates(s)": [
         "%s аггрегатов"
@@ -3480,10 +3480,10 @@
         "болт"
       ],
       "Changing this control takes effect instantly": [
-        "Изменение этого элемента применяется сразу"
+        "Изменение этого элемента управления вступает в силу мгновенно"
       ],
       "Customize": [
-        "Настроить"
+        "Настройка"
       ],
       "rows retrieved": [
         "извлекаемых строк"
@@ -3495,7 +3495,7 @@
         "Нет данных"
       ],
       "View results": [
-        "посмотреть результаты"
+        "Посмотреть результаты"
       ],
       "View samples": [
         "Посмотреть образцы"
@@ -3510,7 +3510,7 @@
         "Посмотреть запрос"
       ],
       "Run in SQL Lab": [
-        "Открыть в SQL редакторе"
+        "Открыть в Редакторе SQL"
       ],
       "Height": [
         "Высота"
@@ -3519,10 +3519,10 @@
         "Ширина"
       ],
       "Export to .json": [
-        "Экспортировать в JSON формат"
+        "Экспортировать в формат JSON"
       ],
       "Export to .csv format": [
-        "Экспортировать в CSV формат"
+        "Экспортировать в формат CSV"
       ],
       "%s - untitled": [
         "%s - без названия"
@@ -3531,19 +3531,19 @@
         "Редактирование свойств графика"
       ],
       "Control labeled ": [
-        "Помечено "
+        "Помечено"
       ],
       "You do not have permission to edit this chart": [
         "У вас нет разрешения на редактирование этого графика"
       ],
       "The description can be displayed as widget headers in the dashboard view. Supports markdown.": [
-        "Описание может отображаться в виде виджета заголовков в представлении приборной панели. Поддержка разметки."
+        "Описание может отображаться в виде виджета заголовков в дашборде. Поддержка разметки."
       ],
       "Configuration": [
         "Конфигурация"
       ],
       "Duration (in seconds) of the caching timeout for this chart. Note this defaults to the dataset's timeout if undefined.": [
-        "Продолжительность (в секундах) таймаута кэширования для этого графика."
+        "Длительность (в секундах) таймаута кэша для этого графика."
       ],
       "A list of users who can alter the chart. Searchable by name or username.": [
         "Владельцы - это список пользователей, которые могут изменять отчёт."
@@ -3558,13 +3558,13 @@
         "** Выбрать ** отчет ИЛИ ** ** создать новый"
       ],
       "Please enter a chart name": [
-        "Введите имя отчёта"
+        "Введите имя графика"
       ],
       "Save Chart": [
         "Сохранить график"
       ],
       "Save & go to dashboard": [
-        "Сохранить и перейти к отчёту"
+        "Сохранить и перейти к дашборду"
       ],
       "Save as new chart": [
         "Сохранить как новый график"
@@ -3579,16 +3579,16 @@
         "Имя графика"
       ],
       "Add to dashboard": [
-        "Добавить в отчёт"
+        "Добавить в дашборд"
       ],
       "choose one or more columns or metrics": [
-        "выбрать один или несколько столбцов или метрики"
+        "выбрать один или несколько столбцов или показателей"
       ],
       "Display configuration": [
         "Показать конфигурацию"
       ],
       "Configure your how you overlay is displayed here.": [
-        "Настроить ваш overlay."
+        "Настроить ваш оверлей."
       ],
       "Style": [
         "Стиль"
@@ -3606,7 +3606,7 @@
         "Конфигурация слоя"
       ],
       "Configure the basics of your Annotation Layer.": [
-        "Настройка основы аннотации слоя."
+        "Настройка основы для слоя аннотации."
       ],
       "Mandatory": [
         "Обязательный"
@@ -3615,10 +3615,10 @@
         "Скрыть слой"
       ],
       "Choose the Annotation Layer Type": [
-        "Выбрать слой аннотации по типу"
+        "Выбрать тип слоя аннотации"
       ],
       "Annotation Layer Type": [
-        "Тип слоя аннотаций"
+        "Тип слоя аннотации"
       ],
       "Remove": [
         "Удалить"
@@ -3627,7 +3627,7 @@
         "Значение «Минимум» должно быть числовым или пустым"
       ],
       "`Max` value should be numeric or empty": [
-        "Значение « Максимум» должно быть числовым или пустым"
+        "Значение «Максимум» должно быть числовым или пустым"
       ],
       "Min": [
         "Минимум"
@@ -3642,49 +3642,49 @@
         "Измененить набон данных"
       ],
       "View in SQL Lab": [
-        "Открыть в SQL редакторе"
+        "Открыть в SQL-редакторе"
       ],
       "Expand/collapse dataset configuration": [
         "Развернуть/свернуть конфигурацию набора данных"
       ],
       "More dataset related options": [
-        "Другие варианты, связанные с набором данных"
+        "Другие опции для набора данных"
       ],
       "Superset supports smart date parsing. Strings like `3 weeks ago`, `last sunday`, or `2 weeks from now` can be used.": [
-        "Суперсет поддерживает смарт парсинг дат."
+        "Superset поддерживает интеллектуальный анализ даты. Могут использоваться выражения типа `3 недели назад`, `в последнее воскресенье` или `через 2 недели`. "
       ],
       "Default": [
         "По умолчанию"
       ],
       "(optional) default value for the filter, when using the multiple option, you can use a semicolon-delimited list of options.": [
-        "(опционально) значения по умолчанию для фильтра."
+        "(опционально) значения по умолчанию для фильтра. При использовании нескольких параметров вы можете использовать список параметров, разделенных точкой с запятой "
       ],
       "Sort Metric": [
-        "Сортировать показатель"
+        "Сортировать показатели"
       ],
       "Metric to sort the results by": [
-        "Метрика для сортировки результатов по"
+        "Показатель для сортировки результатов по"
       ],
       "Sort Ascending": [
-        "Сортировать по возрастанию"
-      ],
-      "Check for sorting ascending": [
         "Сортировка по возрастанию"
       ],
+      "Check for sorting ascending": [
+        "Проверить сортировку по возрастанию"
+      ],
       "Allow Multiple Selections": [
-        "Разрешить выбор нескольких позиций"
+        "Разрешить несколько вариантов"
       ],
       "Multiple selections allowed, otherwise filter is limited to a single value": [
-        "Несколько выборов допускается, в противном случае фильтр ограничивается одним значением"
+        "Допускается несколько вариантов, в противном случае фильтр ограничивается одним значением"
       ],
       "Search All Filter Options": [
         "Поиск всех опций фильтра"
       ],
       "By default, each filter loads at most 1000 choices at the initial page load. Check this box if you have more than 1000 filter values and want to enable dynamically searching that loads filter values as users type (may add stress to your database).": [
-        "По умолчанию фильтр загружает не более 1000 записей при первоначальной загрузке."
+        "По умолчанию фильтр загружает не более 1000 записей при первоначальной загрузке. Активируйте этот параметр, если у вас более 1000 значений фильтра, чтобы включить динамический поиск, который загружает значения фильтра по типу пользователя (может добавить нагрузки к вашей базе данных)."
       ],
       "Required": [
-        "необходимые"
+        "Необходимые"
       ],
       "User must select a value for this filter": [
         "Пользователь должен выбрать значение для этого фильтра"
@@ -3693,22 +3693,22 @@
         "Конфигурация фильтра"
       ],
       "choose one or more columns or aggregate functions": [
-        "выбрать один или несколько столбцов или агрегатные функции"
+        "выбрать один или несколько столбцов или агрегирующие функции"
       ],
       "choose a column or aggregate function": [
-        "выберите столбец или аггрегирующую функцию"
+        "выберите столбец или агрегирующие функцию"
       ],
       "Error while fetching data": [
-        "Возникла ошибка при получение данных"
+        "Возникла ошибка при получении данных"
       ],
       "No results found": [
         "Записи не найдены"
       ],
       "Invalid lat/long configuration.": [
-        "Неверная конфигурация широты и долготы."
+        "Неверная конфигурация широты/долготы."
       ],
       "Reverse lat/long ": [
-        "Поменять местами широту и долготу"
+        "Поменять местами широту/долготу"
       ],
       "Longitude & Latitude columns": [
         "Долгота и Широта"
@@ -3720,7 +3720,7 @@
         "Для уточнения форматов и получения более подробной информации, посмотрите Python-библиотеку geopy.points"
       ],
       "Geohash": [
-        "Geohash"
+        "Геохеш"
       ],
       "textarea": [
         "текстовая область"
@@ -3750,7 +3750,7 @@
         "Тип Разметки"
       ],
       "Pick your favorite markup language": [
-        "Выберите свой любимый язык разметки"
+        "Выберите предпочитаемый язык разметки"
       ],
       "Put your code here": [
         "Введите произвольный текст в формате html или markdown"
@@ -3789,19 +3789,19 @@
         "Параметры URL"
       ],
       "Extra parameters for use in jinja templated queries": [
-        "Дополнительные параметры для использования в дзиндзя шаблонных запросов"
+        "Дополнительные параметры использования в шаблонных запросах jinja"
       ],
       "Time range endpoints": [
-        "Период времени"
+        "Конечные точки временного периода"
       ],
       "Time range endpoints (SIP-15)": [
-        "Конечные точки диапазона времени (SIP-15)"
+        "Конечные точки временного периода (SIP-15)"
       ],
       "Annotations and Layers": [
-        "Аннотация"
+        "Аннотации и слои"
       ],
       "Sort Descending": [
-        "Сортировать"
+        "Сортировать по убыванию"
       ],
       "Whether to sort descending or ascending": [
         "Сортировка по убыванию или по возрастанию"
@@ -3825,16 +3825,16 @@
         "Скользящая функция"
       ],
       "Defines a rolling window function to apply, works along with the [Periods] text box": [
-        "Одна из функций (Rolling) библиотеки Pandas, которая определяет способ агрегации данных."
+        "Определяет размер плавающего окна наряду с текстовым полем [Periods]."
       ],
       "Periods": [
-        "Период"
+        "Периоды"
       ],
       "Defines the size of the rolling window function, relative to the time granularity selected": [
-        "Одна из функций (Rolling) библиотеки Pandas, которая определяет период, к которому применяется функция агрегации."
+        "Определяет размер плавающего окна, относительно выбранной детализации по времени."
       ],
       "Min Periods": [
-        "HIde Periods"
+        "Минимальные периоды"
       ],
       "The minimum number of rolling periods required to show a value. For instance if you do a cumulative sum on 7 days you may want your \"Min Period\" to be 7, so that all data points shown are the total of 7 periods. This will hide the \"ramp up\" taking place over the first 7 periods": [
         "Скрыть необходимое количество периодов. Например, если вы делаете накопительную сумму показателя за 7 дней, но хотите скрыть нарастающий итог за первые 6 дней, то указав в данном столбце «6», вы скроете нарастание, происходящее в течение первых 6 периодов."
@@ -3846,25 +3846,25 @@
         "Временной сдвиг"
       ],
       "Overlay one or more timeseries from a relative time period. Expects relative time deltas in natural language (example:  24 hours, 7 days, 52 weeks, 365 days). Free text is supported.": [
-        "Перекрыть один или более временных рядов из относительного временного периода."
+        "Перекрыть один или более временных рядов из относительного временного периода. Поддерживает относительные периоды на естественном языке (например: 24 часа, 7 дней, 52 недели, 365 дней)."
       ],
       "Calculation type": [
         "Тип расчета"
       ],
       "How to display time shifts: as individual lines; as the absolute difference between the main time series and each time shift; as the percentage change; or as the ratio between series and time shifts.": [
-        "Как отображать временные сдвиги."
+        "Отображать временные сдвиги как: отдельные строки; абсолютная разница между основным временным рядом и любым временным сдвигом; процентное изменение; соотношение рядов и сдвигов."
       ],
       "Python Functions": [
-        "Python функции"
+        "Функции Python"
       ],
       "Rule": [
-        "правило"
+        "Правило"
       ],
       "Pandas resample rule": [
         "Одна из функций (Resample) библиотеки Pandas, которая определяет период, к которому применяется функция агрегации."
       ],
       "Method": [
-        "метод"
+        "Метод"
       ],
       "Pandas resample method": [
         "Метод частоты дискретизации pandas"
@@ -3885,13 +3885,13 @@
         "Нет графиков"
       ],
       "No dashboards": [
-        "Нет отчётов"
+        "Нет дашбордов"
       ],
       "No favorite charts yet, go click on stars!": [
         "Нет избранных диаграмм. Нажмите звёздочку напротив названия необходимого графика, чтобы он появился в списке избранных диаграмм."
       ],
       "No favorite dashboards yet, go click on stars!": [
-        "Нет избранных отчётов. Нажмите звёздочку напротив названия необходимого отчета, чтобы он появился в этом списке."
+        "Нет избранных дашбордов. Нажмите звёздочку напротив названия необходимого дашборда, чтобы он появился в списке избранного."
       ],
       "Profile picture provided by Gravatar": [
         "Изображение профиля, сгенерированное сервисом Gravatar"
@@ -3933,7 +3933,7 @@
         "Способ уведомления"
       ],
       "Execution Log": [
-        "Журнал выполнений"
+        "Журнал выполнения"
       ],
       "Edit Alert": [
         "Редактировать оповещение"
@@ -3951,13 +3951,13 @@
         "Нет %s"
       ],
       "Created By": [
-        "Дата создания"
+        "Создан"
       ],
       "All": [
         "Все"
       ],
       "An error occurred while fetching created by values: %s": [
-        "Произошла ошибка при получении созданного по значениям: %s"
+        "Произошла ошибка при извлечении созданного по значениям: %s"
       ],
       "Status": [
         "Статус"
@@ -3987,13 +3987,13 @@
         "Отчеты"
       ],
       "This action will permanently delete %s.": [
-        "Это действие удалит %s"
+        "Это действие навсегда удалит %s"
       ],
       "Delete %s?": [
-        "Удалить: %s?"
+        "Удалить %s?"
       ],
       "Please confirm": [
-        "Пожалуйста подтвердите"
+        "Пожалуйста, подтвердите"
       ],
       "Are you sure you want to delete the selected %s?": [
         "Вы уверены, что хотите удалить %s?"
@@ -4002,7 +4002,7 @@
         "<(Меньше)"
       ],
       "> (Larger than)": [
-        "> (Больше чем)"
+        "> (Больше)"
       ],
       "<= (Smaller or equal)": [
         "<= (Меньше или равно)"
@@ -4032,16 +4032,16 @@
         "90 дней"
       ],
       "Add notification method": [
-        "Добавить метод оповещения"
+        "Добавить метод уведомления"
       ],
       "Add delivery method": [
-        "Способ доставки Добавить"
+        "Добавить способ доставки"
       ],
       "Edit ${isReport ? 'Report' : 'Alert'}": [
-        "Редактировать ${isReport ? 'Уведомление' : 'Оповещение'}"
+        "Редактировать ${isReport ? Отчёт' : 'Оповещение'}"
       ],
       "Add ${isReport ? 'Report' : 'Alert'}": [
-        "Добавить ${isReport ? 'Уведомление' : 'Оповещение'}"
+        "Добавить ${isReport ? Отчёт' : 'Оповещение'}"
       ],
       "Alert Name": [
         "Имя оповещения"
@@ -4050,22 +4050,22 @@
         "Условие оповещения"
       ],
       "Alert If...": [
-        "Предупреждение Если ..."
+        "Предупреждать, если ..."
       ],
       "Value": [
         "Значение"
       ],
       "Alert Condition Schedule": [
-        "Оповещение Состояние Расписание"
+        "График состояния предупреждений"
       ],
       "Schedule Settings": [
         "Настройки расписания"
       ],
       "Log Retention": [
-        "хранения журнала"
+        "Срок хранения журнала"
       ],
       "Working Timeout": [
-        "Рабочая Timeout"
+        "Таймаут работы"
       ],
       "Time in seconds": [
         "Время в секундах"
@@ -4095,7 +4095,7 @@
         "${alertResource?.type}"
       ],
       "CRON Expression": [
-        "CRON Выражение"
+        "Выражение CRON"
       ],
       "${RecipientIconName.email}": [
         "${RecipientIconName.email}"
@@ -4119,7 +4119,7 @@
         "Нет аннотаций"
       ],
       "Annotation Layer ${annotationLayerName}": [
-        "Слой аннотаций ${annotationLayerName}"
+        "Слой аннотации ${annotationLayerName}"
       ],
       "Are you sure you want to delete ${annotationCurrentlyDeleting?.short_descr}?": [
         "Вы действительно хотите удалить ${annotationCurrentlyDeleting?.short_descr}?"
@@ -4143,7 +4143,7 @@
         "Описание (это можно увидеть в списке)"
       ],
       "json metadata": [
-        "json метаданные"
+        "метаданные json"
       ],
       "annotation_layer": [
         "слой аннотаций"
@@ -4152,10 +4152,10 @@
         "Редактирвовать свойства слоя аннотаций"
       ],
       "annotation layer name": [
-        "Имя слоя аннотаций"
+        "Имя слоя аннотации"
       ],
       "annotation layers": [
-        "Слои аннотаций"
+        "Слои аннотации"
       ],
       "There was an issue deleting the selected layers: %s": [
         "Возникла проблема при удалении выбранных слоев: %s"
@@ -4167,10 +4167,10 @@
         "Удалить шаблон"
       ],
       "Annotation Layer": [
-        "Слои аннотаций"
+        "Слои аннотации"
       ],
       "An error occurred while fetching dataset datasource values: %s": [
-        "Произошла ошибка при создании источника данных: %s"
+        "Произошла ошибка при извлечении значений источника данных: %s"
       ],
       "No annotation layers yet": [
         "Нет слоев аннотаций"
@@ -4194,7 +4194,7 @@
         "Изменено %s"
       ],
       "The passwords for the databases below are needed in order to import them together with the charts. Please note that the \"Secure Extra\" and \"Certificate\" sections of the database configuration are not present in export files, and should be added manually after the import if they are needed.": [
-        "Пароли для баз данных необходимы для их загрузки вместе с графиками."
+        "Пароли для БД необходимы для их импорта вместе с графиками. Пожалуйста, помните, что области конфигурации БД \"Secure Extra\" и \"Certificate\" отсутствуют в файлах экспорта и должны быть добавлены вручную после импорта в случае необходимости."
       ],
       "You are importing one or more charts that already exist. Overwriting might cause you to lose some of your work. Are you sure you want to overwrite?": [
         "Вы загружаете один или несколько графиков, которые уже существуют. Перезаписать?"
@@ -4203,7 +4203,7 @@
         "Возникла проблема при удалении выбранных графиков: %s"
       ],
       "Modified By": [
-        "Кем изменено"
+        "Изменено"
       ],
       "Owner": [
         "Владелец"
@@ -4212,13 +4212,13 @@
         "Произошла ошибка при получении данных владельцев графика: %s"
       ],
       "An error occurred while fetching chart created by values: %s": [
-        "Произошла ошибка при получении данных графика: %s"
+        "Произошла ошибка при извлечении графика, созданного значениями: %s"
       ],
       "Viz Type": [
-        "Тип"
+        "Тип визуализации"
       ],
       "An error occurred while fetching chart dataset values: %s": [
-        "Произошла ошибка при проучении набора данных графика: %s"
+        "Произошла ошибка при получении значений набора данных графика: %s"
       ],
       "Are you sure you want to delete the selected charts?": [
         "Вы уверены, что хотите удалить выбранные графики?"
@@ -4227,10 +4227,10 @@
         "css_template"
       ],
       "Edit CSS Template Properties": [
-        "Редактирование свойств шаблона"
+        "Редактирование свойств шаблона CSS"
       ],
       "css template name": [
-        "имя шаблона"
+        "имя шаблона css"
       ],
       "css": [
         "CSS"
@@ -4257,28 +4257,28 @@
         "Вы уверены, что хотите удалить выбранные шаблоны?"
       ],
       "The passwords for the databases below are needed in order to import them together with the dashboards. Please note that the \"Secure Extra\" and \"Certificate\" sections of the database configuration are not present in export files, and should be added manually after the import if they are needed.": [
-        "Пароли для баз данных необходимы для их загрузки вместе с отчетами."
+        "Пароли для БД необходимы для их импорта вместе с графиками. Пожалуйста, помните, что области конфигурации БД \"Secure Extra\" и \"Certificate\" отсутствуют в файлах экспорта и должны быть добавлены вручную после импорта в случае необходимости."
       ],
       "You are importing one or more dashboards that already exist. Overwriting might cause you to lose some of your work. Are you sure you want to overwrite?": [
-        "Вы загружаете один или несколько отчетов, которые уже существуют. Перезаписать?"
+        "Вы загружаете один или несколько дашбордов, которые уже существуют. Перезаписать?"
       ],
       "An error occurred while fetching dashboards: %s": [
-        "Произошла ошибка при получении отчетов: %s"
+        "Произошла ошибка при извлечении дашбордов: %s"
       ],
       "There was an issue deleting the selected dashboards: ": [
-        "К сожалению, произошла ошибка при удаленни выбранных отчетов: "
+        "К сожалению, произошла ошибка при удалении выбранных дашбордов: "
       ],
       "An error occurred while fetching dashboard owner values: %s": [
-        "Произошла ошибка при получении владельца отчета: %s"
+        "Произошла ошибка при получении владельца дашборда: %s"
       ],
       "An error occurred while fetching dashboard created by values: %s": [
-        "Произошла ошибка при получении данных отчета: %s"
+        "Произошла ошибка при получении данных дашборда: %s"
       ],
       "Unpublished": [
-        "неопубликованный"
+        "Не опубликован"
       ],
       "Are you sure you want to delete the selected dashboards?": [
-        "Вы уверены, что хотите удалить выбранные отчеты?"
+        "Вы уверены, что хотите удалить выбранные дашборды?"
       ],
       "Sorry, your browser does not support copying.": [
         "Извините, Ваш браузер не поддерживание копирование. Используйте сочетание клавиш [CTRL + C] для WIN или [CMD + C] для MAC"
@@ -4287,16 +4287,16 @@
         "Копирование завершено"
       ],
       "The passwords for the databases below are needed in order to import them. Please note that the \"Secure Extra\" and \"Certificate\" sections of the database configuration are not present in export files, and should be added manually after the import if they are needed.": [
-        "Пароли для баз данных необходимы для их загрузки."
+        "Пароли для БД необходимы для их импорта вместе с графиками. Пожалуйста, помните, что области конфигурации БД \"Secure Extra\" и \"Certificate\" отсутствуют в файлах экспорта и должны быть добавлены вручную после импорта в случае необходимости."
       ],
       "You are importing one or more databases that already exist. Overwriting might cause you to lose some of your work. Are you sure you want to overwrite?": [
-        "Вы загружаете один или несколько баз данных, которые уже существуют. Перезаписать?"
+        "Вы загружаете одну или несколько БД, которые уже существуют. Перезаписать?"
       ],
       "database": [
         "База данных"
       ],
       "An error occurred while fetching database related data: %s": [
-        "Произошла ошибка при получении данных базы данных: %s"
+        "Произошла ошибка при извлечении данных из БД: %s"
       ],
       "Asynchronous Query Execution": [
         "Асинхронное выполнение запросов"
@@ -4305,19 +4305,19 @@
         "AQE"
       ],
       "Allow Data Manipulation Language": [
-        "Разрешить язык манипулирования данных"
+        "Разрешить язык манипулирования данными"
       ],
       "DML": [
         "DML"
       ],
       "CSV Upload": [
-        "CSV Загрузить"
+        "Загрузка CSV"
       ],
       "Delete database": [
-        "Удалите базу данных"
+        "Удалить базу данных"
       ],
       "The database %s is linked to %s charts that appear on %s dashboards. Are you sure you want to continue? Deleting the database will break those objects.": [
-        "База данных %s связана с графиками %s на отчете %s. Удалить?"
+        "База данных %s связана с графиками %s в дашборде %s. Вы уверены, что хотите удалить?"
       ],
       "Delete Database?": [
         "Удалить базу данных?"
@@ -4326,7 +4326,7 @@
         "Введите SQLAlchemy URI для проверки"
       ],
       "Connection looks good!": [
-        "Подключение выглядит хорошо!"
+        "Подключение прошло успешно!"
       ],
       "ERROR: Connection failed. ": [
         "Ошибка: не удалось соединиться."
@@ -4344,22 +4344,19 @@
         "dialect+driver://username:password@host:port/database"
       ],
       "Refer to the ": [
-        "Ссылается на"
+        "Ссылка на"
       ],
       "SQLAlchemy docs": [
-        "SQLAlchemy документация"
+        "Документация SQLAlchemy"
       ],
       " for more information on how to structure your URI.": [
-        " как структурировать URI."
+        "как структурировать URI."
       ],
       "Performance": [
         "Производительность"
       ],
-      "Operate the database in asynchronous mode, meaning that the queries are executed on remote workers as opposed to on the web server itself. This assumes that you have a Celery worker setup as well as a results backend. Refer to the installation docs for more information.": [
-        "Работа базы данных в асинхронном режиме означает выполнение запросов на отдельных нодах, а не в самом приложении."
-      ],
       "SQL Lab Settings": [
-        "Настройки"
+        "Настройки Редактора SQL"
       ],
       "Allow users to run non-SELECT statements (UPDATE, DELETE, CREATE, ...)": [
         "Позволяет пользователям запускать инструкции (UPDATE, DELETE, CREATE, …) без SELECT в редакторе SQL"
@@ -4371,13 +4368,13 @@
         "JSON-строка, содержащая дополнительную конфигурацию соединения."
       ],
       "This is used to provide connection information for systems like Hive, Presto, and BigQuery, which do not conform to the username:password syntax normally used by SQLAlchemy.": [
-        "Это используется для систем как Hive, Presto, BigQuery."
+        "Используется для предоставления информации о соединении для систем Hive, Presto, BigQuery, которые не соответствуют синтаксису username:password, как в SQLAlchemy."
       ],
       "Root Certificate": [
         "Корневой сертификат"
       ],
       "Optional CA_BUNDLE contents to validate HTTPS requests. Only available on certain database engines.": [
-        "Необязательные содержание CA_BUNDLE для проверки HTTPS запросов. Доступно только на некоторых системах баз данных."
+        "Необязательные содержание CA_BUNDLE для проверки HTTPS запросов. Доступно только в некоторых СУБД."
       ],
       "Impersonate Logged In User (Presto & Hive)": [
         "Ассоциировать пользователя"
@@ -4392,22 +4389,22 @@
         "Если выбрано, пожалуйста, установите схемы, разрешенные для загрузки данных в Extra."
       ],
       "JSON string containing extra configuration elements.": [
-        "JSON строка, содержащая дополнительные элементы конфигурации."
+        "Строка JSON, содержащая дополнительные элементы конфигурации."
       ],
       "1. The engine_params object gets unpacked into the sqlalchemy.create_engine call, while the metadata_params gets unpacked into the sqlalchemy.MetaData call.": [
-        "-"
+        "Объект engine_params распаковывается в sqlalchemy.create_engine, когда metadata_params распаковывается в sqlalchemy.MetaData."
       ],
       "2. The metadata_cache_timeout is a cache timeout setting in seconds for metadata fetch of this database. Specify it as \"metadata_cache_timeout\": {\"schema_cache_timeout\": 600, \"table_cache_timeout\": 600}. If unset, cache will not be enabled for the functionality. A timeout of 0 indicates that the cache never expires.": [
-        "-"
+        "Параметр metadata_cache_timeout служит для ограничения времени на извлечение метаданных из БД. Установите значение параметра \"metadata_cache_timeout\": {\"schema_cache_timeout\": 600, \"table_cache_timeout\": 600}. Если не установлено, кэш будет не доступен. Таймаут=0 означает бессрочный кэш."
       ],
       "3. The schemas_allowed_for_csv_upload is a comma separated list of schemas that CSVs are allowed to upload to. Specify it as \"schemas_allowed_for_csv_upload\": [\"public\", \"csv_upload\"]. If database flavor does not support schema or any schema is allowed to be accessed, just leave the list empty.": [
-        "-"
+        "schemas_allowed_for_csv_upload – это список схем, куда можно загружать файлы CSV. Определите параметр \"schemas_allowed_for_csv_upload\": [\"public\", \"csv_upload\"]. Если тип БД не поддерживает схему или ей разрешён доступ к любой схеме, оставьте поле пустым."
       ],
       "4. The version field is a string specifying this db's version. This should be used with Presto DBs so that the syntax is correct.": [
-        "-"
+        "В поле версии вы можете указать версию БД. Чтобы синтаксис был правильным, используйте БД Presto."
       ],
       "5. The allows_virtual_table_explore field is a boolean specifying whether or not the Explore button in SQL Lab results is shown.": [
-        "-"
+        "Поле allows_virtual_table_explore – это логическое значение, определяющее показ результатов по кнопке Explore в редакторе SQL."
       ],
       "Error while saving dataset: %s": [
         "Ошибка при сохранении набора данных: %s"
@@ -4416,16 +4413,16 @@
         "Добавить набор данных"
       ],
       "The passwords for the databases below are needed in order to import them together with the datasets. Please note that the \"Secure Extra\" and \"Certificate\" sections of the database configuration are not present in export files, and should be added manually after the import if they are needed.": [
-        "Пароли для баз данных необходимы для их загрузки вместе с наборами данных."
+        "Пароли для БД необходимы для их импорта вместе с графиками. Пожалуйста, помните, что области конфигурации БД \"Secure Extra\" и \"Certificate\" отсутствуют в файлах экспорта и должны быть добавлены вручную после импорта в случае необходимости."
       ],
       "You are importing one or more datasets that already exist. Overwriting might cause you to lose some of your work. Are you sure you want to overwrite?": [
         "Вы загружаете один или несколько наборов данных, которые уже существуют. Перезаписать?"
       ],
       "An error occurred while fetching dataset related data": [
-        "Произошла ошибка при получении данных"
+        "Произошла ошибка при получении данных из набора данных"
       ],
       "An error occurred while fetching dataset related data: %s": [
-        "Произошла ошибка при получении данных: %s"
+        "Произошла ошибка при получении данных из набора данных: %s"
       ],
       "Physical Dataset": [
         "Физический набор данных"
@@ -4434,7 +4431,7 @@
         "Виртуальный набор данных"
       ],
       "An error occurred while fetching dataset owner values: %s": [
-        "Произошла ошибка при загрузке набора данных: %s"
+        "Произошла ошибка при извлечении значений владельца набора данных: %s"
       ],
       "An error occurred while fetching datasets: %s": [
         "Произошла ошибка при получении наборов данных: %s"
@@ -4446,7 +4443,7 @@
         "Возникла проблема при удалении выбранных наборов данных: %s"
       ],
       "The dataset %s is linked to %s charts that appear on %s dashboards. Are you sure you want to continue? Deleting the dataset will break those objects.": [
-        "Набор данных %s связан с графиками %s на отчете %s. Удалить?"
+        "Набор данных %s связан с графиками %s на отчете %s. Вы уверены, что хотите удалить?"
       ],
       "Delete Dataset?": [
         "Удалить набор данных?"
@@ -4470,19 +4467,19 @@
         "Возникла ошибка при предпросмотре выбранного запроса. %s"
       ],
       "Success": [
-        "успех"
+        "Успешно"
       ],
       "Failed": [
         "Не удалось"
       ],
       "Running": [
-        "Бег"
+        "Выполнение"
       ],
       "Offline": [
         "Не в сети"
       ],
       "Scheduled": [
-        "Запланированное"
+        "Запланировано"
       ],
       "Duration: %s": [
         "Продолжительность: %s"
@@ -4497,7 +4494,7 @@
         "Строки"
       ],
       "Open query in SQL Lab": [
-        "Открыть в SQL редакторе"
+        "Открыть запрос в SQL редакторе"
       ],
       "An error occurred while fetching database values: %s": [
         "Произошла ошибка при загрузке значений базы данных: %s"
@@ -4527,10 +4524,10 @@
         "Возникла ошибка при предпросмотре выбранного запроса %s"
       ],
       "Link Copied!": [
-        "Копирование завершено"
+        "Скопировано"
       ],
       "There was an issue deleting the selected queries: %s": [
-        "Возникла ошибка при предпросмотре выбранных запросов. %s"
+        "Возникла ошибка при удалении выбранных запросов. %s"
       ],
       "Query preview": [
         "Предпросмотр данных"
@@ -4542,10 +4539,10 @@
         "Скопировать URL запроса"
       ],
       "Delete query": [
-        "Удалить"
+        "Удалить запрос"
       ],
       "This action will permanently delete the saved query.": [
-        "Это действие будет безвозвратно удалить сохраненный запрос."
+        "Это действие безвозвратно удалит сохраненный запрос."
       ],
       "Delete Query?": [
         "Удалить запрос?"
@@ -4578,22 +4575,22 @@
         "Посмотреть все"
       ],
       "Dashboard ": [
-        "Отчёт"
+        "Дашборд"
       ],
       ")\n    } yet": [
         ")\n    } пока"
       ],
       "Recently viewed charts, dashboards, and saved queries will appear here": [
-        "Недавно просмотренные графики, отчеты и сохраненные запросы будут здесь"
+        "Недавно просмотренные графики, дашборды и сохраненные запросы будут здесь"
       ],
       "Recently created charts, dashboards, and saved queries will appear here": [
-        "Недавно созданные графики, отчеты и сохраненные запросы будут здесь"
+        "Недавно созданные графики, дашборды и сохраненные запросы будут здесь"
       ],
       "Recent example charts, dashboards, and saved queries will appear here": [
-        "Недавние графики, отчеты и сохраненные запросы будут здесь"
+        "Недавние графики, дашборды и сохраненные запросы будут здесь"
       ],
       "Recently edited charts, dashboards, and saved queries will appear here": [
-        "Недавно отредактированные графики, отчеты и сохраненные запросы будут здесь"
+        "Недавно отредактированные графики, дашборды и сохраненные запросы будут здесь"
       ],
       "SQL QUERY": [
         "SQL запрос"
@@ -4602,7 +4599,7 @@
         "${tableName\n                        .split('')\n                        .slice(0, tableName.length - 1)\n                        .join('')}\n                    "
       ],
       "You don't have any favorites yet!": [
-        "У вас пока нет избранного"
+        "У вас ещё нет ничего избранного"
       ],
       "SQL LAB QUERIES": [
         "SQL LAB запросы"
@@ -4626,7 +4623,7 @@
         "Выберите дату начала и окончания"
       ],
       "Type or Select [%s]": [
-        "Выбрать [%s]"
+        "Выбрать или ввести [%s]"
       ],
       "Filter Box": [
         "Фильтр"
@@ -4635,7 +4632,7 @@
         "Настройки фильтров"
       ],
       "Filter configuration for the filter box": [
-        "Конфигурация фильтра для фильтра коробки"
+        "Конфигурация фильтра для бокса фильтра"
       ],
       "Date Filter": [
         "Временной фильтр"
@@ -4650,43 +4647,43 @@
         "Проставьте галку, чтобы применить фильтр немедленно, поскольку они изменяют вместо отображения кнопки [Применить]"
       ],
       "Show SQL Granularity Dropdown": [
-        "Показать SQL Granularity DropDown"
+        "Показать детализацию SQL"
       ],
       "Check to include SQL Granularity dropdown": [
-        "Проверьте, чтобы включить SQL Granularity выпадающего меню"
+        "Установите флажок, чтобы включить меню детализации SQL"
       ],
       "Show SQL Time Column": [
-        "Показать SQL Time Column"
+        "Показать временной столбец SQL"
       ],
       "Check to include Time Column dropdown": [
-        "Проверьте, чтобы включить колонки времени выпадающего меню"
+        "Установите флажок, чтобы включить меню временного столбца"
       ],
       "Show Druid Granularity Dropdown": [
-        "Показать Druid Granularity DropDown"
+        "Показать меню детализации Druid"
       ],
       "Check to include Druid Granularity dropdown": [
-        "Проверьте, чтобы включить Друид Granularity выпадающее меню"
+        "Установите флажок, чтобы включить меню детализации Druid"
       ],
       "Show Druid Time Origin": [
-        "Показать Druid Время Origin"
+        "Показать Druid Time Origin"
       ],
       "Check to include Time Origin dropdown": [
-        "Проверьте, чтобы включить время Origin выпадающего меню"
+        " Установите флажок, чтобы включить меню Time Origin"
       ],
       "Limit Selector Values": [
-        "Предельные значения Selector"
+        "Предельные значения селектора"
       ],
       "These filters apply to the values available in the dropdowns": [
-        "Эти фильтры применяются к значениям имеющихся в выпадающих"
+        "Эти фильтры применяются к значениям в выпадающих меню"
       ],
       "Time-series Table": [
         "Таблица временных рядов"
       ],
       "No dashboards yet": [
-        "Нет отчетов"
+        "Нет дашбордов"
       ],
       "No saved queries yet": [
-        "Нет запросов"
+        "Нет сохранённых запросов"
       ],
       "No charts yet": [
         "Нет графиков"
