@@ -62,7 +62,7 @@ const Styles = styled.div`
 
   .btn {
     /* just to make sure buttons don't jiggle */
-    width: 100px;
+    width: 120px;
   }
 `;
 
