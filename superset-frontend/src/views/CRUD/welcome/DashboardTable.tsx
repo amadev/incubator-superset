@@ -150,7 +150,7 @@ function DashboardTable({
           {
             name: (
               <IconContainer>
-                <Icon name="plus-small" /> {t('Dashboard' + ' ')}
+                <Icon name="plus-small" /> {t('Dashboard')}
               </IconContainer>
             ),
             buttonStyle: 'tertiary',
@@ -159,7 +159,7 @@ function DashboardTable({
             },
           },
           {
-            name: (t('View All') + ' »'),
+            name: `${t('View All')} »`,
             buttonStyle: 'link',
             onClick: () => {
               window.location.href = '/dashboard/list/';

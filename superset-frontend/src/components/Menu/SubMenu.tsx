@@ -67,7 +67,7 @@ const StyledHeader = styled.header`
     }
   }
   .navbar-inverse {
-    background: #C3CDD5;
+    background: #c3cdd5;
     .navbar-nav {
       & > .active > a {
         background: ${({ theme }) => theme.colors.secondary.light4};

@@ -1231,7 +1231,7 @@ def ensure_path_exists(path: str) -> None:
             raise
 
 
-def get_since_until(  # pylint: disable=too-many-arguments
+def get_since_until(  # pylint: disable=too-many-arguments, too-many-branches
     time_range: Optional[str] = None,
     since: Optional[str] = None,
     until: Optional[str] = None,
