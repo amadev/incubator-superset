@@ -1271,6 +1271,26 @@ def get_since_until(  # pylint: disable=too-many-arguments
         relative_end if relative_end else "today"
     )
     common_time_frames = {
+        "Last day": (
+            relative_start - relativedelta(days=1),  # type: ignore
+            relative_end,
+        ),
+        "Last week": (
+            relative_start - relativedelta(weeks=1),  # type: ignore
+            relative_end,
+        ),
+        "Last month": (
+            relative_start - relativedelta(months=1),  # type: ignore
+            relative_end,
+        ),
+        "Last quarter": (
+            relative_start - relativedelta(months=3),  # type: ignore
+            relative_end,
+        ),
+        "Last year": (
+            relative_start - relativedelta(years=1),  # type: ignore
+            relative_end,
+        ),
         __("Last day"): (
             relative_start - relativedelta(days=1),  # type: ignore
             relative_end,
