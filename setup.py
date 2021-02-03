@@ -106,6 +106,10 @@ setup(
         "sqlalchemy-utils>=0.36.6,<0.37",
         "sqlparse==0.3.0",  # PINNED! see https://github.com/andialbrecht/sqlparse/issues/562
         "wtforms-json",
+        "flask-admin>=1.5.6",
+        "flask-oidc>=1.4.0",
+        "authlib>=0.14.3",
+        "fab-auth-keycloak>=0.1.0",
     ],
     extras_require={
         "athena": ["pyathena>=1.10.8,<1.11"],
