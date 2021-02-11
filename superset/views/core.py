@@ -447,8 +447,9 @@ class Superset(BaseSupersetView):  # pylint: disable=too-many-public-methods
             stream = viz_obj.get_xlsx()
             mimetype = mimetypes.guess_type(filename)[0]
             headers = {
-                "Content-Disposition": f"attachment; filename={filename}",
-                'Content-Type': mimetype,
+                "Content-Disposition": f'attachment; filename="{filename}"; '
+                                       f"filename*=UTF-8''{filename}",
+                "Content-Type": mimetype,
             }
             return XLSXResponse(
                 stream,
