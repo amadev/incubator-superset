@@ -65,6 +65,7 @@ const MENU_KEYS = {
   TOGGLE_CHART_DESCRIPTION: 'toggle_chart_description',
   EXPLORE_CHART: 'explore_chart',
   EXPORT_CSV: 'export_csv',
+  EXPORT_XLSX: 'export_xlsx',
   RESIZE_LABEL: 'resize_label',
   SHARE_CHART: 'share_chart',
   DOWNLOAD_AS_IMAGE: 'download_as_image',
