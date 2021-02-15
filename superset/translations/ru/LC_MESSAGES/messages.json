@@ -4,7 +4,7 @@
     "superset": {
       "": {
         "domain": "superset",
-        "plural_forms": "nplurals=1; plural=0",
+        "plural_forms": "nplurals=1; plural=0;",
         "lang": "ru"
       },
       "Home": [
@@ -83,7 +83,7 @@
         "Список Кластеров Druid"
       ],
       "Scan New Datasources": [
-        "Сканирование Новых Источников"
+        "Сканирование Новых Источников Данных"
       ],
       "Refresh Druid Metadata": [
         "Обновить Метаданные Druid"
@@ -119,7 +119,7 @@
         "Возвращаемое значение для метода %(name)s не поддерживается"
       ],
       "Unsafe template value for key %(key)s: %(value_type)s": [
-        "Небезопасное значение швблона для ключа %(key)s: %(value_type)s"
+        "Небезопасное значение шаблона для ключа %(key)s: %(value_type)s"
       ],
       "Unsupported template value for key %(key)s": [
         "Неподдерживаемое значение шаблона для ключа %(key)s"
@@ -143,7 +143,7 @@
         "Сохраненное значение не найдено"
       ],
       "Columns missing in datasource: %(invalid_columns)s": [
-        "Стобцы отсутствуют в источнике данных: %(invalid_columns)s"
+        "Столбцы отсутствуют в источнике данных: %(invalid_columns)s"
       ],
       "Table View": [
         "Табличный вид"
@@ -440,7 +440,7 @@
         "`Confidence_interval` должен находиться в диапазоне от 0 до 1 (Exclusive)"
       ],
       "lower percentile must be greater than 0 and less than 100. Must be lower than upper percentile.": [
-        "нижний процентиль должен быть больше 0 и меньше 100. Должен быть ниже верхнего процентиля."
+        "Нижний процентиль должен быть больше 0 и меньше 100. Должен быть ниже верхнего процентиля."
       ],
       "upper percentile must be greater than 0 and less than 100. Must be higher than lower percentile.": [
         "Верхний процентиль должен быть больше, чем 0, и меньше, чем 100. Должен быть выше, чем нижний процентиль."
@@ -470,10 +470,10 @@
         "Неверные параметры графика"
       ],
       "Chart could not be created.": [
-        "Ваш график не может быть сохранен"
+        "График не может быть сохранен"
       ],
       "Chart could not be updated.": [
-        "Ваш график не может быть обновлён"
+        "График не может быть обновлён"
       ],
       "Chart could not be deleted.": [
         "График не может быть удален."
@@ -1025,7 +1025,7 @@
         "Один или несколько показателей уже существуют"
       ],
       "Table [%(table_name)s] could not be found, please double check your database connection, schema, and table name": [
-        "Не удалось найти таблицу [{}]. Проверьте подключение к базе данных, схему и имя таблицы."
+        "Не удалось найти таблицу [%(table_name)s]. Проверьте подключение к базе данных, схему и имя таблицы."
       ],
       "Dataset parameters are invalid.": [
         "Неверные параметры набора данных"
@@ -1133,7 +1133,7 @@
         "Запрос оповещения вернул более одного столбца."
       ],
       "Alert query returned a non-number value.": [
-        " Запрос оповещения вернул нечисловое значение."
+        "Запрос оповещения вернул нечисловое значение."
       ],
       "Alert fired during grace period.": [
         "Оповещение возникло в период ожидания."
@@ -1526,7 +1526,7 @@
         "Облако данных не может быть десериализованы. Вы можете повторно выполнить запрос."
       ],
       "%(validator)s was unable to check your query.\nPlease recheck your query.\nException: %(ex)s": [
-        "%(validator)s не смог проверить запрос. Ошибка %(ex)sПерепроверьте запрос.\n"
+        "%(validator)s не смог проверить запрос. Ошибка %(ex)s. Перепроверьте запрос."
       ],
       "Failed to start remote query on a worker. Tell your administrator to verify the availability of the message queue.": [
         "Ошибка запуска запроса. Попросите администратора проверить доступность очереди сообщений."
@@ -1832,7 +1832,7 @@
         "Показать базу данных в SQL Редакторе"
       ],
       "Operate the database in asynchronous mode, meaning that the queries are executed on remote workers as opposed to on the web server itself. This assumes that you have a Celery worker setup as well as a results backend. Refer to the installation docs for more information.": [
-        "Работа базы данных в асинхронном режиме означает выполнение запросов на отдельных нодах, а не в самом приложении. Предполагается, что у вас есть установка Celery worker, а также результаты бэкенда. Дополнительные сведения см. в документации по установке. "
+        "Работа базы данных в асинхронном режиме означает выполнение запросов на отдельных нодах, а не в самом приложении. Предполагается, что у вас есть установка Celery worker, а также результаты бэкенда. Дополнительные сведения см. в документации по установке."
       ],
       "Allow CREATE TABLE AS option in SQL Lab": [
         "Разрешить выполнять инструкцию CREATE TABLE AS в редакторе SQL"
@@ -1913,8 +1913,10 @@
         "Запрещено загружать CSV в базу данных \"%(database_name)s\" схему \"%(schema_name)s\""
       ],
       "You cannot specify a namespace both in the name of the table: \"%(csv_table.table)s\" and in the schema field: \"%(csv_table.schema)s\". Please remove one": [
-        "Указывать неймспейс в таблице и схеме сразу невозможно: \"%(csv_table.table)s\", \"%(csv_table.schema)s\"\n\n#: superset/views/database/views.py:246\n#, python-format\nmsgid ",
-        "CSV-файл \"%(filename)s\" не может быть загружен в таблицу \"%(table_name)s\" базы данных \"%(db_name)s\""
+        "Указывать неймспейс в таблице и схеме сразу невозможно: \"%(csv_table.table)s\", \"%(csv_table.schema)s\\"
+      ],
+      "Unable to upload CSV file \"%(filename)s\" to table \"%(table_name)s\" in database \"%(db_name)s\". Error message: %(error_msg)s": [
+        "CSV-файл \"%(filename)s\" не может быть загружен в таблицу \"%(table_name)s\" базы данных \"%(db_name)s\". Ошибка:  %(error_msg)s"
       ],
       "CSV file \"%(csv_filename)s\" uploaded to table \"%(table_name)s\" in database \"%(db_name)s\"": [
         "CSV-файл \"%(csv_filename)s\" загружен в таблицу \"%(table_name)s\" базы данных \"%(db_name)s\""
@@ -1929,7 +1931,7 @@
         "Указывать неймспейс в таблице и схеме сразу невозможно: \"%(excel_table.table)s\", \"%(excel_table.schema)s\""
       ],
       "Unable to upload Excel file \"%(filename)s\" to table \"%(table_name)s\" in database \"%(db_name)s\". Error message: %(error_msg)s": [
-        "Excel-файл \"%(filename)s\" не может быть загружен в таблицу \"%(table_name)s\" базы данных \"%(db_name)s\""
+        "Excel-файл \"%(filename)s\" не может быть загружен в таблицу \"%(table_name)s\" базы данных \"%(db_name)s\". Ошибка: %(error_msg)s"
       ],
       "Excel file \"%(excel_filename)s\" uploaded to table \"%(table_name)s\" in database \"%(db_name)s\"": [
         "Excel-файл \"%(excel_filename)s\" загружен в таблицу \"%(table_name)s\" базы данных \"%(db_name)s\""
@@ -2508,28 +2510,28 @@
         "Воскресенье"
       ],
       "Monday": [
-        "понедельник"
+        "Понедельник"
       ],
       "Tuesday": [
-        "вторник"
+        "Вторник"
       ],
       "Wednesday": [
-        "среда"
+        "Среда"
       ],
       "Thursday": [
         "Четверг"
       ],
       "Friday": [
-        "пятница"
+        "Пятница"
       ],
       "Saturday": [
-        "суббота"
+        "Суббота"
       ],
       "January": [
-        "январь"
+        "Январь"
       ],
       "February": [
-        "февраль"
+        "Февраль"
       ],
       "March": [
         "Март"
@@ -3468,7 +3470,7 @@
         "фильтр по показателям"
       ],
       "\n                This filter was inherited from the dashboard's context.\n                It won't be saved when saving the chart.\n              ": [
-        "Данный фильтр был назначен из контекста дашборда. Он не будет сохранён при сохранении диаграммы."
+        "\nДанный фильтр был назначен из контекста дашборда. Он не будет сохранён при сохранении диаграммы."
       ],
       "%s aggregates(s)": [
         "%s аггрегатов"
@@ -3639,7 +3641,7 @@
         "Редактировать набор данных"
       ],
       "Change Dataset": [
-        "Измененить набон данных"
+        "Изменить набор данных"
       ],
       "View in SQL Lab": [
         "Открыть в SQL-редакторе"
