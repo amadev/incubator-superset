@@ -764,7 +764,7 @@
         "Формат D3"
       ],
       "Extra": [
-        "Дополнительные параметры"
+        "Дополнительно"
       ],
       "Row level security filter": [
         "Фильтр безопасности на уровне строк"
@@ -4358,7 +4358,7 @@
         "Производительность"
       ],
       "SQL Lab Settings": [
-        "Настройки Редактора SQL"
+        "Настройки SQL"
       ],
       "Allow users to run non-SELECT statements (UPDATE, DELETE, CREATE, ...)": [
         "Позволяет пользователям запускать инструкции (UPDATE, DELETE, CREATE, …) без SELECT в редакторе SQL"

@@ -1276,7 +1276,7 @@ msgstr "Формат D3"
 #: superset/connectors/sqla/views.py:233 superset/connectors/sqla/views.py:448
 #: superset/views/database/mixins.py:195
 msgid "Extra"
-msgstr "Дополнительные параметры"
+msgstr "Дополнительно"
 
 #: superset/connectors/sqla/views.py:266
 msgid "Row level security filter"
@@ -7307,7 +7307,7 @@ msgstr "Производительность"
 
 #: superset-frontend/src/views/CRUD/data/database/DatabaseModal.tsx:444
 msgid "SQL Lab Settings"
-msgstr "Настройки Редактора SQL"
+msgstr "Настройки SQL"
 
 #: superset-frontend/src/views/CRUD/data/database/DatabaseModal.tsx:496
 msgid "Allow users to run non-SELECT statements (UPDATE, DELETE, CREATE, ...)"
