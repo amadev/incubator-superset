@@ -27,6 +27,7 @@ import {
 } from '@superset-ui/core';
 import { availableDomains } from 'src/utils/hostNamesConfig';
 import { safeStringify } from 'src/utils/safeStringify';
+import domToImage, { Options } from 'dom-to-image';
 
 const MAX_URL_LENGTH = 8000;
 
@@ -269,24 +270,36 @@ export const exportChart = ({
 }) => {
   let url;
   let payload;
-  if (shouldUseLegacyApi(formData)) {
-    const endpointType = getLegacyEndpointType({ resultFormat, resultType });
-    url = getExploreUrl({
-      formData,
-      endpointType,
-      allowDomainSharding: false,
-    });
-    payload = formData;
-  } else {
-    url = '/api/v1/chart/data';
-    payload = buildV1ChartDataPayload({
-      formData,
-      force,
-      resultFormat,
-      resultType,
-    });
+  const post = () => {
+    if (shouldUseLegacyApi(formData)) {
+      const endpointType = getLegacyEndpointType({ resultFormat, resultType });
+      url = getExploreUrl({
+        formData,
+        endpointType,
+        allowDomainSharding: false,
+      });
+      payload = formData;
+    } else {
+      url = '/api/v1/chart/data';
+      payload = buildV1ChartDataPayload({
+        formData,
+        force,
+        resultFormat,
+        resultType,
+      });
+    }
+    postForm(url, payload);
   }
-  postForm(url, payload);
+  if (formData["viz_type"].includes("table")) {
+    post()
+  } else {
+    const elementToPrint = document.getElementsByClassName('chart-container')[1]
+    domToImage.toPng(elementToPrint)
+      .then(function (data) {
+        formData['image_data'] = data;
+        post()
+      });
+  }
 };
 
 export const exploreChart = formData => {

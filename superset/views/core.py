@@ -17,11 +17,11 @@
 # pylint: disable=comparison-with-callable, line-too-long, too-many-branches
 import dataclasses
 import logging
+import mimetypes
 import re
 from contextlib import closing
 from datetime import datetime, timedelta
 from io import BytesIO
-import mimetypes
 from typing import Any, Callable, cast, Dict, List, Optional, Union
 from urllib import parse
 
@@ -111,7 +111,6 @@ from superset.views.base import (
     common_bootstrap_payload,
     create_table_permissions,
     CsvResponse,
-    XLSXResponse,
     data_payload_response,
     generate_download_headers,
     get_error_msg,
@@ -121,6 +120,7 @@ from superset.views.base import (
     json_errors_response,
     json_success,
     validate_sqlatable,
+    XLSXResponse,
 )
 from superset.views.utils import (
     _deserialize_results_payload,
@@ -448,15 +448,10 @@ class Superset(BaseSupersetView):  # pylint: disable=too-many-public-methods
             mimetype = mimetypes.guess_type(filename)[0]
             headers = {
                 "Content-Disposition": f'attachment; filename="{filename}"; '
-                                       f"filename*=UTF-8''{filename}",
+                f"filename*=UTF-8''{filename}",
                 "Content-Type": mimetype,
             }
-            return XLSXResponse(
-                stream,
-                status=200,
-                headers=headers,
-                mimetype=mimetype,
-            )
+            return XLSXResponse(stream, status=200, headers=headers, mimetype=mimetype,)
 
         if response_type == utils.ChartDataResultType.QUERY:
             return self.get_query_string_response(viz_obj)
@@ -2635,9 +2630,7 @@ class Superset(BaseSupersetView):  # pylint: disable=too-many-public-methods
             "exported_format": "csv",
         }
         event_rep = repr(event_info)
-        logger.info(
-            "CSV exported: %s", event_rep, extra={"superset_event": event_info}
-        )
+        logger.info("CSV exported: %s", event_rep, extra={"superset_event": event_info})
         return response
 
     @has_access
@@ -2686,13 +2679,11 @@ class Superset(BaseSupersetView):  # pylint: disable=too-many-public-methods
         quoted_xlsx_name = parse.quote(query.name)
         filename = f"{quoted_xlsx_name}.xlsx"
         mimetype = mimetypes.guess_type(filename)[0]
-        response = Response(
-            xlsx.read(), mimetype=mimetype
-        )
+        response = Response(xlsx.read(), mimetype=mimetype)
         response.headers.update(
             {
-                "Content-Disposition": f'attachment; filename="{filename}"; ' 
-                                       f"filename*=UTF-8''{filename}",
+                "Content-Disposition": f'attachment; filename="{filename}"; '
+                f"filename*=UTF-8''{filename}",
                 "Content-type": mimetype,
             }
         )
