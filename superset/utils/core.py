@@ -1712,7 +1712,7 @@ def df_clear_timezone(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
-def chart_to_xlsx(df, image_data, slice_id):
+def chart_to_xlsx(df, image_data, slice_id, table_id):
     name = ""
     if slice_id:
         from superset import db
@@ -1720,6 +1720,13 @@ def chart_to_xlsx(df, image_data, slice_id):
 
         slice = db.session.query(Slice).filter(Slice.id == slice_id).one()
         name = slice.slice_name
+
+    columns = {}
+    if table_id:
+        from superset import db
+        from superset.connectors.sqla.models import TableColumn
+        columns = db.session.query(TableColumn).filter(TableColumn.table_id == table_id).all()
+        columns = {i.column_name: i.verbose_name for i in columns if i.verbose_name}
 
     output = BytesIO()
     writer = pd.ExcelWriter(output, engine="xlsxwriter")
@@ -1735,6 +1742,8 @@ def chart_to_xlsx(df, image_data, slice_id):
     else:
         # Remove TZ from datetime64[ns, *] fields b4 writing to XLSX
         df_clear_timezone(df)
+        df = df.rename(columns=columns)
+        logger.info("!D df columns %s", df.columns)
         include_index = not isinstance(df.index, pd.RangeIndex)
         df.to_excel(writer, index=include_index, startrow=1)
         sheet = writer.book.worksheets()[0]

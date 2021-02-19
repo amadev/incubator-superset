@@ -490,7 +490,8 @@ class ChartRestApi(BaseSupersetModelRestApi):
             xlsx = utils.chart_to_xlsx(
                 pd.DataFrame(result["queries"][0]["data"]),
                 command._query_context.image_data,
-                command._query_context.slice_id)
+                command._query_context.slice_id,
+                None)
             filename = f'{datetime.now().strftime("%Y%m%d_%H%M%S")}.xlsx'
 
             mimetype = mimetypes.guess_type(filename)[0]
