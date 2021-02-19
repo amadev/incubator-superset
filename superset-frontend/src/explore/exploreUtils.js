@@ -297,7 +297,7 @@ export const exportChart = ({
   if (formData["viz_type"].includes("table")) {
     post()
   } else {
-    const elementToPrint = document.getElementsByClassName('chart-container')[1]
+    const elementToPrint = document.getElementById('chart-id-' + formData['slice_id']);
     domToImage.toPng(elementToPrint)
       .then(function (data) {
         formData['image_data'] = data;
