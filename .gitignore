@@ -43,7 +43,6 @@ build
 app.db
 apache_superset.egg-info/
 changelog.sh
-dist
 dump.rdb
 env
 venv*
@@ -81,8 +80,5 @@ ghostdriver.log
 testCSV.csv
 .terser-plugin-cache/
 apache-superset-*.tar.gz*
-
-# Translation binaries
-messages.mo
 
 docker/requirements-local.txt
