@@ -15,10 +15,12 @@
 # specific language governing permissions and limitations
 # under the License.
 """Utility functions used across Superset"""
+import base64
 import decimal
 import errno
 import functools
 import hashlib
+from io import BytesIO
 import json
 import logging
 import os
@@ -1708,3 +1710,36 @@ def df_clear_timezone(df: pd.DataFrame) -> pd.DataFrame:
             df[field_name] = df[field_name].dt.tz_localize(None)
 
     return df
+
+
+def chart_to_xlsx(df, image_data, slice_id):
+    name = ""
+    if slice_id:
+        from superset import db
+        from superset.models.slice import Slice
+
+        slice = db.session.query(Slice).filter(Slice.id == slice_id).one()
+        name = slice.slice_name
+
+    output = BytesIO()
+    writer = pd.ExcelWriter(output, engine="xlsxwriter")
+
+    if image_data:
+        sheet = writer.book.add_worksheet("Sheet1")
+        sheet.write("A1", name)
+        image_data = image_data.split(",")[1]
+        image_data = base64.b64decode(image_data)
+        sheet.insert_image(
+            "A2", "in-memory", options={"image_data": BytesIO(image_data)}
+        )
+    else:
+        # Remove TZ from datetime64[ns, *] fields b4 writing to XLSX
+        df_clear_timezone(df)
+        include_index = not isinstance(df.index, pd.RangeIndex)
+        df.to_excel(writer, index=include_index, startrow=1)
+        sheet = writer.book.worksheets()[0]
+        sheet.write("A1", name)
+        sheet.set_column(0, len(df.columns) - 1, 30)
+    writer.close()
+    output.seek(0)
+    return output

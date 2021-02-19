@@ -81,6 +81,7 @@ from superset.utils.core import (
 )
 from superset.utils.screenshots import ChartScreenshot
 from superset.utils.urls import get_url_path
+from superset.utils import core as utils
 from superset.views.base_api import (
     BaseSupersetModelRestApi,
     RelatedFieldFilter,
@@ -486,40 +487,7 @@ class ChartRestApi(BaseSupersetModelRestApi):
             )
 
         if result_format == ChartDataResultFormat.XLSX:
-
-            # TODO(avolkov): move to utils/core.py
-            def chart_to_xlsx(df, image_data, slice_id):
-                name = ""
-                if slice_id:
-                    from superset import db
-                    from superset.models.slice import Slice
-
-                    slice = db.session.query(Slice).filter(Slice.id == slice_id).one()
-                    name = slice.slice_name
-
-                output = BytesIO()
-                writer = pd.ExcelWriter(output, engine="xlsxwriter")
-
-                if image_data:
-                    sheet = writer.book.add_worksheet("Sheet1")
-                    sheet.write("A1", name)
-                    image_data = image_data.split(",")[1]
-                    image_data = base64.b64decode(image_data)
-                    sheet.insert_image(
-                        "A2", "in-memory", options={"image_data": BytesIO(image_data)}
-                    )
-                else:
-                    # Remove TZ from datetime64[ns, *] fields b4 writing to XLSX
-                    df_clear_timezone(df)
-                    include_index = not isinstance(df.index, pd.RangeIndex)
-                    df.to_excel(writer, index=include_index, startrow=1)
-                    sheet = writer.book.worksheets()[0]
-                    sheet.write("A1", name)
-                writer.close()
-                output.seek(0)
-                return output
-
-            xlsx = chart_to_xlsx(
+            xlsx = utils.chart_to_xlsx(
                 pd.DataFrame(result["queries"][0]["data"]),
                 command._query_context.image_data,
                 command._query_context.slice_id)
