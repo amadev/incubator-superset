@@ -287,6 +287,10 @@ export const exportChart = ({
         resultFormat,
         resultType,
       });
+      if (formData['image_data']) {
+        payload['image_data'] = formData['image_data'];
+        payload['slice_id'] = formData['slice_id'];
+      }
     }
     postForm(url, payload);
   }

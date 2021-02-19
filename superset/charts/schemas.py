@@ -1018,6 +1018,14 @@ class ChartDataQueryContextSchema(Schema):
         validate=validate.OneOf(choices=("json", "csv", "xlsx")),
     )
 
+    image_data = fields.String(
+        description="base64 encoded binary image data",
+    )
+
+    slice_id = fields.Integer(
+        description="ID of a slice",
+    )
+
     # pylint: disable=no-self-use,unused-argument
     @post_load
     def make_query_context(self, data: Dict[str, Any], **kwargs: Any) -> QueryContext:
