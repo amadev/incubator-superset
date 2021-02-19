@@ -7303,7 +7303,7 @@ msgstr "как структурировать URI."
 
 #: superset-frontend/src/views/CRUD/data/database/DatabaseModal.tsx:404
 msgid "Performance"
-msgstr "Производительность"
+msgstr "Быстродействие"
 
 #: superset-frontend/src/views/CRUD/data/database/DatabaseModal.tsx:444
 msgid "SQL Lab Settings"
