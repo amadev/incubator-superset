@@ -6027,6 +6027,25 @@ angular.module('cv.studio').controller("CubesViewerStudioController", ['$rootSco
 	    });
 	};
 
+	$scope.showSerializeModelAdd = function() {
+
+	    var modalInstance = $uibModal.open({
+	    	animation: true,
+	    	templateUrl: 'studio/serialize-model-add.html',
+	    	controller: 'CubesViewerSerializeModelAddController',
+	    	appendTo: angular.element($($element).find('.cv-gui-modals')[0]),
+	    	/*
+		    size: size,
+	    	 */
+	    });
+
+	    modalInstance.result.then(function (selectedItem) {
+	    	//$scope.selected = selectedItem;
+	    }, function () {
+	        //console.debug('Modal dismissed at: ' + new Date());
+	    });
+	};
+
 	$scope.showSerializeView = function(view) {
 
 	    var modalInstance = $uibModal.open({
@@ -6234,7 +6253,6 @@ function CubesViewerStudio() {
  * @global
  */
 var cubesviewerStudio = new CubesViewerStudio();
-
 ;/*
  * CubesViewer
  * Copyright (c) 2012-2016 Jose Juan Montes, see AUTHORS for more details
@@ -6326,10 +6344,40 @@ angular.module('cv.studio').controller("CubesViewerSerializeAddController", ['$r
 		$uibModalInstance.dismiss('cancel');
 	};
 
+                                                                             }]);
+
+angular.module('cv.studio').controller("CubesViewerSerializeModelAddController", ['$rootScope', '$scope', '$uibModalInstance', 'cvOptions', 'cubesService', 'studioViewsService', '$http', '$cookies',
+                                                                                  function ($rootScope, $scope, $uibModalInstance, cvOptions, cubesService, studioViewsService, $http, $cookies) {
+
+	$scope.cvVersion = cubesviewer.version;
+	$scope.cvOptions = cvOptions;
+	$scope.cubesService = cubesService;
+	$scope.studioViewsService = studioViewsService;
+
+	$scope.serializedView = null;
+
+	$scope.addSerializedModelView = function (model) {
+          console.debug("About to update cubes model", model);
+          $http({
+            "method": "POST",
+            "url": cvOptions.cubesUrl + "/model",
+            "data": model,
+            "dataType": "text",
+          }).then($scope.saveCallback(),
+                  cubesService.defaultRequestErrorHandler);
+	};
+
+	$scope.close = function() {
+          $uibModalInstance.dismiss('cancel');
+	};
+
+        $scope.saveCallback = function() {
+          return function(data, status) {
+            console.log("Update finished", data);
+            $uibModalInstance.dismiss('cancel');
+          }
+        };
 }]);
-
-
-
 ;/*
  * CubesViewer
  * Copyright (c) 2012-2016 Jose Juan Montes, see AUTHORS for more details
@@ -6772,6 +6820,26 @@ angular.module('cv.cubes').service("gaService", ['$rootScope', '$http', '$cookie
   );
 
 
+  $templateCache.put('studio/serialize-model-add.html',
+    "  <div class=\"modal-header\">\n" +
+    "    <button type=\"button\" ng-click=\"close()\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\"><i class=\"fa fa-fw fa-close\"></i></span></button>\n" +
+    "    <h4 class=\"modal-title\" id=\"myModalLabel\"><i class=\"fa fa-code\"></i> Обновить модель</h4>\n" +
+    "  </div>\n" +
+    "  <div class=\"modal-body\">\n" +
+    "\n" +
+    "        <div class=\"form\">\n" +
+    "            <label for=\"serializedModelView\">JSON:</label>\n" +
+    "            <textarea class=\"form-control\" ng-model=\"serializedModelView\" style=\"width: 100%; height: 12em;\" />\n" +
+    "        </div>\n" +
+    "\n" +
+    "  </div>\n" +
+    "  <div class=\"modal-footer\">\n" +
+    "    <button type=\"button\" ng-click=\"close()\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Отменить</button>\n" +
+    "    <button type=\"button\" ng-click=\"addSerializedModelView(serializedModelView)\" class=\"btn btn-primary\" data-dismiss=\"modal\">Сохранить</button>\n" +
+    "  </div>\n"
+  );
+
+
   $templateCache.put('studio/serialize-view.html',
     "  <div class=\"modal-header\">\n" +
     "    <button type=\"button\" ng-click=\"close()\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\"><i class=\"fa fa-fw fa-close\"></i></span></button>\n" +
@@ -6878,6 +6946,8 @@ angular.module('cv.cubes').service("gaService", ['$rootScope', '$http', '$cookie
     "          </button>\n" +
     "\n" +
     "          <ul class=\"dropdown-menu\">\n" +
+    "\n" +
+    "                <li ng-click=\"showSerializeModelAdd()\"><a tabindex=\"0\"><i class=\"fa fa-fw fa-code\"></i> Обновить модель</a></li>\n" +
     "\n" +
     "                <li ng-click=\"showSerializeAdd()\"><a tabindex=\"0\"><i class=\"fa fa-fw fa-code\"></i> Добавить представление из JSON...</a></li>\n" +
     "\n" +

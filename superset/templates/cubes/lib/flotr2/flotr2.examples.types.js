@@ -52,7 +52,7 @@ function basic (container) {
   graph = Flotr.draw(container, [ d1, d2 ], {
     xaxis: {
       minorTickFreq: 4
-    },
+    }, 
     grid: {
       minorVerticalLines: true
     }
@@ -85,7 +85,7 @@ function basic_stacked (container) {
     },
     xaxis: {
       minorTickFreq: 4
-    },
+    }, 
     grid: {
       minorVerticalLines: true
     }
@@ -123,7 +123,7 @@ function basic_stepped (container) {
     },
     xaxis: {
       minorTickFreq: 4
-    },
+    }, 
     yaxis: {
       autoscale: true
     },
@@ -157,7 +157,7 @@ function basic_axis (container) {
     d5 = [],                        // Data
     ticks = [[ 0, "Lower"], 10, 20, 30, [40, "Upper"]], // Ticks for the Y-Axis
     graph;
-
+        
   for(var i = 0; i <= 10; i += 0.1){
     d1.push([i, 4 + Math.pow(i,1.5)]);
     d2.push([i, Math.pow(i,3)]);
@@ -167,16 +167,16 @@ function basic_axis (container) {
       d5.push([i, 2*i]);
     }
   }
-
+        
   d3[30][1] = null;
   d3[31][1] = null;
 
   function ticksFn (n) { return '('+n+')'; }
 
-  graph = Flotr.draw(container, [
-      { data : d1, label : 'y = 4 + x^(1.5)', lines : { fill : true } },
-      { data : d2, label : 'y = x^3'},
-      { data : d3, label : 'y = 5x + 3sin(4x)'},
+  graph = Flotr.draw(container, [ 
+      { data : d1, label : 'y = 4 + x^(1.5)', lines : { fill : true } }, 
+      { data : d2, label : 'y = x^3'}, 
+      { data : d3, label : 'y = 5x + 3sin(4x)'}, 
       { data : d4, label : 'y = x'},
       { data : d5, label : 'y = 2x', lines : { show : true }, points : { show : true } }
     ], {
@@ -235,15 +235,15 @@ function basic_bars (container, horizontal) {
 
   for (i = 0; i < 4; i++) {
 
-    if (horizontal) {
+    if (horizontal) { 
       point = [Math.ceil(Math.random()*10), i];
     } else {
       point = [i, Math.ceil(Math.random()*10)];
     }
 
     d1.push(point);
-
-    if (horizontal) {
+        
+    if (horizontal) { 
       point = [Math.ceil(Math.random()*10), i+0.5];
     } else {
       point = [i+0.5, Math.ceil(Math.random()*10)];
@@ -251,7 +251,7 @@ function basic_bars (container, horizontal) {
 
     d2.push(point);
   };
-
+              
   // Draw the graph
   Flotr.draw(
     container,
@@ -319,7 +319,7 @@ function bars_stacked (container, horizontal) {
     { data : d3, label : 'Serie 3' }
   ], {
     legend : {
-      backgroundColor : '#D2E8FF' // Light blue
+      backgroundColor : '#D2E8FF' // Light blue 
     },
     bars : {
       show : true,
@@ -354,7 +354,7 @@ function basic_pie (container) {
     d3 = [[0, 1.03]],
     d4 = [[0, 3.5]],
     graph;
-
+  
   graph = Flotr.draw(container, [
     { data : d1, label : 'Comedy' },
     { data : d2, label : 'Action' },
@@ -373,7 +373,7 @@ function basic_pie (container) {
     xaxis : { showLabels : false },
     yaxis : { showLabels : false },
     pie : {
-      show : true,
+      show : true, 
       explode : 6
     },
     mouse : { track : true },
@@ -411,12 +411,12 @@ function basic_radar (container) {
     [4, "Management"],
     [5, "oops"]
   ];
-
+    
   // Draw the graph.
   graph = Flotr.draw(container, [ s1, s2 ], {
-    radar : { show : true},
-    grid  : { circular : true, minorHorizontalLines : true},
-    yaxis : { min : 0, max : 10, minorTickFreq : 2},
+    radar : { show : true}, 
+    grid  : { circular : true, minorHorizontalLines : true}, 
+    yaxis : { min : 0, max : 10, minorTickFreq : 2}, 
     xaxis : { ticks : ticks},
     mouse : { track : true}
   });
@@ -438,15 +438,15 @@ function basic_bubble (container) {
     d1 = [],
     d2 = [],
     point, graph, i;
-
+      
   for (i = 0; i < 10; i++ ){
     point = [i, Math.ceil(Math.random()*10), Math.ceil(Math.random()*10)];
     d1.push(point);
-
+    
     point = [i, Math.ceil(Math.random()*10), Math.ceil(Math.random()*10)];
     d2.push(point);
   }
-
+  
   // Draw the graph
   graph = Flotr.draw(container, [d1, d2], {
     bubbles : { show : true, baseRadius : 5 },
@@ -480,9 +480,9 @@ function basic_candle (container) {
       d1.push([i, price, price + a, price - b, price + c]);
       price = price + c;
   }
-
+    
   // Graph
-  graph = Flotr.draw(container, [ d1 ], {
+  graph = Flotr.draw(container, [ d1 ], { 
     candles : { show : true, candleWidth : 0.6 },
     xaxis   : { noTicks : 10 }
   });
@@ -514,15 +514,15 @@ function basic_candle (container) {
       d1.push([i, price, price + a, price - b, price + c]);
       price = price + c;
   }
-
+    
   // Graph
-  graph = Flotr.draw(container, [ d1 ], {
-    candles : {
-      show : true,
-      candleWidth : 0.6,
-      barcharts: true,
-      upFillColor: '#00A048',
-      downFillColor: '#CB2020'
+  graph = Flotr.draw(container, [ d1 ], { 
+    candles : { 
+      show : true, 
+      candleWidth : 0.6, 
+      barcharts: true, 
+      upFillColor: '#00A048', 
+      downFillColor: '#CB2020' 
     },
     xaxis   : { noTicks : 10 }
   });
@@ -603,7 +603,7 @@ function mouse_tracking (container) {
   }
 
   graph = Flotr.draw(
-    container,
+    container, 
     [
       {
         data : d1,
@@ -628,7 +628,7 @@ function mouse_tracking (container) {
     }
   );
 
-};
+};      
 
 })();
 
@@ -656,12 +656,12 @@ function mouse_zoom (container) {
     d2.push([i, Math.pow(1.1, i)]);
     d3.push([i, 40 - i+Math.random()*10]);
   }
-
+      
   options = {
     selection : { mode : 'x', fps : 30 },
     title : 'Mouse Zoom'
   };
-
+    
   // Draw graph with default options, overwriting with passed options
   function drawGraph (opts) {
 
@@ -677,8 +677,8 @@ function mouse_zoom (container) {
   }
 
   // Actually draw the graph.
-  graph = drawGraph();
-
+  graph = drawGraph();      
+    
   // Hook into the 'flotr:select' event.
   Flotr.EventAdapter.observe(container, 'flotr:select', function (area) {
 
@@ -688,7 +688,7 @@ function mouse_zoom (container) {
       yaxis: {min:area.y1, max:area.y2}
     });
   });
-
+    
   // When graph is clicked, draw the graph with default area.
   Flotr.EventAdapter.observe(container, 'flotr:click', function () { drawGraph(); });
 };
@@ -720,7 +720,7 @@ function mouse_drag (container) {
     d2.push([i, Math.pow(1.1, i)]);
     d3.push([i, 40 - i+Math.random()*10]);
   }
-
+      
   options = {
     xaxis: {min: 0, max: 20},
       title : 'Mouse Drag'
@@ -740,7 +740,7 @@ function mouse_drag (container) {
     );
   }
 
-  graph = drawGraph();
+  graph = drawGraph();      
 
   function initializeDrag (e) {
     start = graph.getEventPosition(e);
@@ -792,10 +792,10 @@ function basic_time (container) {
     x = start+(i*1000*3600*24*36.5);
     d1.push([x, i+Math.random()*30+Math.sin(i/20+Math.random()*2)*20+Math.sin(i/10+Math.random())*10]);
   }
-
+        
   options = {
     xaxis : {
-      mode : 'time',
+      mode : 'time', 
       labelsAngle : 45
     },
     selection : {
@@ -804,7 +804,7 @@ function basic_time (container) {
     HtmlText : false,
     title : 'Time'
   };
-
+        
   // Draw graph with default options, overwriting with passed options
   function drawGraph (opts) {
 
@@ -819,8 +819,8 @@ function basic_time (container) {
     );
   }
 
-  graph = drawGraph();
-
+  graph = drawGraph();      
+        
   Flotr.EventAdapter.observe(container, 'flotr:select', function(area){
     // Draw selected area
     graph = drawGraph({
@@ -828,10 +828,10 @@ function basic_time (container) {
       yaxis : { min : area.y1, max : area.y2 }
     });
   });
-
+        
   // When graph is clicked, draw the graph with default area.
   Flotr.EventAdapter.observe(container, 'flotr:click', function () { graph = drawGraph(); });
-};
+};      
 
 })();
 
@@ -847,8 +847,8 @@ function negative_values (container) {
 
   var
     d0    = [], // Line through y = 0
-    d1    = [], // Random data presented as a scatter plot.
-    d2    = [], // A regression line for the scatter.
+    d1    = [], // Random data presented as a scatter plot. 
+    d2    = [], // A regression line for the scatter. 
     sx    = 0,
     sy    = 0,
     sxy   = 0,
@@ -878,15 +878,15 @@ function negative_values (container) {
   ymean = sy/n;
   beta  = ((n*sxy) - (sx*sy))/((n*sxsq)-(Math.pow(sx,2)));
   alpha = ymean - (beta * xmean);
-
+  
   // Compute the regression line.
   for (n = 0; n < 20; n++){
     d2.push([n, alpha + beta*n])
-  }
+  }     
 
   // Draw the graph
   graph = Flotr.draw(
-    container, [
+    container, [ 
       { data : d0, shadowSize : 0, color : '#545454' }, // Horizontal
       { data : d1, label : 'y = x + (Math.random() * 8) - 15', points : { show : true } },  // Scatter
       { data : d2, label : 'y = ' + alpha.toFixed(2) + ' + ' + beta.toFixed(2) + '*x' }  // Regression
@@ -931,14 +931,14 @@ function click_example (container) {
 
     // Add a point to the series at the location of the click
     d1.push([position.x, position.y]);
-
+    
     // Sort the series.
     d1 = d1.sort(function (a, b) { return a[0] - b[0]; });
-
+    
     // Redraw the graph, with the new series.
     graph = Flotr.draw(container, [d1], options);
   });
-};
+};      
 
 })();
 
@@ -948,7 +948,7 @@ Flotr.ExampleList.add({
   key : 'download-image',
   name : 'Download Image',
   callback : download_image,
-  description : '' +
+  description : '' + 
     '<form name="image-download" id="image-download" action="" onsubmit="return false">' +
       '<label><input type="radio" name="format" value="png" checked="checked" /> PNG</label>' +
       '<label><input type="radio" name="format" value="jpeg" /> JPEG</label>' +
@@ -969,7 +969,7 @@ function download_image (container) {
     d5 = [],
     graph,
     i;
-
+  
   for (i = 0; i <= 10; i += 0.1) {
     d1.push([i, 4 + Math.pow(i,1.5)]);
     d2.push([i, Math.pow(i,3)]);
@@ -982,10 +982,10 @@ function download_image (container) {
 
   // Draw the graph
   graph = Flotr.draw(
-    container,[
-      {data:d1, label:'y = 4 + x^(1.5)', lines:{fill:true}},
-      {data:d2, label:'y = x^3', yaxis:2},
-      {data:d3, label:'y = 5x + 3sin(4x)'},
+    container,[ 
+      {data:d1, label:'y = 4 + x^(1.5)', lines:{fill:true}}, 
+      {data:d2, label:'y = x^3', yaxis:2}, 
+      {data:d3, label:'y = 5x + 3sin(4x)'}, 
       {data:d4, label:'y = x'},
       {data:d5, label:'y = 2x', lines: {show: true}, points: {show: true}}
     ],{
@@ -1058,7 +1058,7 @@ function download_data (container) {
     d5 = [],
     graph,
     i,x;
-
+  
   for (i = 0; i <= 100; i += 1) {
     x = i / 10;
     d1.push([x, 4 + Math.pow(x,1.5)]);
@@ -1069,10 +1069,10 @@ function download_data (container) {
       d5.push([x, 2*x]);
     }
   }
-
+          
   // Draw the graph.
   graph = Flotr.draw(
-    container, [
+    container, [ 
       { data : d1, label : 'y = 4 + x^(1.5)', lines : { fill : true } },
       { data : d2, label : 'y = x^3' },
       { data : d3, label : 'y = 5x + 3sin(4x)' },
@@ -1136,7 +1136,7 @@ function advanced_titles (container) {
 
   // Draw the graph.
   graph = Flotr.draw(
-    container,[
+    container,[ 
       { data : d1, label : 'y = 4 + x^(1.5)', lines : { fill : true } },
       { data : d2, label : 'y = x^3', yaxis : 2 },
       { data : d3, label : 'y = 5x + 3sin(4x)' },
@@ -1214,17 +1214,17 @@ function color_gradients (container) {
     point,
     graph,
     i;
-
+  
   for (i = 0; i < 8; i++) {
     point = [i, Math.ceil(Math.random() * 10)];
     bars.data.push(point);
     markers.data.push(point);
   }
-
+  
   for (i = -1; i < 9; i += 0.01){
     lines.data.push([i, i*i/8+2]);
   }
-
+  
   graph = Flotr.draw(
     container,
     [lines, bars, markers], {
@@ -1276,15 +1276,15 @@ function profile_bars (container, horizontal) {
 
   for (i = 0; i < 5000; i++) {
 
-    if (horizontal) {
+    if (horizontal) { 
       point = [Math.ceil(Math.random()*10), i];
     } else {
       point = [i, Math.ceil(Math.random()*10)];
     }
 
     d1.push(point);
-
-    if (horizontal) {
+        
+    if (horizontal) { 
       point = [Math.ceil(Math.random()*10), i+0.5];
     } else {
       point = [i+0.5, Math.ceil(Math.random()*10)];
@@ -1292,7 +1292,7 @@ function profile_bars (container, horizontal) {
 
     d2.push(point);
   };
-
+              
   // Draw the graph
   Flotr.draw(
     container,
@@ -1361,7 +1361,7 @@ function basic_timeline (container) {
       labelFormatter : function (o) { return labels[o.index]; }
     }
   });
-
+  
   // Draw Graph
   graph = Flotr.draw(container, data, {
     xaxis: {
@@ -1372,7 +1372,7 @@ function basic_timeline (container) {
           months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
         return months[(x-1)%12];
       }
-    },
+    }, 
     yaxis: {
       showLabels : false
     },
@@ -1458,3 +1458,4 @@ function advanced_markers (container) {
 };
 
 })();
+

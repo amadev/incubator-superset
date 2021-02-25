@@ -12096,8 +12096,8 @@ module.filter('px', function() {
             pageForward: 'Page forward',
             pageToLast: 'Page to last'
           },
-          sizes: 'items per page',
-          totalItems: 'items',
+            sizes: 'строк на странице',
+            totalItems: 'строк',
           through: 'through',
           of: 'of'
         },
