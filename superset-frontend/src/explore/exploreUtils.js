@@ -30,6 +30,7 @@ import { safeStringify } from 'src/utils/safeStringify';
 import domToImage, { Options } from 'dom-to-image';
 
 const MAX_URL_LENGTH = 8000;
+const WHITE_BACKGROUND_COLOR = '#F8F8FF';
 
 export function getChartKey(explore) {
   const { slice } = explore;
@@ -294,11 +295,14 @@ export const exportChart = ({
     }
     postForm(url, payload);
   }
-  if (formData["viz_type"].includes("table")) {
+  if (formData['viz_type'].includes('table')) {
     post()
   } else {
     const elementToPrint = document.getElementById('chart-id-' + formData['slice_id']);
-    domToImage.toPng(elementToPrint)
+    domToImage.toPng(elementToPrint, {
+      quality: 0.95,
+      bgcolor: WHITE_BACKGROUND_COLOR,
+    })
       .then(function (data) {
         formData['image_data'] = data;
         post()

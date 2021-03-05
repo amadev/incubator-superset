@@ -630,9 +630,10 @@ class BaseViz:
         return df.to_csv(index=include_index, **config["CSV_EXPORT"])
 
     def get_xlsx(self) -> Optional[bytes]:
-        table_id, typ  = self.form_data.get("datasource").split('__')
-        if typ != 'table':
+        table_id, d_type = self.form_data.get("datasource").split('__')
+        if d_type != 'table':
             table_id = None
+
         return utils.chart_to_xlsx(
             self.get_df_payload()["df"],
             self.form_data.get("image_data"),

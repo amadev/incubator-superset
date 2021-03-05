@@ -1712,43 +1712,72 @@ def df_clear_timezone(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
-def chart_to_xlsx(df, image_data, slice_id, table_id):
+def chart_to_xlsx(df: pd.DataFrame, image_data: str, slice_id: int, table_id: int = None) -> BytesIO:
     name = ""
     if slice_id:
         from superset import db
         from superset.models.slice import Slice
 
-        slice = db.session.query(Slice).filter(Slice.id == slice_id).one()
-        name = slice.slice_name
+        slc = db.session.query(Slice).filter(
+            Slice.id == slice_id
+        ).one()
+        name = slc.slice_name
 
     columns = {}
     if table_id:
         from superset import db
         from superset.connectors.sqla.models import TableColumn
-        columns = db.session.query(TableColumn).filter(TableColumn.table_id == table_id).all()
-        columns = {i.column_name: i.verbose_name for i in columns if i.verbose_name}
 
+        columns = db.session.query(TableColumn).filter(
+            TableColumn.table_id == table_id
+        ).all()
+        columns = {
+            c.column_name: c.verbose_name for c in columns if c.verbose_name
+        }
+
+    # Remove TZ from datetime64[ns, *] fields b4 writing to XLSX
+    df = df_clear_timezone(df)
+    # Rename columns with verbose names if they exists
+    if columns:
+        df = df.rename(columns=columns)
+        logger.info("!D df columns {}".format(df.columns))
+
+    include_index = not isinstance(df.index, pd.RangeIndex)
+
+    # Init output object
     output = BytesIO()
     writer = pd.ExcelWriter(output, engine="xlsxwriter")
-
+    # Init workbook and set formats
+    wb = writer.book
+    bold_fmt = wb.add_format({'bold': True})
     if image_data:
-        sheet = writer.book.add_worksheet("Sheet1")
-        sheet.write("A1", name)
+        img_sheet_name = f"{name}-image" if name else 'Sheet1'
+        img_sheet = wb.add_worksheet(img_sheet_name)
+        img_sheet.write("A1", name, bold_fmt)
         image_data = image_data.split(",")[1]
         image_data = base64.b64decode(image_data)
-        sheet.insert_image(
-            "A2", "in-memory", options={"image_data": BytesIO(image_data)}
+        img_sheet.insert_image(
+            "A2", "in-memory",
+            options={"image_data": BytesIO(image_data)}
         )
+        # Add DF data to other ws
+        data_sheet_name = f"{name}-data" if name else 'Sheet2'
+        df.to_excel(writer, index=include_index, sheet_name=data_sheet_name)
+        data_sheet = writer.sheets[data_sheet_name]
     else:
-        # Remove TZ from datetime64[ns, *] fields b4 writing to XLSX
-        df_clear_timezone(df)
-        df = df.rename(columns=columns)
-        logger.info("!D df columns %s", df.columns)
-        include_index = not isinstance(df.index, pd.RangeIndex)
-        df.to_excel(writer, index=include_index, startrow=1)
-        sheet = writer.book.worksheets()[0]
-        sheet.write("A1", name)
-        sheet.set_column(0, len(df.columns) - 1, 30)
+        # Just write DF data to 1st ws
+        data_sheet_name = name if name else 'Sheet1'
+        df.to_excel(
+            writer,
+            index=include_index, sheet_name=data_sheet_name, startrow=1
+        )
+        data_sheet = writer.sheets[name]
+        data_sheet.write("A1", name, bold_fmt)
+
+    # Set columns width
+    data_sheet.set_column(0, len(df.columns) - 1, 30)
+
     writer.close()
     output.seek(0)
+
     return output

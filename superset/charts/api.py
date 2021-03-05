@@ -491,9 +491,9 @@ class ChartRestApi(BaseSupersetModelRestApi):
                 pd.DataFrame(result["queries"][0]["data"]),
                 command._query_context.image_data,
                 command._query_context.slice_id,
-                None)
+                None
+            )
             filename = f'{datetime.now().strftime("%Y%m%d_%H%M%S")}.xlsx'
-
             mimetype = mimetypes.guess_type(filename)[0]
             headers = {
                 "Content-Disposition": f'attachment; filename="{filename}"; '
