@@ -77,7 +77,7 @@ from superset.utils.core import (
     JS_MAX_INTEGER,
     merge_extra_filters,
     QueryMode,
-    to_adhoc
+    to_adhoc,
 )
 from superset.utils.dates import datetime_to_epoch
 from superset.utils.hashing import md5_sha_from_str
@@ -630,15 +630,15 @@ class BaseViz:
         return df.to_csv(index=include_index, **config["CSV_EXPORT"])
 
     def get_xlsx(self) -> Optional[bytes]:
-        table_id, d_type = self.form_data.get("datasource").split('__')
-        if d_type != 'table':
+        table_id, d_type = self.form_data.get("datasource").split("__")
+        if d_type != "table":
             table_id = None
 
         return utils.chart_to_xlsx(
             self.get_df_payload()["df"],
             self.form_data.get("image_data"),
             self.form_data.get("slice_id"),
-            table_id
+            table_id,
         ).read()
 
     def get_data(self, df: pd.DataFrame) -> VizData:

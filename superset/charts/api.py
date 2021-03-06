@@ -17,19 +17,19 @@
 import base64
 import json
 import logging
+import mimetypes
 from datetime import datetime
 from io import BytesIO
-import mimetypes
 from typing import Any, Dict
 from zipfile import ZipFile
 
+import pandas as pd
 import simplejson
 from flask import g, make_response, redirect, request, Response, send_file, url_for
 from flask_appbuilder.api import expose, protect, rison, safe
 from flask_appbuilder.models.sqla.interface import SQLAInterface
 from flask_babel import gettext as _, ngettext
 from marshmallow import ValidationError
-import pandas as pd
 from werkzeug.wrappers import Response as WerkzeugResponse
 from werkzeug.wsgi import FileWrapper
 
@@ -72,6 +72,7 @@ from superset.exceptions import SupersetSecurityException
 from superset.extensions import event_logger
 from superset.models.slice import Slice
 from superset.tasks.thumbnails import cache_chart_thumbnail
+from superset.utils import core as utils
 from superset.utils.async_query_manager import AsyncQueryTokenException
 from superset.utils.core import (
     ChartDataResultFormat,
@@ -81,15 +82,12 @@ from superset.utils.core import (
 )
 from superset.utils.screenshots import ChartScreenshot
 from superset.utils.urls import get_url_path
-from superset.utils import core as utils
 from superset.views.base_api import (
     BaseSupersetModelRestApi,
     RelatedFieldFilter,
     statsd_metrics,
 )
-from superset.views.core import (
-    CsvResponse, XLSXResponse, generate_download_headers
-)
+from superset.views.core import CsvResponse, generate_download_headers, XLSXResponse
 from superset.views.filters import FilterRelatedOwners
 
 logger = logging.getLogger(__name__)
@@ -491,20 +489,17 @@ class ChartRestApi(BaseSupersetModelRestApi):
                 pd.DataFrame(result["queries"][0]["data"]),
                 command._query_context.image_data,
                 command._query_context.slice_id,
-                None
+                None,
             )
             filename = f'{datetime.now().strftime("%Y%m%d_%H%M%S")}.xlsx'
             mimetype = mimetypes.guess_type(filename)[0]
             headers = {
                 "Content-Disposition": f'attachment; filename="{filename}"; '
-                                       f"filename*=UTF-8''{filename}",
-                'Content-Type': mimetype,
+                f"filename*=UTF-8''{filename}",
+                "Content-Type": mimetype,
             }
             return XLSXResponse(
-                xlsx.read(),
-                status=200,
-                headers=headers,
-                mimetype=mimetype,
+                xlsx.read(), status=200, headers=headers, mimetype=mimetype,
             )
 
         if result_format == ChartDataResultFormat.JSON:

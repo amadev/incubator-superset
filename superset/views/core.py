@@ -1801,7 +1801,29 @@ class Superset(BaseSupersetView):  # pylint: disable=too-many-public-methods
         dashboard = db.session.query(Dashboard).filter_by(id=dashboard_id).one()
         dashboard_title = dashboard.dashboard_title
         dashboard_data = dashboard.data
-        dashboard_slices = dashboard_data['slices']
+        dashboard_slices = dashboard_data["slices"]
+
+        logger.debug(f"Exporting dashboard {dashboard_id} to xslx ...")
+
+        def debug_print(s):
+            import pprint
+
+            class P(pprint.PrettyPrinter):
+                def _format(self, object, *args, **kwargs):
+                    if isinstance(object, str):
+                        if len(object) > 20:
+                            object = object[:20] + "..."
+                    return pprint.PrettyPrinter._format(self, object, *args, **kwargs)
+
+            return P().pformat(s)
+
+        logger.debug("Request data %s", debug_print(json_body.copy()))
+
+        def sheet_name(name, suffix):
+            import uuid
+
+            s_name = f"{name[:(31 - 6 - len(suffix))]}-{str(uuid.uuid4())[:4]}-{suffix}"
+            return s_name
 
         # Get image of dashboard from json_body
         image_data = json_body.get("imageData")
@@ -1814,57 +1836,58 @@ class Superset(BaseSupersetView):  # pylint: disable=too-many-public-methods
         slices_data_dict = {}
         if slices_data:
             slices_data_dict = {
-                slc_data['slice_id'].lstrip('chart-id-'): {
-                    'image_data': slc_data['image_data'],
-                    'slice_type': slc_data['slice_type'],
-                } for slc_data in slices_data
+                slc_data["slice_id"].lstrip("chart-id-"): {
+                    "image_data": slc_data["image_data"],
+                    "slice_type": slc_data["slice_type"],
+                }
+                for slc_data in slices_data
             }
 
         # Build XLSX
         output = BytesIO()
-        with pd.ExcelWriter(output, engine='xlsxwriter') as writer:
+        with pd.ExcelWriter(output, engine="xlsxwriter") as writer:
             wb = writer.book
-            bold_fmt = wb.add_format({'bold': True})
+            bold_fmt = wb.add_format({"bold": True})
             if image_data:
                 # First sheet is for dashboard img
-                sheet = wb.add_worksheet(dashboard_title)
+                sheet = wb.add_worksheet(sheet_name(dashboard_title, "main"))
                 sheet.write("A1", dashboard_title, bold_fmt)
                 sheet.insert_image(
-                    "A2", "in-memory",
-                    options={"image_data": BytesIO(image_data)}
+                    "A2", "in-memory", options={"image_data": BytesIO(image_data)}
                 )
 
             # Get slices data & write result to XLSX in format:
             # slice img sheet, slice data sheet
             for slc in dashboard_slices:
-                slice_id = slc['slice_id']
-                slice_name = slc['slice_name']
-                slice_form_data = slc['form_data']
+                slice_id = slc["slice_id"]
+                slice_name = slc["slice_name"]
+                slice_form_data = slc["form_data"]
                 # viz_type = slice_form_data['viz_type']
-                datasource_id, datasource_type = slice_form_data[
-                    'datasource'
-                ].split('__')
-                form_data, slc_obj = get_form_data(
-                    slice_id, use_slice_data=True
+                datasource_id, datasource_type = slice_form_data["datasource"].split(
+                    "__"
                 )
+                form_data, slc_obj = get_form_data(slice_id, use_slice_data=True)
+                logger.debug(f"Preparing slice {slice_id} {slice_name}")
+                logger.debug("Form data %s", debug_print(form_data))
                 # Prepare slice img if provided from front-end
                 img_data = None
                 slc_data = slices_data_dict.get(str(slice_id))
                 if slc_data:
-                    slc_img_data = slc_data['image_data']
+                    slc_img_data = slc_data["image_data"]
                     if slc_img_data:
                         img_data = slc_img_data.split(",")[1]
                         img_data = base64.b64decode(img_data)
 
                 # Get columns verbose names if slice is table type
                 columns = {}
-                if datasource_id and datasource_type == 'table':
-                    columns = db.session.query(TableColumn).filter(
-                        TableColumn.table_id == datasource_id
-                    ).all()
+                if datasource_id and datasource_type == "table":
+                    columns = (
+                        db.session.query(TableColumn)
+                        .filter(TableColumn.table_id == datasource_id)
+                        .all()
+                    )
                     columns = {
-                        c.column_name: c.verbose_name for c in columns if
-                    c.verbose_name
+                        c.column_name: c.verbose_name for c in columns if c.verbose_name
                     }
 
                 # Prepare slice viz object to access DF
@@ -1873,84 +1896,77 @@ class Superset(BaseSupersetView):  # pylint: disable=too-many-public-methods
                         datasource_type=datasource_type,
                         datasource_id=int(datasource_id),
                         form_data=form_data,
-                        force=False
+                        force=False,
                     )
                     df = viz_obj.get_df_payload()["df"]
                 except KeyError:
                     # If viz_obj cannot be obtained we build chart_form_data
                     # from scratch & run chart_cmd to access DF
+                    row_limit = form_data.get("row_limit")
+                    if not row_limit:
+                        row_limit = 10 ** 6
                     command = ChartDataCommand()
                     chart_form_data = {
-                        'datasource': {
-                            'id': datasource_id,
-                            'type': datasource_type,
-                        },
-                        'force': False,
-                        'queries': [
+                        "datasource": {"id": datasource_id, "type": datasource_type,},
+                        "force": False,
+                        "queries": [
                             {
-                                'time_range': form_data['time_range'],
-                                'granularity': slice_form_data[
-                                    'granularity_sqla'
-                                ],
-                                'filters': [],
-                                'extras': {
-                                    'time_range_endpoints': slice_form_data[
-                                        'time_range_endpoints'
-                                    ],
-                                    'having': "",
-                                    'having_druid': [],
+                                "time_range": form_data["time_range"],
+                                "granularity": slice_form_data["granularity_sqla"],
+                                "filters": [],
+                                "extras": {
+                                    "time_range_endpoints": slice_form_data.get("time_range_endpoints") or [],
+                                    "having": "",
+                                    "having_druid": [],
                                 },
-                                'applied_time_extras': {},
+                                "applied_time_extras": {},
                                 # 'columns': [form_data['series']],
-                                'groupby': [],
-                                'metrics': [],
-                                'orderby': [],
-                                'annotation_layers': [],
-                                'row_limit': form_data['row_limit'],
-                                'timeseries_limit': form_data['limit'],
-                                'order_desc': True,
-                                'url_params': {},
+                                "groupby": [],
+                                "metrics": [],
+                                "orderby": [],
+                                "annotation_layers": [],
+                                "row_limit": row_limit,
+                                "timeseries_limit": row_limit,
+                                "order_desc": True,
+                                "url_params": {},
                             },
                         ],
-                        'result_format': 'xlsx', 'result_type': 'results', #'full',
+                        "result_format": "xlsx",
+                        "result_type": "results",  #'full',
                     }
-                    if slice_form_data.get('adhoc_filters'):
-                        chart_form_data['queries'][0]['filters'] = [
+                    if slice_form_data.get("adhoc_filters"):
+                        chart_form_data["queries"][0]["filters"] = [
                             {
-                                'col': slice_form_data[
-                                    'adhoc_filters'
-                                ][0]['subject'],
-                                'op': slice_form_data[
-                                    'adhoc_filters'
-                                ][0]['operator'],
-                                'val': slice_form_data[
-                                    'adhoc_filters'
-                                ][0]['comparator'],
+                                "col": slice_form_data["adhoc_filters"][0]["subject"],
+                                "op": slice_form_data["adhoc_filters"][0]["operator"],
+                                "val": slice_form_data["adhoc_filters"][0][
+                                    "comparator"
+                                ],
                             },
                         ]
 
-                    if slice_form_data.get('groupby'):
-                        chart_form_data['queries'][0][
-                            'groupby'
-                        ] = slice_form_data['groupby']
-                    elif slice_form_data.get('series'):
-                        chart_form_data['queries'][0][
-                            'groupby'
-                        ] = [slice_form_data['series']]
+                    if slice_form_data.get("groupby"):
+                        chart_form_data["queries"][0]["groupby"] = slice_form_data[
+                            "groupby"
+                        ]
+                    elif slice_form_data.get("series"):
+                        chart_form_data["queries"][0]["groupby"] = [
+                            slice_form_data["series"]
+                        ]
 
-                    if slice_form_data.get('metrics'):
-                        chart_form_data['queries'][0]['orderby'] = [
-                            [slice_form_data['metrics'][0], False]
+                    if slice_form_data.get("metrics"):
+                        chart_form_data["queries"][0]["orderby"] = [
+                            [slice_form_data["metrics"][0], False]
                         ]
-                        chart_form_data['queries'][0]['metrics'] = [
-                            {'label': m} for m in slice_form_data['metrics']
+                        chart_form_data["queries"][0]["metrics"] = [
+                            {"label": m} for m in slice_form_data["metrics"]
                         ]
-                    elif slice_form_data.get('metric'):
-                        chart_form_data['queries'][0]['orderby'] = [
-                            [slice_form_data['metric'], False]
+                    elif slice_form_data.get("metric"):
+                        chart_form_data["queries"][0]["orderby"] = [
+                            [slice_form_data["metric"], False]
                         ]
-                        chart_form_data['queries'][0]['metrics'] = [
-                            {'label': form_data['metric']}
+                        chart_form_data["queries"][0]["metrics"] = [
+                            {"label": form_data["metric"]}
                         ]
 
                     command.set_query_context(chart_form_data)
@@ -1961,49 +1977,49 @@ class Superset(BaseSupersetView):  # pylint: disable=too-many-public-methods
 
                 if img_data:
                     # Write slice img to it's sheet(image)
-                    img_sheet = wb.add_worksheet(
-                        f"{slice_name}-image"
-                    )
+                    img_sheet = wb.add_worksheet(sheet_name(slice_name, "image"))
                     img_sheet.write("A1", slice_name, bold_fmt)
                     img_sheet.insert_image(
-                        "A2", "in-memory",
-                        options={"image_data": BytesIO(img_data)}
+                        "A2", "in-memory", options={"image_data": BytesIO(img_data)}
                     )
+                if df is not None:
+                    logger.debug(
+                        f"Skipping slice {slice_id} {slice_name} due to empty data"
+                    )
+                    # Write slice DF to it's sheet(data_sheet)
+                    # Remove TZ from datetime64[ns, *] fields b4 writing to XLSX
+                    df = utils.df_clear_timezone(df)
+                    # Rename columns with verbose names if they exists
+                    if columns:
+                        df = df.rename(columns=columns)
 
-                # Write slice DF to it's sheet(data_sheet)
-                # Remove TZ from datetime64[ns, *] fields b4 writing to XLSX
-                df = utils.df_clear_timezone(df)
-                # Rename columns with verbose names if they exists
-                if columns:
-                    df = df.rename(columns=columns)
-                    logger.info("!D df columns {}".format(df.columns))
-
-                include_index = not isinstance(df.index, pd.RangeIndex)
-                # Init DF data worksheet
-                data_sheet_name = f"{slice_name}-data"
-                # Write DF data to XLSX
-                df.to_excel(
-                    writer,
-                    sheet_name=data_sheet_name, index=include_index
-                )
-                data_sheet = writer.sheets[data_sheet_name]
-                # Set columns width
-                data_sheet.set_column(0, len(df.columns) - 1, 30)
+                    include_index = not isinstance(df.index, pd.RangeIndex)
+                    # Init DF data worksheet
+                    data_sheet_name = sheet_name(slice_name, "data")
+                    # Write DF data to XLSX
+                    df.to_excel(
+                        writer,
+                        sheet_name=data_sheet_name,
+                        index=include_index,
+                        startrow=1,
+                    )
+                    data_sheet = writer.sheets[data_sheet_name]
+                    # Set columns width
+                    data_sheet.set_column(0, len(df.columns) - 1, 30)
+                    bold_fmt = wb.add_format({"bold": True})
+                    data_sheet.write("A1", slice_name, bold_fmt)
 
         # Response to client with XLSX via HTTP
         output.seek(0)
-        filename = f"{dashboard_title}.xlsx"
+        filename = f"{datetime.now().isoformat()}.xlsx"
         mimetype = mimetypes.guess_type(filename)[0]
         headers = {
             "Content-Disposition": f'attachment; filename="{filename}"; '
-                                   f"filename*=UTF-8''{filename}",
-            'Content-Type': mimetype,
+            f"filename*=UTF-8''{filename}",
+            "Content-Type": mimetype,
         }
         return XLSXResponse(
-            output.read(),
-            status=200,
-            headers=headers,
-            mimetype=mimetype,
+            output.read(), status=200, headers=headers, mimetype=mimetype,
         )
 
     @has_access
@@ -2900,7 +2916,7 @@ class Superset(BaseSupersetView):  # pylint: disable=too-many-public-methods
         xlsx = BytesIO()
         # Remove TZ from datetime64[ns, *] fields b4 writing to XLSX
         utils.df_clear_timezone(df)
-        writer = pd.ExcelWriter(xlsx, engine='xlsxwriter')
+        writer = pd.ExcelWriter(xlsx, engine="xlsxwriter")
         df.to_excel(writer, index=False)
         writer.close()
         xlsx.seek(0)

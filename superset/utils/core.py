@@ -20,7 +20,6 @@ import decimal
 import errno
 import functools
 import hashlib
-from io import BytesIO
 import json
 import logging
 import os
@@ -40,6 +39,7 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.utils import formatdate
 from enum import Enum
+from io import BytesIO
 from time import struct_time
 from timeit import default_timer
 from types import TracebackType
@@ -1706,21 +1706,21 @@ def format_list(items: Sequence[str], sep: str = ", ", quote: str = '"') -> str:
 
 def df_clear_timezone(df: pd.DataFrame) -> pd.DataFrame:
     for field_name, field_type in dict(df.dtypes).items():
-        if field_type.name.startswith('datetime64[ns, '):
+        if field_type.name.startswith("datetime64[ns, "):
             df[field_name] = df[field_name].dt.tz_localize(None)
 
     return df
 
 
-def chart_to_xlsx(df: pd.DataFrame, image_data: str, slice_id: int, table_id: int = None) -> BytesIO:
+def chart_to_xlsx(
+    df: pd.DataFrame, image_data: str, slice_id: int, table_id: int = None
+) -> BytesIO:
     name = ""
     if slice_id:
         from superset import db
         from superset.models.slice import Slice
 
-        slc = db.session.query(Slice).filter(
-            Slice.id == slice_id
-        ).one()
+        slc = db.session.query(Slice).filter(Slice.id == slice_id).one()
         name = slc.slice_name
 
     columns = {}
@@ -1728,19 +1728,16 @@ def chart_to_xlsx(df: pd.DataFrame, image_data: str, slice_id: int, table_id: in
         from superset import db
         from superset.connectors.sqla.models import TableColumn
 
-        columns = db.session.query(TableColumn).filter(
-            TableColumn.table_id == table_id
-        ).all()
-        columns = {
-            c.column_name: c.verbose_name for c in columns if c.verbose_name
-        }
+        columns = (
+            db.session.query(TableColumn).filter(TableColumn.table_id == table_id).all()
+        )
+        columns = {c.column_name: c.verbose_name for c in columns if c.verbose_name}
 
     # Remove TZ from datetime64[ns, *] fields b4 writing to XLSX
     df = df_clear_timezone(df)
     # Rename columns with verbose names if they exists
     if columns:
         df = df.rename(columns=columns)
-        logger.info("!D df columns {}".format(df.columns))
 
     include_index = not isinstance(df.index, pd.RangeIndex)
 
@@ -1749,28 +1746,24 @@ def chart_to_xlsx(df: pd.DataFrame, image_data: str, slice_id: int, table_id: in
     writer = pd.ExcelWriter(output, engine="xlsxwriter")
     # Init workbook and set formats
     wb = writer.book
-    bold_fmt = wb.add_format({'bold': True})
+    bold_fmt = wb.add_format({"bold": True})
     if image_data:
-        img_sheet_name = f"{name}-image" if name else 'Sheet1'
+        img_sheet_name = f"{name}-image" if name else "Sheet1"
         img_sheet = wb.add_worksheet(img_sheet_name)
         img_sheet.write("A1", name, bold_fmt)
         image_data = image_data.split(",")[1]
         image_data = base64.b64decode(image_data)
         img_sheet.insert_image(
-            "A2", "in-memory",
-            options={"image_data": BytesIO(image_data)}
+            "A2", "in-memory", options={"image_data": BytesIO(image_data)}
         )
         # Add DF data to other ws
-        data_sheet_name = f"{name}-data" if name else 'Sheet2'
+        data_sheet_name = f"{name}-data" if name else "Sheet2"
         df.to_excel(writer, index=include_index, sheet_name=data_sheet_name)
         data_sheet = writer.sheets[data_sheet_name]
     else:
         # Just write DF data to 1st ws
-        data_sheet_name = name if name else 'Sheet1'
-        df.to_excel(
-            writer,
-            index=include_index, sheet_name=data_sheet_name, startrow=1
-        )
+        data_sheet_name = name if name else "Sheet1"
+        df.to_excel(writer, index=include_index, sheet_name=data_sheet_name, startrow=1)
         data_sheet = writer.sheets[name]
         data_sheet.write("A1", name, bold_fmt)
 
