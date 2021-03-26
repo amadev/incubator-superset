@@ -25,6 +25,7 @@ import { Menu, NoAnimationDropdown } from 'src/common/components';
 import Icon from 'src/components/Icon';
 
 import CssEditor from './CssEditor';
+// import Loading from 'src/components/Loading';
 import RefreshIntervalModal from './RefreshIntervalModal';
 import SaveModal from './SaveModal';
 import injectCustomCss from '../util/injectCustomCss';
@@ -93,6 +94,65 @@ const DropdownButton = styled.div`
 `;
 
 const SCREENSHOT_NODE_SELECTOR = '.dashboard';
+
+function Spinner() {
+	Spinner.element = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+	let c = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+	Spinner.element.setAttribute('width', '100');
+	Spinner.element.setAttribute('height', '100');
+	c.setAttribute('viewBox', '0 0 100 100');
+	c.setAttribute('cx', '50');
+	c.setAttribute('cy', '50');
+	c.setAttribute('r', '42');
+	c.setAttribute('stroke-width', '16');
+	c.setAttribute('stroke', '#2196f3');
+	c.setAttribute('fill', 'transparent');
+	Spinner.element.appendChild(c);
+	Spinner.element.style.cssText = 'position:absolute;left:calc(50% - 50px);top:calc(50% - 50px)';
+	document.body.appendChild(Spinner.element)
+}
+Spinner.id = null;
+Spinner.element = null;
+Spinner.show = function() {
+	const c = 264, m = 15;
+	Spinner.element.style.display = 'block';
+	moveOne();
+	function moveOne() {
+		let i = 0, o = 0;
+		move();
+		function move() {
+			if (i === c) moveTwo();
+			else {
+				i += 4; o += 8;
+				Spinner.element.setAttribute('stroke-dasharray', i + ' ' + (c - i));
+				Spinner.element.setAttribute('stroke-dashoffset', o);
+				Spinner.id=setTimeout(move, m)
+			}
+		}
+	}
+	function moveTwo() {
+		let i = c, o = c * 2;
+		move();
+		function move() {
+			if(i === 0) moveOne();
+			else {
+				i -= 4; o += 4;
+				Spinner.element.setAttribute('stroke-dasharray', i + ' ' + (c - i));
+				Spinner.element.setAttribute('stroke-dashoffset', o);
+				Spinner.id = setTimeout(move, m)
+			}
+		}
+	}
+};
+Spinner.hide = function() {
+	Spinner.element.style.display = 'none';
+	if (Spinner.id) {
+		clearTimeout(Spinner.id);
+		Spinner.id = null
+	}
+	Spinner.element.setAttribute('stroke-dasharray', '0 264');
+	Spinner.element.setAttribute('stroke-dashoffset', '0')
+};
 
 function safeStringify(object) {
   const cache = new Set();
@@ -214,7 +274,16 @@ class HeaderActionsDropdown extends React.PureComponent {
         });
         break;
       }
-            case MENU_KEYS.DOWNLOAD_AS_XLSX: {
+      case MENU_KEYS.DOWNLOAD_AS_XLSX: {
+        // Render loading spinner
+        Spinner();
+        Spinner.show();
+        // const spinner = <Loading position="floating" />;
+        // let customElementRegistry = window.customElements;
+        // customElementRegistry.define('loading-spinner', Loading);
+        // const loadingElement = document.createElement('loading-spinner');
+        // document.body.appendChild(loadingElement);
+
         // menu closes with a delay, we need to hide it manually,
         // so that we don't capture it on the screenshot
         const menu = document.querySelector(
@@ -236,18 +305,22 @@ class HeaderActionsDropdown extends React.PureComponent {
             slice_type: elementToPrint.className,
             image_data: '',
           };
-          domToImage.toPng(elementToPrint, {
-            quality: 0.95,
-            bgcolor: WHITE_BACKGROUND_COLOR,
-            ...Options,
-          })
-          .then(function (data) {
+          // Don't make img for Filter boxes
+          if (String(sliceData.slice_type) !== 'superset-chart-table') {
+            domToImage.toPng(elementToPrint, {
+              quality: 0.95,
+              bgcolor: WHITE_BACKGROUND_COLOR,
+              ...Options,
+            })
+            .then(function (data) {
               sliceData['image_data'] = data;
-              payload['slicesData'].push(sliceData)
+              payload['slicesData'].push(sliceData);
             });
+          } else payload['slicesData'].push(sliceData);
         });
         // Get dashboard img
-        const dashboardToPrint = domEvent.currentTarget.closest(SCREENSHOT_NODE_SELECTOR);
+        // const dashboardToPrint = domEvent.currentTarget.closest(SCREENSHOT_NODE_SELECTOR); - With header bar
+        const dashboardToPrint = document.querySelector('[class^="dashboard-content"');
         domToImage.toPng(dashboardToPrint, {
             quality: 0.95,
             bgcolor: GRAY_BACKGROUND_COLOR,
@@ -256,7 +329,9 @@ class HeaderActionsDropdown extends React.PureComponent {
           .then(function (data) {
             payload['imageData'] = data;
             menu.style.visibility = 'visible';
-            postForm(url, payload)
+            Spinner.hide();
+            // document.body.removeChild(loadingElement);
+            postForm(url, payload);
           });
         break;
       }

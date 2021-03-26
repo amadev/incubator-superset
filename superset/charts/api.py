@@ -14,7 +14,6 @@
 # KIND, either express or implied.  See the License for the
 # specific language governing permissions and limitations
 # under the License.
-import base64
 import json
 import logging
 import mimetypes
@@ -77,7 +76,6 @@ from superset.utils.async_query_manager import AsyncQueryTokenException
 from superset.utils.core import (
     ChartDataResultFormat,
     ChartDataResultType,
-    df_clear_timezone,
     json_int_dttm_ser,
 )
 from superset.utils.screenshots import ChartScreenshot

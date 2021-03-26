@@ -1911,11 +1911,11 @@ class Superset(BaseSupersetView):  # pylint: disable=too-many-public-methods
                         "force": False,
                         "queries": [
                             {
-                                "time_range": form_data["time_range"],
-                                "granularity": slice_form_data["granularity_sqla"],
+                                "time_range": form_data.get("time_range", ""),
+                                "granularity": slice_form_data.get("granularity_sqla", ""),
                                 "filters": [],
                                 "extras": {
-                                    "time_range_endpoints": slice_form_data.get("time_range_endpoints") or [],
+                                    "time_range_endpoints": slice_form_data.get("time_range_endpoints", []),
                                     "having": "",
                                     "having_druid": [],
                                 },
@@ -1982,10 +1982,8 @@ class Superset(BaseSupersetView):  # pylint: disable=too-many-public-methods
                     img_sheet.insert_image(
                         "A2", "in-memory", options={"image_data": BytesIO(img_data)}
                     )
+
                 if df is not None:
-                    logger.debug(
-                        f"Skipping slice {slice_id} {slice_name} due to empty data"
-                    )
                     # Write slice DF to it's sheet(data_sheet)
                     # Remove TZ from datetime64[ns, *] fields b4 writing to XLSX
                     df = utils.df_clear_timezone(df)
@@ -2006,8 +2004,11 @@ class Superset(BaseSupersetView):  # pylint: disable=too-many-public-methods
                     data_sheet = writer.sheets[data_sheet_name]
                     # Set columns width
                     data_sheet.set_column(0, len(df.columns) - 1, 30)
-                    bold_fmt = wb.add_format({"bold": True})
                     data_sheet.write("A1", slice_name, bold_fmt)
+                else:
+                    logger.debug(
+                        f"Skipping slice {slice_id} {slice_name} due to empty data"
+                    )
 
         # Response to client with XLSX via HTTP
         output.seek(0)
