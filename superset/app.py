@@ -198,6 +198,7 @@ class SupersetAppInitializer:
         )
         from superset.views.tags import TagView
         from superset.views.cubes import Cubes
+        from superset.views.tools import Tools
 
         #
         # Setup API views
@@ -313,6 +314,7 @@ class SupersetAppInitializer:
         appbuilder.add_view_no_menu(TableSchemaView)
         appbuilder.add_view_no_menu(TabStateView)
         appbuilder.add_view_no_menu(Cubes)
+        appbuilder.add_view_no_menu(Tools)
 
         if feature_flag_manager.is_feature_enabled("TAGGING_SYSTEM"):
             appbuilder.add_view_no_menu(TagView)

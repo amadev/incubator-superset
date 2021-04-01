@@ -61,6 +61,7 @@ RUN /frontend-mem-nag.sh \
 
 # Next, copy in the rest and let webpack do its thing
 COPY ./superset-frontend /app/superset-frontend
+COPY ./superset-frontend/plugins/plugin-chart-nextgis/ /app/superset-frontend/node_modules/@superset-ui/plugin-chart-nextgis/
 # This is BY FAR the most expensive step (thanks Terser!)
 RUN cd /app/superset-frontend \
         && npm run ${BUILD_CMD} \

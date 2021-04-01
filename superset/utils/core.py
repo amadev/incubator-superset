@@ -1774,3 +1774,16 @@ def chart_to_xlsx(
     output.seek(0)
 
     return output
+
+
+def debug_print(s, max_length=100):
+    import pprint
+
+    class P(pprint.PrettyPrinter):
+        def _format(self, object, *args, **kwargs):
+            if isinstance(object, str):
+                if len(object) > max_length:
+                    object = object[:max_length] + "..."
+            return pprint.PrettyPrinter._format(self, object, *args, **kwargs)
+
+    return P().pformat(s)

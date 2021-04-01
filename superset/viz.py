@@ -27,6 +27,7 @@ import inspect
 import logging
 import math
 import re
+import urllib
 from collections import defaultdict, OrderedDict
 from datetime import date, datetime, timedelta
 from io import BytesIO
@@ -2980,6 +2981,27 @@ class PartitionViz(NVD3TimeSeriesViz):
         else:
             levels = self.levels_for("agg_sum", [DTTM_ALIAS] + groups, df)
         return self.nest_values(levels)
+
+
+class NextgisViz(BaseViz):
+
+    """A Nextgis vizualization returns data as a PNG"""
+
+    viz_type = "nextgis"
+    verbose_name = _("NetxGis Map")
+    is_timeseries = False
+
+    def get_payload(self):
+        params = {
+            i["subject"].strip('"'): i["comparator"]
+            for i in self.form_data.get("adhoc_filters") or []
+        }
+        url = "/tools/nextgis?" + urllib.parse.urlencode(params)
+        logger.debug("URL for Nextgis created %s", url)
+        return {"data": {"records": [{"nextgis_url": url}], "columns": ["nextgis_url"]}}
+
+    def get_df_payload(self):
+        return {"df": pd.DataFrame()}
 
 
 def get_subclasses(cls: Type[BaseViz]) -> Set[Type[BaseViz]]:

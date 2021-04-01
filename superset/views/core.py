@@ -592,6 +592,7 @@ class Superset(BaseSupersetView):  # pylint: disable=too-many-public-methods
                 break
 
         form_data = get_form_data()[0]
+        logger.debug("explore_json got form data %s", utils.debug_print(form_data))
 
         try:
             datasource_id, datasource_type = get_datasource_info(
@@ -1805,19 +1806,7 @@ class Superset(BaseSupersetView):  # pylint: disable=too-many-public-methods
 
         logger.debug(f"Exporting dashboard {dashboard_id} to xslx ...")
 
-        def debug_print(s):
-            import pprint
-
-            class P(pprint.PrettyPrinter):
-                def _format(self, object, *args, **kwargs):
-                    if isinstance(object, str):
-                        if len(object) > 20:
-                            object = object[:20] + "..."
-                    return pprint.PrettyPrinter._format(self, object, *args, **kwargs)
-
-            return P().pformat(s)
-
-        logger.debug("Request data %s", debug_print(json_body.copy()))
+        logger.debug("Request data %s", utils.debug_print(json_body.copy()))
 
         def sheet_name(name, suffix):
             import uuid
@@ -1868,7 +1857,7 @@ class Superset(BaseSupersetView):  # pylint: disable=too-many-public-methods
                 )
                 form_data, slc_obj = get_form_data(slice_id, use_slice_data=True)
                 logger.debug(f"Preparing slice {slice_id} {slice_name}")
-                logger.debug("Form data %s", debug_print(form_data))
+                logger.debug("Form data %s", utils.debug_print(form_data))
                 # Prepare slice img if provided from front-end
                 img_data = None
                 slc_data = slices_data_dict.get(str(slice_id))
@@ -1912,10 +1901,14 @@ class Superset(BaseSupersetView):  # pylint: disable=too-many-public-methods
                         "queries": [
                             {
                                 "time_range": form_data.get("time_range", ""),
-                                "granularity": slice_form_data.get("granularity_sqla", ""),
+                                "granularity": slice_form_data.get(
+                                    "granularity_sqla", ""
+                                ),
                                 "filters": [],
                                 "extras": {
-                                    "time_range_endpoints": slice_form_data.get("time_range_endpoints", []),
+                                    "time_range_endpoints": slice_form_data.get(
+                                        "time_range_endpoints", []
+                                    ),
                                     "having": "",
                                     "having_druid": [],
                                 },
