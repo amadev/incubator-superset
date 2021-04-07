@@ -15,6 +15,9 @@
 # specific language governing permissions and limitations
 # under the License.
 
+from sqlalchemy import create_engine
+import pandas as pd
+
 import requests
 import simplejson as json
 from flask import g, redirect, request, Response, send_from_directory
@@ -64,3 +67,34 @@ class Tools(BaseSupersetView):
 
         response = Response(resp.content, resp.status_code, headers)
         return response
+
+    @has_access
+    @expose("/nsi")
+    def nsi(self) -> FlaskResponse:  # pylint: disable=no-self-use
+
+        def nsi_flatten_obj(entry):
+            row = {'entryId': entry['entryId']}
+            row.update(** {i["id"]: i["value"] for i in entry['object']})
+            return row
+
+        def nsi_converter(data):
+            return [nsi_flatten_obj(i) for i in data[0]['entries']]
+
+        def create_table(table, data):
+            df = pd.DataFrame.from_dict(data)
+            sqlEngine = create_engine(config["NSI_DB_URL"], pool_recycle=3600,
+                                      connect_args={'options': '-csearch_path={}'.format(config["NSI_DB_SCHEMA"])})
+            dbConnection = sqlEngine.connect()
+            df.to_sql(table, con=sqlEngine, if_exists='replace')
+
+        session = requests.Session()
+        session.max_redirects = 3
+
+        for i in config['NSI_KEYS']:
+            url = f"{config['NSI_URL']}/rest/elements"
+            headers = {'Content-Type': 'application/json'}
+            data = session.post(url, json={"key": i}, timeout=5, headers=headers).json()
+            if data:
+                create_table(i, nsi_converter(data))
+
+        return "ok"

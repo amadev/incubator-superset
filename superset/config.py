@@ -977,6 +977,11 @@ GLOBAL_ASYNC_QUERIES_POLLING_DELAY = 500
 # Backend for cubesviewer studio
 CUBES_BACKEND = "http://localhost:5000"
 
+NSI_KEYS = ["reference_system"]
+NSI_URL = "http://nsi.1rosgis01-stand01.dmz.aorti.tech"
+NSI_DB_URL = 'postgres://superset:superset@192.168.145.10/psao'
+NSI_DB_SCHEMA = 'nsi'
+
 if CONFIG_PATH_ENV_VAR in os.environ:
     # Explicitly import config module that is not necessarily in pythonpath; useful
     # for case where app is being executed via pex.
