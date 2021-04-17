@@ -164,6 +164,7 @@ class ExploreViewContainer extends React.Component {
   }
 
   onQuery() {
+    console.log("ON QUERY:");
     // remove alerts when query
     this.props.actions.removeControlPanelAlert();
     this.props.actions.triggerQuery(true, this.props.chart.id);
@@ -238,6 +239,8 @@ class ExploreViewContainer extends React.Component {
   addHistory({ isReplace = false, title }) {
     const payload = { ...this.props.form_data };
     const longUrl = getExploreLongUrl(this.props.form_data, null, false);
+    // console.log(longUrl);
+    // console.log(payload);
     try {
       if (isReplace) {
         window.history.replaceState(payload, title, longUrl);
@@ -369,6 +372,7 @@ ExploreViewContainer.propTypes = propTypes;
 
 function mapStateToProps(state) {
   const { explore, charts, impressionId } = state;
+  // console.log(explore.controls);
   const form_data = getFormDataFromControls(explore.controls);
   const chartKey = Object.keys(charts)[0];
   const chart = charts[chartKey];

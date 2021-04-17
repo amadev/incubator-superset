@@ -331,6 +331,14 @@ class BaseViz:
         merge_extra_filters(self.form_data)
         utils.split_adhoc_filters_into_base_filters(self.form_data)
 
+    # def apply_custom_filters(self) -> None:
+    #     print("APPLYING CUSTOM FILTERS!")
+    #     form_data = self.form_data
+    #     custom_filters = form_data.get("custom_filters")
+    #     if isinstance(custom_filters, list):
+    #         for el in custom_filters:
+    #             print(el)
+
     def query_obj(self) -> QueryObjectDict:
         """Building a query object"""
         form_data = self.form_data
@@ -398,7 +406,7 @@ class BaseViz:
             "groupby": groupby,
             "metrics": metrics,
             "row_limit": row_limit,
-            "filter": self.form_data.get("filters", []),
+            "filter": form_data.get("filters", []),
             "timeseries_limit": limit,
             "extras": extras,
             "timeseries_limit_metric": timeseries_limit_metric,
@@ -462,6 +470,7 @@ class BaseViz:
         """Returns a payload of metadata and data"""
 
         self.run_extra_queries()
+        # self.apply_custom_filters()  # применяем фильтры из бд к query
         payload = self.get_df_payload(query_obj)
 
         df = payload.get("df")

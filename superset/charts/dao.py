@@ -24,6 +24,7 @@ from superset.dao.base import BaseDAO
 from superset.extensions import db
 from superset.models.core import FavStar, FavStarClassName
 from superset.models.slice import Slice
+from superset.models.slice_custom_filter import SliceCustomFilter
 
 if TYPE_CHECKING:
     from superset.connectors.base.models import BaseDatasource
@@ -46,6 +47,13 @@ class ChartDAO(BaseDAO):
                 db.session.merge(model)
         # bulk delete itself
         try:
+            # delete related objects first
+            db.session.query(SliceCustomFilter).filter(
+                SliceCustomFilter.slice_id.in_(item_ids)
+            ).delete(
+                synchronize_session="fetch"
+            )
+            print("SliceCustomFilter objects deleted")
             db.session.query(Slice).filter(Slice.id.in_(item_ids)).delete(
                 synchronize_session="fetch"
             )
