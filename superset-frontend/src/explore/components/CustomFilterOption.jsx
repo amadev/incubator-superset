@@ -23,57 +23,34 @@ import { InfoTooltipWithTrigger } from '@arthanasti/chart-controls';
 
 import Popover from 'src/common/components/Popover';
 import Label from 'src/components/Label';
-import AdhocFilterEditPopover from './AdhocFilterEditPopover';
-import AdhocFilter from '../AdhocFilter';
-import columnType from '../propTypes/columnType';
-import adhocMetricType from '../propTypes/adhocMetricType';
+import AdhocFilterOption from './AdhocFilterOption';
+import CustomFilterEditPopover from './CustomFilterEditPopover';
+import CustomFilter from '../CustomFilter';
 
 const propTypes = {
-  adhocFilter: PropTypes.instanceOf(AdhocFilter).isRequired,
+  customFilter: PropTypes.instanceOf(CustomFilter).isRequired,
   onFilterEdit: PropTypes.func.isRequired,
-  options: PropTypes.arrayOf(
-    PropTypes.oneOfType([
-      columnType,
-      PropTypes.shape({ saved_metric_name: PropTypes.string.isRequired }),
-      adhocMetricType,
-    ]),
-  ).isRequired,
   datasource: PropTypes.object,
-  partitionColumn: PropTypes.string,
 };
 
-class AdhocFilterOption extends React.PureComponent {
+class CustomFilterOption extends AdhocFilterOption {
   constructor(props) {
     super(props);
-    this.onPopoverResize = this.onPopoverResize.bind(this);
-    this.closePopover = this.closePopover.bind(this);
-    this.togglePopover = this.togglePopover.bind(this);
-    if (props.adhocFilter) {
-      this.state = {
-        // automatically open the popover the the metric is new
-        popoverVisible: !!props.adhocFilter.isNew,
-      };
-    } else this.state = {};
+    this.state = {
+      popoverVisible: !!props.customFilter.isNew,
+    };
   }
 
   componentWillUnmount() {
     // isNew is used to auto-open the popup. Once popup is viewed, it's not
     // considered new anymore. We mutate the prop directly because we don't
     // want excessive rerenderings.
-    this.props.adhocFilter.isNew = false;
-  }
-
-  onPopoverResize() {
-    this.forceUpdate();
-  }
-
-  closePopover() {
-    this.togglePopover(false);
+    this.props.customFilter.isNew = false;
   }
 
   togglePopover(visible) {
     this.setState(({ popoverVisible }) => {
-      this.props.adhocFilter.isNew = false;
+      this.props.customFilter.isNew = false;
       return {
         popoverVisible: visible === undefined ? !popoverVisible : visible,
       };
@@ -81,13 +58,11 @@ class AdhocFilterOption extends React.PureComponent {
   }
 
   render() {
-    const { adhocFilter } = this.props;
+    const { customFilter } = this.props;
     const overlayContent = (
-      <AdhocFilterEditPopover
-        adhocFilter={adhocFilter}
-        options={this.props.options}
+      <CustomFilterEditPopover
+        customFilter={customFilter}
         datasource={this.props.datasource}
-        partitionColumn={this.props.partitionColumn}
         onResize={this.onPopoverResize}
         onClose={this.closePopover}
         onChange={this.props.onFilterEdit}
@@ -101,7 +76,7 @@ class AdhocFilterOption extends React.PureComponent {
         onMouseDown={e => e.stopPropagation()}
         onKeyDown={e => e.stopPropagation()}
       >
-        {adhocFilter.isExtra && (
+        {customFilter.isExtra && (
           <InfoTooltipWithTrigger
             icon="exclamation-triangle"
             placement="top"
@@ -116,13 +91,13 @@ class AdhocFilterOption extends React.PureComponent {
           placement="right"
           trigger="click"
           content={overlayContent}
-          defaultVisible={this.state.popoverVisible || adhocFilter.isNew}
+          defaultVisible={this.state.popoverVisible || customFilter.isNew}
           visible={this.state.popoverVisible}
           onVisibleChange={() => this.togglePopover(true)}
           overlayStyle={{ zIndex: 1 }}
         >
           <Label className="option-label adhoc-option adhoc-filter-option">
-            {adhocFilter.getDefaultLabel()}
+            {customFilter.getDefaultLabel()}
             <i className="fa fa-caret-right adhoc-label-arrow" />
           </Label>
         </Popover>
@@ -131,6 +106,6 @@ class AdhocFilterOption extends React.PureComponent {
   }
 }
 
-export default AdhocFilterOption;
+export default CustomFilterOption;
 
-AdhocFilterOption.propTypes = propTypes;
+CustomFilterOption.propTypes = propTypes;

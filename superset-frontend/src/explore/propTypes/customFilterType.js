@@ -16,23 +16,10 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-import React from 'react';
 import PropTypes from 'prop-types';
-import { ColumnTypeLabel } from '@arthanasti/chart-controls';
 
-import aggregateOptionType from '../propTypes/aggregateOptionType';
-
-const propTypes = {
-  aggregate: aggregateOptionType,
-  showType: PropTypes.bool,
-};
-
-export default function AggregateOption({ aggregate, showType }) {
-  return (
-    <div>
-      {showType && <ColumnTypeLabel type="aggregate" />}
-      <span className="m-r-5 option-label">{aggregate.aggregate_name}</span>
-    </div>
-  );
-}
-AggregateOption.propTypes = propTypes;
+export default PropTypes.shape({
+    slice_id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+    key: PropTypes.string.isRequired,
+    value: PropTypes.string,
+});

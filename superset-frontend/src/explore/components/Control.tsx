@@ -17,7 +17,7 @@
  * under the License.
  */
 import React, { ReactNode } from 'react';
-import { ControlType } from '@superset-ui/chart-controls';
+import { ControlType } from '@arthanasti/chart-controls';
 import { JsonValue, QueryFormData } from '@superset-ui/core';
 import { ExploreActions } from '../actions/exploreActions';
 import controlMap from './controls';

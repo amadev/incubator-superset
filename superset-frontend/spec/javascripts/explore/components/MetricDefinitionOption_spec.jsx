@@ -19,7 +19,7 @@
 import React from 'react';
 import configureStore from 'redux-mock-store';
 import { shallow } from 'enzyme';
-import { ColumnOption, MetricOption } from '@superset-ui/chart-controls';
+import { ColumnOption, MetricOption } from '@arthanasti/chart-controls';
 
 import MetricDefinitionOption from 'src/explore/components/MetricDefinitionOption';
 import AggregateOption from 'src/explore/components/AggregateOption';

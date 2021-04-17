@@ -180,8 +180,6 @@ function postForm(url, payload, target = '_blank') {
     return;
   }
 
-  // console.log(url);
-  // console.log(payload);
   const hiddenForm = document.createElement('form');
   hiddenForm.action = url;
   hiddenForm.method = 'POST';

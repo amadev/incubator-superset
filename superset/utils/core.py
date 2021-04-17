@@ -1764,7 +1764,7 @@ def chart_to_xlsx(
         # Just write DF data to 1st ws
         data_sheet_name = name if name else "Sheet1"
         df.to_excel(writer, index=include_index, sheet_name=data_sheet_name, startrow=1)
-        data_sheet = writer.sheets[name]
+        data_sheet = wb.add_worksheet(name)
         data_sheet.write("A1", name, bold_fmt)
 
     # Set columns width
@@ -1774,3 +1774,55 @@ def chart_to_xlsx(
     output.seek(0)
 
     return output
+
+
+class CustomFiltersDBUitls:
+
+    def __init__(self, slice_id: int, custom_fitlers: list) -> None:
+        self.slice_id = slice_id
+        self.custom_fitlers = custom_fitlers
+
+    def get_create_table_sql(self):
+        create_table_sql = """
+        CREATE TABLE IF NOT EXISTS slice_custom_filters (
+            id serial not null
+                constraint slice_custom_filters_pkey primary key,
+            slice_id integer not null,
+            key varchar(50) not null,
+            value text not null,
+            CONSTRAINT slice_custom_filters_slice_id_key_uniq UNIQUE (slice_id, key)
+        );
+        """
+        return create_table_sql
+
+    def get_existing_filters_sql(self) -> str:
+        select_existing_sql_template = """
+        SELECT * FROM slice_custom_filters WHERE slice_id = {};
+        """
+        return select_existing_sql_template.format(self.slice_id)
+
+    def get_upsert_filters_sql(self) -> str:
+        upsert_sql_template = """
+        INSERT INTO slice_custom_filters(slice_id, key, value) 
+        VALUES {} ON CONFLICT (slice_id, key) 
+          DO UPDATE SET value = EXCLUDED.value;
+        """
+        upsert_rows = []
+        for flt in self.custom_fitlers:
+            key = flt.get('key')
+            value = flt.get('value', '')
+            upsert_rows.append(f"({self.slice_id}, '{key}', '{value}')")
+
+        upsert_sql = upsert_sql_template.format(
+            ", ".join([row for row in upsert_rows])
+        )
+        return upsert_sql
+
+    def get_delete_filters_sql(self, existing_filter_key: str) -> str:
+        delete_sql_template = """
+        DELETE FROM slice_custom_filters WHERE slice_id = {} AND key = '{}'
+        """
+        delete_sql = delete_sql_template.format(
+            self.slice_id, existing_filter_key
+        )
+        return delete_sql

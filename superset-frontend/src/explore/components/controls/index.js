@@ -38,6 +38,7 @@ import ViewportControl from './ViewportControl';
 import VizTypeControl from './VizTypeControl';
 import MetricsControl from './MetricsControl';
 import AdhocFilterControl from './AdhocFilterControl';
+import CustomFilterControl from './CustomFilterControl';
 import FilterBoxItemControl from './FilterBoxItemControl';
 
 const controlMap = {
@@ -63,6 +64,7 @@ const controlMap = {
   VizTypeControl,
   MetricsControl,
   AdhocFilterControl,
+  CustomFilterControl,
   FilterBoxItemControl,
 };
 export default controlMap;

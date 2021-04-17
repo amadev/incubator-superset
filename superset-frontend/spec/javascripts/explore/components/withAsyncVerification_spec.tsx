@@ -26,7 +26,7 @@ import withAsyncVerification, {
   ControlPropsWithExtras,
   WithAsyncVerificationOptions,
 } from 'src/explore/components/controls/withAsyncVerification';
-import { ExtraControlProps } from '@superset-ui/chart-controls';
+import { ExtraControlProps } from '@arthanasti/chart-controls';
 
 const VALID_METRIC = {
   metric_name: 'sum__value',

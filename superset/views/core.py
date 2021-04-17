@@ -624,7 +624,6 @@ class Superset(BaseSupersetView):  # pylint: disable=too-many-public-methods
                 form_data=form_data,
                 force=force,
             )
-
             return self.generate_json(viz_obj, response_type)
         except SupersetException as ex:
             logger.exception("Error happened in explore_json")
@@ -780,7 +779,17 @@ class Superset(BaseSupersetView):  # pylint: disable=too-many-public-methods
                 status=400,
             )
 
+        # TODO нужно передавать на фронт флаг результата обработки фильтров
+        custom_filters_processed = True
+        form_data["custom_filters_processed"] = custom_filters_processed
         if action in ("saveas", "overwrite"):
+            # Process received slice custom filters
+            if form_data.get("custom_filters"):
+                custom_filters_processed = datasource.database.add_custom_filters(
+                    slc.id, form_data['custom_filters'], datasource.schema
+                )
+                form_data["custom_filters_processed"] = custom_filters_processed
+
             return self.save_or_overwrite_slice(
                 slc,
                 slice_add_perm,
@@ -789,6 +798,7 @@ class Superset(BaseSupersetView):  # pylint: disable=too-many-public-methods
                 datasource_id,
                 cast(str, datasource_type),
                 datasource.name,
+                custom_filters_processed
             )
 
         standalone = (
@@ -817,6 +827,7 @@ class Superset(BaseSupersetView):  # pylint: disable=too-many-public-methods
             title = slc.slice_name
         else:
             title = _("Explore - %(table)s", table=table_name)
+
         return self.render_template(
             "superset/basic.html",
             bootstrap_data=json.dumps(
@@ -874,6 +885,7 @@ class Superset(BaseSupersetView):  # pylint: disable=too-many-public-methods
         datasource_id: int,
         datasource_type: str,
         datasource_name: str,
+        custom_filters_processed: bool,
     ) -> FlaskResponse:
         """Save or overwrite a slice"""
         slice_name = request.args.get("slice_name")
@@ -883,6 +895,7 @@ class Superset(BaseSupersetView):  # pylint: disable=too-many-public-methods
         if action == "saveas":
             if "slice_id" in form_data:
                 form_data.pop("slice_id")  # don't save old slice_id
+
             slc = Slice(owners=[g.user] if g.user else [])
 
         form_data["adhoc_filters"] = self.remove_extra_filters(

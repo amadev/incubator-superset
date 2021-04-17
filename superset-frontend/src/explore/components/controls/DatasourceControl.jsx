@@ -20,7 +20,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Col, Collapse, Row, Well } from 'react-bootstrap';
 import { t, styled, supersetTheme } from '@superset-ui/core';
-import { ColumnOption, MetricOption } from '@superset-ui/chart-controls';
+import { ColumnOption, MetricOption } from '@arthanasti/chart-controls';
 
 import { Dropdown, Menu } from 'src/common/components';
 import { Tooltip } from 'src/common/components/Tooltip';

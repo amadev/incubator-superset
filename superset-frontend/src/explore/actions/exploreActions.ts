@@ -17,7 +17,7 @@
  * under the License.
  */
 /* eslint camelcase: 0 */
-import { DatasourceMeta } from '@superset-ui/chart-controls';
+import { DatasourceMeta } from '@arthanasti/chart-controls';
 import {
   t,
   SupersetClient,

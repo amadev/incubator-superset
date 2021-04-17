@@ -273,15 +273,15 @@ const config = {
     modules: [APP_DIR, 'node_modules'],
     alias: {
       'react-dom': '@hot-loader/react-dom',
-      // force using absolute import path of the @superset-ui/core and @superset-ui/chart-controls
+      // force using absolute import path of the @superset-ui/core and @arthanasti/chart-controls
       // so that we can `npm link` viz plugins without linking these two base packages
       '@superset-ui/core': path.resolve(
         APP_DIR,
         './node_modules/@superset-ui/core',
       ),
-      '@superset-ui/chart-controls': path.resolve(
+      '@arthanasti/chart-controls': path.resolve(
         APP_DIR,
-        './node_modules/@superset-ui/chart-controls',
+        './node_modules/@arthanasti/chart-controls',
       ),
     },
     extensions: ['.ts', '.tsx', '.js', '.jsx'],

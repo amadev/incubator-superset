@@ -64,7 +64,7 @@ import {
   legacyValidateInteger,
   validateNonEmpty,
 } from '@superset-ui/core';
-import { ColumnOption } from '@superset-ui/chart-controls';
+import { ColumnOption } from '@arthanasti/chart-controls';
 import { formatSelectOptions, mainMetric } from 'src/modules/utils';
 import { TIME_FILTER_LABELS } from './constants';
 
@@ -474,6 +474,17 @@ export const controls = {
         ? state.datasource.columns.filter(c => c.filterable)
         : [],
       savedMetrics: state.datasource ? state.datasource.metrics : [],
+      datasource: state.datasource,
+    }),
+    provideFormDataToProps: true,
+  },
+
+  custom_filters: {
+    type: 'CustomFilterControl',
+    label: t('Custom Filters'),
+    default: null,
+    description: '',
+    mapStateToProps: state => ({
       datasource: state.datasource,
     }),
     provideFormDataToProps: true,

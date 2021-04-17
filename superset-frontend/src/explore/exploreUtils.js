@@ -153,7 +153,7 @@ export function getExploreUrl({
 
   // Building the querystring (search) part of the URI
   const search = uri.search(true);
-  const { slice_id, extra_filters, adhoc_filters, viz_type } = formData;
+  const { slice_id, extra_filters, adhoc_filters, custom_filters, viz_type } = formData;
   if (slice_id) {
     const form_data = { slice_id };
     if (method === 'GET') {
@@ -163,6 +163,9 @@ export function getExploreUrl({
       }
       if (adhoc_filters && adhoc_filters.length) {
         form_data.adhoc_filters = adhoc_filters;
+      }
+      if (custom_filters && custom_filters.length) {
+        form_data.custom_filters = custom_filters;
       }
     }
     search.form_data = safeStringify(form_data);
