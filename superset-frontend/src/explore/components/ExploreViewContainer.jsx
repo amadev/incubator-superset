@@ -20,7 +20,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
-import { Alert } from 'react-bootstrap';
+// import { Alert } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { styled, logging, t } from '@superset-ui/core';
 
@@ -79,10 +79,8 @@ class ExploreViewContainer extends React.Component {
   constructor(props) {
     super(props);
 
-    console.log("PROPS OF ExploreViewContainer");
-    console.log(this.props.form_data);
     this.state = {
-      alert: !this.props.form_data.custom_filters_processed ? { alert: t('Custom filters processing error') } : null,
+      // alert: !this.props.form_data.custom_filters_processed ? { alert: t('Custom filters processing error') } : null,
       height: this.getHeight(),
       width: this.getWidth(),
       showModal: false,
@@ -113,9 +111,9 @@ class ExploreViewContainer extends React.Component {
     }
   }
 
-  removeAlert() {
-    this.setState({ alert: null });
-  }
+  // removeAlert() {
+  //   this.setState({ alert: null });
+  // }
 
   UNSAFE_componentWillReceiveProps(nextProps) {
     if (
@@ -172,7 +170,6 @@ class ExploreViewContainer extends React.Component {
   }
 
   onQuery() {
-    console.log("ON QUERY:");
     // remove alerts when query
     this.props.actions.removeControlPanelAlert();
     this.props.actions.triggerQuery(true, this.props.chart.id);

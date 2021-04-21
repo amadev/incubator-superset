@@ -53,11 +53,6 @@ export default class CustomFilterEditPopoverTabContent extends React.Component {
 
   componentDidUpdate(prevProps) {
     // pass
-    // if (prevProps.customFilter.key !== this.props.customFilter.key) {
-    //   console.log("UPDATED");
-    //   console.log(this.props.customFilter);
-    //   console.log(prevProps);
-    // }
   }
 
   onKeyChange(event) {
@@ -118,7 +113,7 @@ export default class CustomFilterEditPopoverTabContent extends React.Component {
               name="filter-value"
               ref={this.focusKeyValue}
               type="text"
-              maxLength="1024"
+              maxLength="2048"
               onChange={this.onValueChange}
               value={value}
               className="form-control input-sm"

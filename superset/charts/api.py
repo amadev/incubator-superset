@@ -566,8 +566,6 @@ class ChartRestApi(BaseSupersetModelRestApi):
         try:
             command = ChartDataCommand()
             query_context = command.set_query_context(json_body)
-            # json_body.pop('image_data')
-            # print(json_body)
             command.validate()
         except ValidationError as error:
             return self.response_400(

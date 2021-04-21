@@ -335,9 +335,6 @@ class BaseViz:
     #     print("APPLYING CUSTOM FILTERS!")
     #     form_data = self.form_data
     #     custom_filters = form_data.get("custom_filters")
-    #     if isinstance(custom_filters, list):
-    #         for el in custom_filters:
-    #             print(el)
 
     def query_obj(self) -> QueryObjectDict:
         """Building a query object"""
@@ -470,7 +467,7 @@ class BaseViz:
         """Returns a payload of metadata and data"""
 
         self.run_extra_queries()
-        # self.apply_custom_filters()  # применяем фильтры из бд к query
+        # self.apply_custom_filters()  # применяет slice_custom_filters из datasource.database к query
         payload = self.get_df_payload(query_obj)
 
         df = payload.get("df")

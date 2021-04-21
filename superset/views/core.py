@@ -91,7 +91,6 @@ from superset.models.core import Database, FavStar, Log
 from superset.models.dashboard import Dashboard
 from superset.models.datasource_access_request import DatasourceAccessRequest
 from superset.models.slice import Slice
-from superset.models.slice_custom_filter import SliceCustomFilter
 from superset.models.sql_lab import Query, TabState
 from superset.models.user_attributes import UserAttribute
 from superset.queries.dao import QueryDAO
@@ -780,6 +779,7 @@ class Superset(BaseSupersetView):  # pylint: disable=too-many-public-methods
                 status=400,
             )
 
+        # TODO нужно передавать на фронт флаг результата обработки фильтров
         custom_filters_processed = True
         form_data["custom_filters_processed"] = custom_filters_processed
         if action in ("saveas", "overwrite"):
@@ -901,7 +901,6 @@ class Superset(BaseSupersetView):  # pylint: disable=too-many-public-methods
         form_data["adhoc_filters"] = self.remove_extra_filters(
             form_data.get("adhoc_filters", [])
         )
-        form_data["custom_filters_processed"] = custom_filters_processed
 
         assert slc
         slc.params = json.dumps(form_data, indent=2, sort_keys=True)
@@ -910,51 +909,6 @@ class Superset(BaseSupersetView):  # pylint: disable=too-many-public-methods
         slc.datasource_type = datasource_type
         slc.datasource_id = datasource_id
         slc.slice_name = slice_name
-        slc.form_data['custom_filters_processed'] = custom_filters_processed
-        # Каждый раз, когда юзер сохраняет чарт - необходимо обновить SliceCustomFilter в текущем datasource
-        # custom_filters = form_data.get("custom_filters")
-        # custom_filters_for_slice = db.session.query(
-        #     SliceCustomFilter
-        # ).filter_by(slice=slc)
-        # print("custom_filters_for_slice:", custom_filters_for_slice.all())
-        # if custom_filters:
-        #     print("CUSTOM FILTERS FROM FRONT:", custom_filters)
-        #     for filtr in custom_filters:
-        #         key = filtr.get("key")
-        #         value = filtr.get("value")
-        #         if value:
-        #             custom_filter = custom_filters_for_slice.filter_by(
-        #                 key=key
-        #             ).first()
-        #             if not custom_filter:
-        #                 custom_filter = SliceCustomFilter(
-        #                     slice=slc,
-        #                     key=key,
-        #                     value=value
-        #                 )
-        #                 db.session.add(custom_filter)
-        #                 print("CUSTOM FILTER CREATED:", custom_filter)
-        #             else:
-        #                 if custom_filter.value != value:
-        #                     custom_filter.value = value
-        #                     print("CUSTOM FILTER UPDATED:", custom_filter)
-        #
-        #             db.session.commit()
-        #
-        #         # Deleted filters from front have to be removed from DB
-        #         custom_filters_keys = [flt["key"] for flt in custom_filters]
-        #         for existing_filter in custom_filters_for_slice.all():
-        #             if existing_filter.key not in custom_filters_keys:
-        #                 print("DELETING EXISTING FILTER", existing_filter)
-        #                 db.session.delete(existing_filter)
-        #
-        #         # Commit changes
-        #         db.session.commit()
-        # else:
-        #     # Пользователь удалил все фильтра - нужно отразить изменения в БД
-        #     custom_filters_for_slice.delete()
-        #     db.session.commit()
-        #     print("ALL FILTERS DELETED", custom_filters_for_slice.all())
 
         if action == "saveas" and slice_add_perm:
             ChartDAO.save(slc)

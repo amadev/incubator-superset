@@ -378,13 +378,14 @@ class Database(
             if log_query:
                 log_query(engine.url, sql, schema, username, __name__, security_manager)
 
+        # TODO убрать принты
         # Нужен constaint для уникальности key + slice_id
         create_table_sql = """
         CREATE TABLE IF NOT EXISTS slice_custom_filters (
             id serial not null
                 constraint slice_custom_filters_pkey primary key,
             slice_id integer not null,
-            key varchar(30) not null,
+            key varchar(50) not null,
             value text not null
         );
         """
@@ -395,7 +396,7 @@ class Database(
 
         for flt in custom_fitlers:
             key = flt.get('key')
-            value = flt.get('value', '')#.replace("'", '').replace('|', '').replace(';', '')
+            value = flt.get('value', '')
             flt['insert_sql'] = insert_template.format(f"({slice_id}, '{key}', '{value}')")
             flt['update_sql'] = update_template.format(value, slice_id, key)
 
@@ -420,7 +421,6 @@ class Database(
                     print("Existing filters received")
                 except Exception as e:
                     print("Existing filters SELECT error", e)
-                    # return False
 
                 if existing_filters:
                     print(f"EXISTING FILTERS FOR SLICE_ID={slice_id} FOUND: {existing_filters}")

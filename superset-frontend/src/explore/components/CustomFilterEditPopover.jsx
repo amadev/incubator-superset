@@ -24,7 +24,6 @@ import { styled, t } from '@superset-ui/core';
 import Tabs from 'src/common/components/Tabs';
 import CustomFilter from '../CustomFilter';
 import AdhocFilterEditPopover, { ResizeIcon, startingWidth, startingHeight } from './AdhocFilterEditPopover';
-// import AdhocFilterEditPopover from './AdhocFilterEditPopover';
 import CustomFilterEditPopoverTabContent from './CustomFilterEditPopoverTabContent';
 
 const propTypes = {
@@ -45,14 +44,9 @@ export default class CustomFilterEditPopover extends AdhocFilterEditPopover {
       width: startingWidth,
       height: startingHeight,
     };
-
-    // this.popoverContentRef = React.createRef();
-    console.log("CustomFilterEditPopover INITED!!!");
-    console.log(this);
   }
 
   onFilterChange(customFilter) {
-    console.log("onFilterChange");
     this.setState({ customFilter });
   }
 

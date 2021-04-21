@@ -39,8 +39,6 @@ class CustomFilterOption extends AdhocFilterOption {
     this.state = {
       popoverVisible: !!props.customFilter.isNew,
     };
-    console.log("CustomFilterOption INITED!!!");
-    console.log(this);
   }
 
   componentWillUnmount() {

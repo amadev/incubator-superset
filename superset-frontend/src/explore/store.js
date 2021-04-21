@@ -55,9 +55,6 @@ export function getControlsState(state, inputFormData) {
   if (controlPanelConfig.onInit) {
     return controlPanelConfig.onInit(controlsState);
   }
-  // console.log("controlsState");
-  // console.log(controlsState);
-
   return controlsState;
 }
 

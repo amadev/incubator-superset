@@ -19,7 +19,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// import { t, logging } from '@superset-ui/core';
 import { t } from '@superset-ui/core';
 
 import Select from 'src/components/Select';
@@ -37,7 +36,7 @@ const propTypes = {
   datasource: PropTypes.object,
   formData: PropTypes.shape({
     slice_id: PropTypes.number,
-    custom_filters_processed: PropTypes.bool,
+    // custom_filters_processed: PropTypes.bool,
   }),
   isLoading: PropTypes.bool,
 };
@@ -70,14 +69,9 @@ export default class CustomFilterControl extends AdhocFilterControl {
     this.state = {
       values: filters,
     };
-    console.log("CustomFilterControl INITED!!!");
-    console.log(this);
-    console.log(this.props.formData.custom_filters_processed);
   }
 
   componentDidMount() {
-    console.log("did mount");
-    console.log(this.props.formData);
     //pass
   }
 
@@ -122,14 +116,12 @@ export default class CustomFilterControl extends AdhocFilterControl {
   }
 
   onAddClick() {
-    console.log("ON ADD CLICK");
     let newValues = this.state.values || [];
     const newCustomFilter = new CustomFilter({
       slice_id: this.props.formData.slice_id,
       isNew: true,
     });
     newValues.push(newCustomFilter);
-    console.log(newValues);
     this.setState({values: newValues});
     this.props.onChange(newValues);
   }

@@ -47,13 +47,6 @@ class ChartDAO(BaseDAO):
                 db.session.merge(model)
         # bulk delete itself
         try:
-            # delete related objects first
-            # db.session.query(SliceCustomFilter).filter(
-            #     SliceCustomFilter.slice_id.in_(item_ids)
-            # ).delete(
-            #     synchronize_session="fetch"
-            # )
-            # print("SliceCustomFilter objects deleted")
             db.session.query(Slice).filter(Slice.id.in_(item_ids)).delete(
                 synchronize_session="fetch"
             )
