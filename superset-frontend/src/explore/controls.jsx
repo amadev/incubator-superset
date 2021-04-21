@@ -479,6 +479,17 @@ export const controls = {
     provideFormDataToProps: true,
   },
 
+  custom_filters: {
+    type: 'CustomFilterControl',
+    label: t('Custom Filters'),
+    default: null,
+    description: '',
+    mapStateToProps: state => ({
+      datasource: state.datasource,
+    }),
+    provideFormDataToProps: true,
+  },
+
   color_scheme: {
     type: 'ColorSchemeControl',
     label: t('Color Scheme'),

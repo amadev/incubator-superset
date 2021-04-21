@@ -103,6 +103,7 @@ export default {
           },
         ],
         ['adhoc_filters'],
+        ['custom_filters'],
       ],
     },
   ],
@@ -113,5 +114,11 @@ export default {
         'These filters apply to the values available in the dropdowns',
       ),
     },
+    custom_filters: {
+      label: t('Custom filters'),
+      description: t(
+        'These custom filters applied to query after chart is saved',
+      ),
+    }
   },
 };

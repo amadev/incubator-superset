@@ -1764,7 +1764,7 @@ def chart_to_xlsx(
         # Just write DF data to 1st ws
         data_sheet_name = name if name else "Sheet1"
         df.to_excel(writer, index=include_index, sheet_name=data_sheet_name, startrow=1)
-        data_sheet = writer.sheets[name]
+        data_sheet = wb.add_worksheet(name)
         data_sheet.write("A1", name, bold_fmt)
 
     # Set columns width

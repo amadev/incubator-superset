@@ -20,6 +20,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
+// import { Alert } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { styled, logging, t } from '@superset-ui/core';
 
@@ -79,6 +80,7 @@ class ExploreViewContainer extends React.Component {
     super(props);
 
     this.state = {
+      // alert: !this.props.form_data.custom_filters_processed ? { alert: t('Custom filters processing error') } : null,
       height: this.getHeight(),
       width: this.getWidth(),
       showModal: false,
@@ -108,6 +110,10 @@ class ExploreViewContainer extends React.Component {
       this.props.actions.triggerQuery(true, this.props.chart.id);
     }
   }
+
+  // removeAlert() {
+  //   this.setState({ alert: null });
+  // }
 
   UNSAFE_componentWillReceiveProps(nextProps) {
     if (
@@ -360,6 +366,19 @@ class ExploreViewContainer extends React.Component {
           />
         </div>
         <div className="col-sm-8">{this.renderChartContainer()}</div>
+        {/*{(this.state.alert || !this.props.form_data.custom_filters_processed) && (*/}
+          {/*<Alert>*/}
+            {/*{this.state.alert ? this.state.alert : t('Custom filters processing error')}*/}
+            {/*<i*/}
+              {/*role="button"*/}
+              {/*aria-label="Remove alert"*/}
+              {/*tabIndex={0}*/}
+              {/*className="fa fa-close pull-right"*/}
+              {/*onClick={this.removeAlert.bind(this)}*/}
+              {/*style={{ cursor: 'pointer' }}*/}
+            {/*/>*/}
+          {/*</Alert>*/}
+        {/*)}*/}
       </Styles>
     );
   }
