@@ -17,7 +17,8 @@
  * under the License.
  */
 
-const INVALID_SYMBOLS = [',', '.', '/', '\\'];
+const KEY_INVALID_SYMBOLS = [',', '.', '/', '\\', '\'', '"', '|'];
+const VALUE_INVALID_SYMBOLS = ["'", '"', '|'];
 
 export default class CustomFilter {
   constructor(customFilter) {
@@ -39,7 +40,7 @@ export default class CustomFilter {
       // all duplicated fields are not new (i.e. will not open popup automatically)
       isNew: false,
       ...nextFields,
-    });
+    })
   }
 
   equals(customFilter) {
@@ -50,8 +51,11 @@ export default class CustomFilter {
   }
 
   isValid() {
-    if (this.key && INVALID_SYMBOLS.some(s => this.key.includes(s)) || this.key.length >= 50) {
+    if (this.key && (KEY_INVALID_SYMBOLS.some(s => this.key.includes(s)) || this.key.length >= 50)) {
       // нужно уведолмять юзера
+      return false;
+    }
+    if (this.value && VALUE_INVALID_SYMBOLS.some(s => this.value.includes(s))) {
       return false;
     }
     return true;
@@ -60,10 +64,12 @@ export default class CustomFilter {
   getDefaultLabel() {
     let result = this.key + ":= ";
     let value = this.value;
-    if (value > 30) {
-       value = value.slice(0, 30) + "...";
+    if (value) {
+      if (value.length >= 15) {
+        value = value.slice(0, 12) + "...";
+      }
     }
     result += value;
-    return result
+    return result.slice(0, 50) + "...";
   }
 }

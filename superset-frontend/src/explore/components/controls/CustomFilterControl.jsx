@@ -19,10 +19,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { t, logging, SupersetClient } from '@superset-ui/core';
+// import { t, logging } from '@superset-ui/core';
+import { t } from '@superset-ui/core';
 
 import Select from 'src/components/Select';
 import Button from 'src/components/Button';
+import AdhocFilterControl from './AdhocFilterControl';
 import ControlHeader from '../ControlHeader';
 import customFilterType from '../../propTypes/customFilterType';
 import CustomFilter from '../../CustomFilter';
@@ -35,6 +37,7 @@ const propTypes = {
   datasource: PropTypes.object,
   formData: PropTypes.shape({
     slice_id: PropTypes.number,
+    custom_filters_processed: PropTypes.bool,
   }),
   isLoading: PropTypes.bool,
 };
@@ -49,18 +52,13 @@ function isDictionaryForCustomFilter(value) {
   return value && !(value instanceof CustomFilter);
 }
 
-export default class CustomFilterControl extends React.Component {
+export default class CustomFilterControl extends AdhocFilterControl {
   constructor(props) {
     super(props);
-    // this.optionsForSelect = this.optionsForSelect.bind(this);
-    this.onFilterEdit = this.onFilterEdit.bind(this);
-    this.onChange = this.onChange.bind(this);
 
     const filters = (this.props.value || []).map(filter =>
       isDictionaryForCustomFilter(filter) ? new CustomFilter(filter) : filter,
     );
-    console.log("FILTERS HERE");
-    console.log(filters);
 
     this.valueRenderer = customFilter => (
       <CustomFilterOption
@@ -71,59 +69,19 @@ export default class CustomFilterControl extends React.Component {
     );
     this.state = {
       values: filters,
-      // options: this.optionsForSelect(this.props),
     };
+    console.log("CustomFilterControl INITED!!!");
+    console.log(this);
+    console.log(this.props.formData.custom_filters_processed);
   }
 
-  // componentDidMount() {
-  //   console.log("MOUNTED");
-  //   const { datasource } = this.props;
-  //   if (datasource && datasource.type === 'table') {
-  //     const dbId = datasource.database?.id;
-  //     const {
-  //       datasource_name: name,
-  //       schema,
-  //     } = datasource;
-  //
-  //     if (dbId && name && schema) {
-  //       SupersetClient.get({
-  //         endpoint: `/superset/custom_filters/${dbId}/${name}/${schema}/`,
-  //       })
-  //         .then(({ json }) => {
-  //           console.log(json);
-  //           if (json) {
-  //             const { customFilters } = json;
-  //             // if (
-  //             //   partitions &&
-  //             //   partitions.cols &&
-  //             //   Object.keys(partitions.cols).length === 1
-  //             // ) {
-  //             //   const partitionColumn = partitions.cols[0];
-  //             //   this.valueRenderer = adhocFilter => (
-  //             //     <AdhocFilterOption
-  //             //       adhocFilter={adhocFilter}
-  //             //       onFilterEdit={this.onFilterEdit}
-  //             //       options={this.state.options}
-  //             //       datasource={this.props.datasource}
-  //             //       partitionColumn={partitionColumn}
-  //             //     />
-  //             //   );
-  //             // }
-  //           }
-  //         })
-  //         .catch(error => {
-  //           logging.error('fetch extra_table_metadata:', error.statusText);
-  //         });
-  //     }
-  //   }
-  // }
+  componentDidMount() {
+    console.log("did mount");
+    console.log(this.props.formData);
+    //pass
+  }
 
   UNSAFE_componentWillReceiveProps(nextProps) {
-    // if (
-    //   this.props.formData !== nextProps.formData
-    // ) {
-    //   this.setState({ options: this.optionsForSelect(nextProps) });
-    // }
     if (this.props.value !== nextProps.value) {
       this.setState({
         values: (nextProps.value || []).map(filter =>
@@ -131,17 +89,6 @@ export default class CustomFilterControl extends React.Component {
         ),
       });
     }
-  }
-
-  onFilterEdit(changedFilter) {
-    this.props.onChange(
-      this.state.values.map(value => {
-        if (value.filterOptionName === changedFilter.filterOptionName) {
-          return changedFilter;
-        }
-        return value;
-      }),
-    );
   }
 
   onChange(opts) {
@@ -166,9 +113,16 @@ export default class CustomFilterControl extends React.Component {
     this.props.onChange(options);
   }
 
+  getMetricExpression(metrics) {
+    //pass
+  }
+
+  optionsForSelect(props) {
+    //pass
+  }
+
   onAddClick() {
     console.log("ON ADD CLICK");
-    console.log(this.state);
     let newValues = this.state.values || [];
     const newCustomFilter = new CustomFilter({
       slice_id: this.props.formData.slice_id,
@@ -179,38 +133,6 @@ export default class CustomFilterControl extends React.Component {
     this.setState({values: newValues});
     this.props.onChange(newValues);
   }
-
-  // optionsForSelect(props) {
-  //   const existigFilters = props.formData.custom_filters;
-  //   // const options = [
-  //   //   props.formData.slice_id,
-  //   //   ...props.keys,  //в keys должно подгружаться CustomSliceParams.filter(Slice.id=props.formData.slice_id)
-  //   // ].filter(option => option);
-  //   console.log("EXISTING FILTERS");
-  //   console.log(existigFilters);
-  //
-  //   if (!existigFilters) {
-  //     return new CustomFilter({
-  //       slice_id: props.formData.slice_id,
-  //       isNew: true,
-  //     });
-  //   }
-  //   return existigFilters
-  //     .reduce((results, filtr) => {
-  //       if (filtr.key) {
-  //         results.push({
-  //           ...filtr,
-  //           filterOptionName: `_key_${filtr.key}`,
-  //         });
-  //       }
-  //       return results;
-  //     }, [])
-  //     .sort((a, b) =>
-  //       (a.key || a.label).localeCompare(
-  //         b.key || b.label,
-  //       ),
-  //     );
-  // }
 
   render() {
     return (
@@ -228,7 +150,6 @@ export default class CustomFilterControl extends React.Component {
           clearable
           closeOnSelect
           onChange={this.onChange}
-          // optionRenderer={this.optionRenderer}
           valueRenderer={this.valueRenderer}
         />
         <Button

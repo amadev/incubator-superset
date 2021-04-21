@@ -44,11 +44,6 @@ export default class CustomFilterEditPopoverTabContent extends React.Component {
 
     this.state = {};
 
-    // this.selectProps = {
-    //   name: 'select-column',
-    //   // showSearch: true,
-    // };
-
     this.menuPortalProps = {
       menuPortalTarget: props.popoverRef,
       menuPosition: 'fixed',
@@ -56,14 +51,14 @@ export default class CustomFilterEditPopoverTabContent extends React.Component {
     };
   }
 
-  // componentDidUpdate(prevProps) {
-  //   if (prevProps.customFilter.key !== this.props.customFilter.key) {
-      // console.log("UPDATED");
-      // console.log(this.props.customFilter);
-      // console.log(prevProps);
-      // update formdata?
-  //   }
-  // }
+  componentDidUpdate(prevProps) {
+    // pass
+    // if (prevProps.customFilter.key !== this.props.customFilter.key) {
+    //   console.log("UPDATED");
+    //   console.log(this.props.customFilter);
+    //   console.log(prevProps);
+    // }
+  }
 
   onKeyChange(event) {
     this.props.onChange(
@@ -95,7 +90,6 @@ export default class CustomFilterEditPopoverTabContent extends React.Component {
       placeholder: t('Input filter key name'),
       value: key ?? undefined,
       onChange: this.onKeyChange,
-      notFoundContent: t('No such filter found.'),
     };
 
     const valueSelectProps = {
@@ -111,7 +105,7 @@ export default class CustomFilterEditPopoverTabContent extends React.Component {
               name="filter-column"
               ref={this.focusKeyValue}
               type="text"
-              maxlength="50"
+              maxLength="50"
               onChange={this.onKeyChange}
               value={key}
               className="form-control input-sm"
@@ -124,7 +118,7 @@ export default class CustomFilterEditPopoverTabContent extends React.Component {
               name="filter-value"
               ref={this.focusKeyValue}
               type="text"
-              maxlength="1024"
+              maxLength="1024"
               onChange={this.onValueChange}
               value={value}
               className="form-control input-sm"

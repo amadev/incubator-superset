@@ -41,16 +41,19 @@ const propTypes = {
   datasource: PropTypes.object,
   partitionColumn: PropTypes.string,
 };
+
 class AdhocFilterOption extends React.PureComponent {
   constructor(props) {
     super(props);
     this.onPopoverResize = this.onPopoverResize.bind(this);
     this.closePopover = this.closePopover.bind(this);
     this.togglePopover = this.togglePopover.bind(this);
-    this.state = {
-      // automatically open the popover the the metric is new
-      popoverVisible: !!props.adhocFilter.isNew,
-    };
+    if (props.adhocFilter) {
+      this.state = {
+        // automatically open the popover the the metric is new
+        popoverVisible: !!props.adhocFilter.isNew,
+      };
+    } else this.state = {};
   }
 
   componentWillUnmount() {

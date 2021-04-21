@@ -45,12 +45,12 @@ const propTypes = {
   theme: PropTypes.object,
 };
 
-const ResizeIcon = styled.i`
+export const ResizeIcon = styled.i`
   margin-left: ${({ theme }) => theme.gridUnit * 2}px;
 `;
 
-const startingWidth = 320;
-const startingHeight = 240;
+export const startingWidth = 320;
+export const startingHeight = 240;
 
 export default class AdhocFilterEditPopover extends React.Component {
   constructor(props) {
@@ -59,7 +59,7 @@ export default class AdhocFilterEditPopover extends React.Component {
     this.onDragDown = this.onDragDown.bind(this);
     this.onMouseMove = this.onMouseMove.bind(this);
     this.onMouseUp = this.onMouseUp.bind(this);
-    this.onAdhocFilterChange = this.onAdhocFilterChange.bind(this);
+    this.onFilterChange = this.onFilterChange.bind(this);
     this.adjustHeight = this.adjustHeight.bind(this);
 
     this.state = {
@@ -80,7 +80,7 @@ export default class AdhocFilterEditPopover extends React.Component {
     document.removeEventListener('mousemove', this.onMouseMove);
   }
 
-  onAdhocFilterChange(adhocFilter) {
+  onFilterChange(adhocFilter) {
     this.setState({ adhocFilter });
   }
 
@@ -159,7 +159,7 @@ export default class AdhocFilterEditPopover extends React.Component {
           >
             <AdhocFilterEditPopoverSimpleTabContent
               adhocFilter={this.state.adhocFilter}
-              onChange={this.onAdhocFilterChange}
+              onChange={this.onFilterChange}
               options={options}
               datasource={datasource}
               onHeightChange={this.adjustHeight}
@@ -176,7 +176,7 @@ export default class AdhocFilterEditPopover extends React.Component {
             this.props.datasource.type !== 'druid' ? (
               <AdhocFilterEditPopoverSqlTabContent
                 adhocFilter={this.state.adhocFilter}
-                onChange={this.onAdhocFilterChange}
+                onChange={this.onFilterChange}
                 options={this.props.options}
                 height={this.state.height}
               />

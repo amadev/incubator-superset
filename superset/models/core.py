@@ -364,6 +364,118 @@ class Database(
     def get_quoter(self) -> Callable[[str, Any], str]:
         return self.get_dialect().identifier_preparer.quote
 
+    # pylint: disable=broad-except
+    def add_custom_filters(
+        self,
+        slice_id: int,
+        custom_fitlers: list,
+        schema: Optional[str] = None
+    ) -> bool:
+        engine = self.get_sqla_engine(schema=schema)
+        username = utils.get_username()
+
+        def _log_query(sql: str) -> None:
+            if log_query:
+                log_query(engine.url, sql, schema, username, __name__, security_manager)
+
+        # Нужен constaint для уникальности key + slice_id
+        create_table_sql = """
+        CREATE TABLE IF NOT EXISTS slice_custom_filters (
+            id serial not null
+                constraint slice_custom_filters_pkey primary key,
+            slice_id integer not null,
+            key varchar(30) not null,
+            value text not null
+        );
+        """
+        insert_template = "INSERT INTO slice_custom_filters(slice_id, key, value) VALUES {};"
+        update_template = "UPDATE slice_custom_filters SET value = '{}' WHERE slice_id = {} AND key = '{}';"
+        delete_template = "DELETE FROM slice_custom_filters WHERE slice_id = {} AND key = '{}'"
+        select_existing_template = "SELECT * FROM slice_custom_filters WHERE slice_id = {};"
+
+        for flt in custom_fitlers:
+            key = flt.get('key')
+            value = flt.get('value', '')#.replace("'", '').replace('|', '').replace(';', '')
+            flt['insert_sql'] = insert_template.format(f"({slice_id}, '{key}', '{value}')")
+            flt['update_sql'] = update_template.format(value, slice_id, key)
+
+        with closing(engine.raw_connection()) as conn:
+            with closing(conn.cursor()) as cursor:
+                # Create table slice_custom_filters if not exists
+                _log_query(create_table_sql)
+                try:
+                    self.db_engine_spec.execute(cursor, create_table_sql)
+                    print("Table slice_custom_filters exists")
+                except Exception as e:
+                    print("Table CREATE error", e)
+                    return False
+
+                # Check are there filters to delete/update else insert
+                existing_filters = None
+                try:
+                    self.db_engine_spec.execute(
+                        cursor, select_existing_template.format(slice_id)
+                    )
+                    existing_filters = cursor.fetchall()
+                    print("Existing filters received")
+                except Exception as e:
+                    print("Existing filters SELECT error", e)
+                    # return False
+
+                if existing_filters:
+                    print(f"EXISTING FILTERS FOR SLICE_ID={slice_id} FOUND: {existing_filters}")
+                    custom_fitlers_keys = [f['key'] for f in custom_fitlers]
+                    existing_filters_dict = {ef[2]: ef[-1] for ef in existing_filters}
+                    # Sync front with back first (DELETE from DB all keys, witch removed from front)
+                    for ex_f_key in existing_filters_dict.keys():
+                        if ex_f_key not in custom_fitlers_keys:
+                            delete_sql = delete_template.format(slice_id, ex_f_key)
+                            print("NEED TO DELETE:", delete_sql)
+                            _log_query(delete_sql)
+                            try:
+                                self.db_engine_spec.execute(cursor, delete_sql)
+                                conn.commit()
+                                print("DELETED")
+                            except Exception as e:
+                                print(f"Error occured while DELETE from slice_custom_filters. SQL={delete_sql}. {e}")
+
+                # Insert || Update
+                for rec_f in custom_fitlers:
+                    key = rec_f['key']
+                    value = rec_f['value']
+                    if key in existing_filters_dict.keys():
+                        if value != existing_filters_dict[key]:
+                            update_sql = rec_f['update_sql']
+                            print("NEED TO UPDATE:", update_sql)
+                            _log_query(update_sql)
+                            try:
+                                self.db_engine_spec.execute(cursor, update_sql)
+                                conn.commit()
+                                print("UPDATED")
+                            except Exception as e:
+                                print(f"Error occured while UPDATE slice_custom_filters. SQL={update_sql}. {e}")
+                                return False
+                    else:
+                        insert_sql = rec_f['insert_sql']
+                        print("NEED TO INSERT:", insert_sql)
+                        _log_query(insert_sql)
+                        try:
+                            self.db_engine_spec.execute(cursor, insert_sql)
+                            conn.commit()
+                            print("INSERTED")
+                        except Exception as e:
+                            print(f"Error occured while INSERT INTO slice_custom_filters. SQL={insert_sql}. {e}")
+                            return False
+
+                try:
+                    # Check data saved
+                    self.db_engine_spec.execute(cursor, f"SELECT * FROM slice_custom_filters WHERE slice_id={slice_id};")
+                    print("SELECT EXECUTED", cursor.fetchall())
+                except Exception as e:
+                    print("slice_custom_filters SELECT error", e)
+
+        return True
+
     def get_df(  # pylint: disable=too-many-locals
         self,
         sql: str,

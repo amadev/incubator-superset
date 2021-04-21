@@ -23,6 +23,8 @@ import { styled, t } from '@superset-ui/core';
 
 import Tabs from 'src/common/components/Tabs';
 import CustomFilter from '../CustomFilter';
+import AdhocFilterEditPopover, { ResizeIcon, startingWidth, startingHeight } from './AdhocFilterEditPopover';
+// import AdhocFilterEditPopover from './AdhocFilterEditPopover';
 import CustomFilterEditPopoverTabContent from './CustomFilterEditPopoverTabContent';
 
 const propTypes = {
@@ -34,22 +36,9 @@ const propTypes = {
   theme: PropTypes.object,
 };
 
-const ResizeIcon = styled.i`
-  margin-left: ${({ theme }) => theme.gridUnit * 2}px;
-`;
-
-const startingWidth = 320;
-const startingHeight = 240;
-
-export default class CustomFilterEditPopover extends React.Component {
+export default class CustomFilterEditPopover extends AdhocFilterEditPopover {
   constructor(props) {
     super(props);
-    this.onSave = this.onSave.bind(this);
-    this.onDragDown = this.onDragDown.bind(this);
-    this.onMouseMove = this.onMouseMove.bind(this);
-    this.onMouseUp = this.onMouseUp.bind(this);
-    this.onCustomFilterChange = this.onCustomFilterChange.bind(this);
-    this.adjustHeight = this.adjustHeight.bind(this);
 
     this.state = {
       customFilter: this.props.customFilter,
@@ -57,61 +46,20 @@ export default class CustomFilterEditPopover extends React.Component {
       height: startingHeight,
     };
 
-    this.popoverContentRef = React.createRef();
+    // this.popoverContentRef = React.createRef();
+    console.log("CustomFilterEditPopover INITED!!!");
+    console.log(this);
   }
 
-  componentDidMount() {
-    document.addEventListener('mouseup', this.onMouseUp);
-  }
-
-  componentWillUnmount() {
-    document.removeEventListener('mouseup', this.onMouseUp);
-    document.removeEventListener('mousemove', this.onMouseMove);
-  }
-
-  onCustomFilterChange(customFilter) {
-    // console.log("onCustomFilterChange");
-    // console.log(this.state);
+  onFilterChange(customFilter) {
+    console.log("onFilterChange");
     this.setState({ customFilter });
   }
 
   onSave() {
-    // console.log("ON SAVE TAB");
     // unset isNew here in case save button was clicked when no changes were made
-    // console.log(this.props);
-    // console.log(this.state);
     this.props.onChange({ ...this.state.customFilter, isNew: false });
     this.props.onClose();  // TODO закрытие одного таба должно закрывать все остальные открытые
-  }
-
-  onDragDown(e) {
-    this.dragStartX = e.clientX;
-    this.dragStartY = e.clientY;
-    this.dragStartWidth = this.state.width;
-    this.dragStartHeight = this.state.height;
-    document.addEventListener('mousemove', this.onMouseMove);
-  }
-
-  onMouseMove(e) {
-    this.props.onResize();
-    this.setState({
-      width: Math.max(
-        this.dragStartWidth + (e.clientX - this.dragStartX),
-        startingWidth,
-      ),
-      height: Math.max(
-        this.dragStartHeight + (e.clientY - this.dragStartY) * 2,
-        startingHeight,
-      ),
-    });
-  }
-
-  onMouseUp() {
-    document.removeEventListener('mousemove', this.onMouseMove);
-  }
-
-  adjustHeight(heightDifference) {
-    this.setState(state => ({ height: state.height + heightDifference }));
   }
 
   render() {
@@ -145,14 +93,14 @@ export default class CustomFilterEditPopover extends React.Component {
           data-test="adhoc-filter-edit-tabs"
           style={{ height: this.state.height, width: this.state.width }}
         >
-          <Tabs.TabPane  // теперь табы не нужны, но в будущем можно будет добавить другой тип фильтров
+          <Tabs.TabPane  // теперь табы не нужны, но в будущем можно будет добавить другой тип фильтра в новый таб
             className="adhoc-filter-edit-tab"
             key={"CustomFilter"}
             tab={t("Add Custom Filter")}
           >
             <CustomFilterEditPopoverTabContent
               customFilter={this.state.customFilter}
-              onChange={this.onCustomFilterChange}
+              onChange={this.onFilterChange}
               datasource={datasource}
               onHeightChange={this.adjustHeight}
               popoverRef={this.popoverContentRef.current}

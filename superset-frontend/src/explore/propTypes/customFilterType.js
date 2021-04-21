@@ -21,5 +21,5 @@ import PropTypes from 'prop-types';
 export default PropTypes.shape({
     slice_id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
     key: PropTypes.string.isRequired,
-    value: PropTypes.string, //.isRequired,
+    value: PropTypes.string,
 });

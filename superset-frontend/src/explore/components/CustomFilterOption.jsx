@@ -23,6 +23,7 @@ import { InfoTooltipWithTrigger } from '@superset-ui/chart-controls';
 
 import Popover from 'src/common/components/Popover';
 import Label from 'src/components/Label';
+import AdhocFilterOption from './AdhocFilterOption';
 import CustomFilterEditPopover from './CustomFilterEditPopover';
 import CustomFilter from '../CustomFilter';
 
@@ -31,15 +32,15 @@ const propTypes = {
   onFilterEdit: PropTypes.func.isRequired,
   datasource: PropTypes.object,
 };
-class CustomFilterOption extends React.PureComponent {
+
+class CustomFilterOption extends AdhocFilterOption {
   constructor(props) {
     super(props);
-    this.onPopoverResize = this.onPopoverResize.bind(this);
-    this.closePopover = this.closePopover.bind(this);
-    this.togglePopover = this.togglePopover.bind(this);
     this.state = {
       popoverVisible: !!props.customFilter.isNew,
     };
+    console.log("CustomFilterOption INITED!!!");
+    console.log(this);
   }
 
   componentWillUnmount() {
@@ -47,14 +48,6 @@ class CustomFilterOption extends React.PureComponent {
     // considered new anymore. We mutate the prop directly because we don't
     // want excessive rerenderings.
     this.props.customFilter.isNew = false;
-  }
-
-  onPopoverResize() {
-    this.forceUpdate();
-  }
-
-  closePopover() {
-    this.togglePopover(false);
   }
 
   togglePopover(visible) {
