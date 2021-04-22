@@ -1723,6 +1723,9 @@ def chart_to_xlsx(
         slc = db.session.query(Slice).filter(Slice.id == slice_id).one()
         name = slc.slice_name
 
+    if not df:
+        return BytesIO()
+
     columns = {}
     if table_id:
         from superset import db
@@ -1748,7 +1751,7 @@ def chart_to_xlsx(
     wb = writer.book
     bold_fmt = wb.add_format({"bold": True})
     if image_data:
-        img_sheet_name = f"{name}-image" if name else "Sheet1"
+        img_sheet_name = sheet_name(name if name else "Sheet1", "image")
         img_sheet = wb.add_worksheet(img_sheet_name)
         img_sheet.write("A1", name, bold_fmt)
         image_data = image_data.split(",")[1]
@@ -1757,14 +1760,14 @@ def chart_to_xlsx(
             "A2", "in-memory", options={"image_data": BytesIO(image_data)}
         )
         # Add DF data to other ws
-        data_sheet_name = f"{name}-data" if name else "Sheet2"
+        data_sheet_name = sheet_name(name if name else "Sheet2", "data")
         df.to_excel(writer, index=include_index, sheet_name=data_sheet_name)
         data_sheet = writer.sheets[data_sheet_name]
     else:
         # Just write DF data to 1st ws
-        data_sheet_name = name if name else "Sheet1"
+        data_sheet_name = sheet_name(name if name else "Sheet1", "")
         df.to_excel(writer, index=include_index, sheet_name=data_sheet_name, startrow=1)
-        data_sheet = writer.sheets[name]
+        data_sheet = writer.sheets[data_sheet_name]
         data_sheet.write("A1", name, bold_fmt)
 
     # Set columns width
@@ -1787,3 +1790,10 @@ def debug_print(s, max_length=100):
             return pprint.PrettyPrinter._format(self, object, *args, **kwargs)
 
     return P().pformat(s)
+
+
+def sheet_name(name, suffix):
+    import uuid
+
+    s_name = f"{name[:(31 - 6 - len(suffix))]}-{str(uuid.uuid4())[:4]}-{suffix}"
+    return s_name

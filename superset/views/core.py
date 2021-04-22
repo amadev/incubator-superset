@@ -1808,12 +1808,6 @@ class Superset(BaseSupersetView):  # pylint: disable=too-many-public-methods
 
         logger.debug("Request data %s", utils.debug_print(json_body.copy()))
 
-        def sheet_name(name, suffix):
-            import uuid
-
-            s_name = f"{name[:(31 - 6 - len(suffix))]}-{str(uuid.uuid4())[:4]}-{suffix}"
-            return s_name
-
         # Get image of dashboard from json_body
         image_data = json_body.get("imageData")
         if image_data:
@@ -1839,7 +1833,7 @@ class Superset(BaseSupersetView):  # pylint: disable=too-many-public-methods
             bold_fmt = wb.add_format({"bold": True})
             if image_data:
                 # First sheet is for dashboard img
-                sheet = wb.add_worksheet(sheet_name(dashboard_title, "main"))
+                sheet = wb.add_worksheet(utils.sheet_name(dashboard_title, "main"))
                 sheet.write("A1", dashboard_title, bold_fmt)
                 sheet.insert_image(
                     "A2", "in-memory", options={"image_data": BytesIO(image_data)}
@@ -1970,7 +1964,7 @@ class Superset(BaseSupersetView):  # pylint: disable=too-many-public-methods
 
                 if img_data:
                     # Write slice img to it's sheet(image)
-                    img_sheet = wb.add_worksheet(sheet_name(slice_name, "image"))
+                    img_sheet = wb.add_worksheet(utils.sheet_name(slice_name, "image"))
                     img_sheet.write("A1", slice_name, bold_fmt)
                     img_sheet.insert_image(
                         "A2", "in-memory", options={"image_data": BytesIO(img_data)}
@@ -1986,7 +1980,7 @@ class Superset(BaseSupersetView):  # pylint: disable=too-many-public-methods
 
                     include_index = not isinstance(df.index, pd.RangeIndex)
                     # Init DF data worksheet
-                    data_sheet_name = sheet_name(slice_name, "data")
+                    data_sheet_name = utils.sheet_name(slice_name, "data")
                     # Write DF data to XLSX
                     df.to_excel(
                         writer,
