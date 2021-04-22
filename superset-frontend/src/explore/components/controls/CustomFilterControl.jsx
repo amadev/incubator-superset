@@ -149,7 +149,7 @@ export default class CustomFilterControl extends AdhocFilterControl {
           buttonStyle="primary"
           onClick={this.onAddClick.bind(this)}
         >
-          {t('Add Custom Filter')}
+          {t('Add Filter')}
         </Button>
       </div>
     );

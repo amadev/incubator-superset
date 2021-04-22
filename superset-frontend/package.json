@@ -65,7 +65,7 @@
     "@babel/runtime-corejs3": "^7.8.4",
     "@data-ui/sparkline": "^0.0.84",
     "@emotion/core": "^10.0.35",
-    "superset-ui/chart-controls": "Arthanadftz/superset-ui/tree/master/packages/superset-ui-chart-controls",
+    "@superset-ui/chart-controls": "Arthanadftz/superset-chart-controls",
     "@superset-ui/core": "^0.15.18",
     "@superset-ui/legacy-plugin-chart-calendar": "^0.15.18",
     "@superset-ui/legacy-plugin-chart-chord": "^0.15.18",

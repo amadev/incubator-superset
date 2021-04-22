@@ -378,40 +378,43 @@ class Database(
             if log_query:
                 log_query(engine.url, sql, schema, username, __name__, security_manager)
 
-        # TODO убрать принты
-        # Нужен constaint для уникальности key + slice_id
         create_table_sql = """
         CREATE TABLE IF NOT EXISTS slice_custom_filters (
             id serial not null
                 constraint slice_custom_filters_pkey primary key,
             slice_id integer not null,
             key varchar(50) not null,
-            value text not null
+            value text not null,
+            CONSTRAINT slice_custom_filters_slice_id_key_uniq UNIQUE (slice_id, key)
         );
         """
-        insert_template = "INSERT INTO slice_custom_filters(slice_id, key, value) VALUES {};"
-        update_template = "UPDATE slice_custom_filters SET value = '{}' WHERE slice_id = {} AND key = '{}';"
+        insert_template = """
+        INSERT INTO slice_custom_filters(slice_id, key, value) 
+        VALUES {} ON CONFLICT (slice_id, key) 
+          DO UPDATE SET value = EXCLUDED.value;
+        """
         delete_template = "DELETE FROM slice_custom_filters WHERE slice_id = {} AND key = '{}'"
         select_existing_template = "SELECT * FROM slice_custom_filters WHERE slice_id = {};"
 
+        upsert_rows = []
         for flt in custom_fitlers:
             key = flt.get('key')
             value = flt.get('value', '')
-            flt['insert_sql'] = insert_template.format(f"({slice_id}, '{key}', '{value}')")
-            flt['update_sql'] = update_template.format(value, slice_id, key)
+            upsert_rows.append(f"({slice_id}, '{key}', '{value}')")
 
+        upsert_sql = insert_template.format(", ".join([row for row in upsert_rows]))
         with closing(engine.raw_connection()) as conn:
             with closing(conn.cursor()) as cursor:
                 # Create table slice_custom_filters if not exists
                 _log_query(create_table_sql)
                 try:
                     self.db_engine_spec.execute(cursor, create_table_sql)
-                    print("Table slice_custom_filters exists")
+                    print("Table slice_custom_filters CREATED")
                 except Exception as e:
-                    print("Table CREATE error", e)
+                    logger.warning(f"Table/Index CREATE error: {e}")
                     return False
 
-                # Check are there filters to delete/update else insert
+                # Check are there filters to delete
                 existing_filters = None
                 try:
                     self.db_engine_spec.execute(
@@ -420,7 +423,7 @@ class Database(
                     existing_filters = cursor.fetchall()
                     print("Existing filters received")
                 except Exception as e:
-                    print("Existing filters SELECT error", e)
+                    logger.warning(f"Existing filters SELECT error: {e}")
 
                 if existing_filters:
                     print(f"EXISTING FILTERS FOR SLICE_ID={slice_id} FOUND: {existing_filters}")
@@ -437,35 +440,16 @@ class Database(
                                 conn.commit()
                                 print("DELETED")
                             except Exception as e:
-                                print(f"Error occured while DELETE from slice_custom_filters. SQL={delete_sql}. {e}")
+                                logger.warning(f"Error occured while DELETE from slice_custom_filters. SQL={delete_sql}. {e}")
 
                 # Insert || Update
-                for rec_f in custom_fitlers:
-                    key = rec_f['key']
-                    value = rec_f['value']
-                    if key in existing_filters_dict.keys():
-                        if value != existing_filters_dict[key]:
-                            update_sql = rec_f['update_sql']
-                            print("NEED TO UPDATE:", update_sql)
-                            _log_query(update_sql)
-                            try:
-                                self.db_engine_spec.execute(cursor, update_sql)
-                                conn.commit()
-                                print("UPDATED")
-                            except Exception as e:
-                                print(f"Error occured while UPDATE slice_custom_filters. SQL={update_sql}. {e}")
-                                return False
-                    else:
-                        insert_sql = rec_f['insert_sql']
-                        print("NEED TO INSERT:", insert_sql)
-                        _log_query(insert_sql)
-                        try:
-                            self.db_engine_spec.execute(cursor, insert_sql)
-                            conn.commit()
-                            print("INSERTED")
-                        except Exception as e:
-                            print(f"Error occured while INSERT INTO slice_custom_filters. SQL={insert_sql}. {e}")
-                            return False
+                _log_query(upsert_sql)
+                try:
+                    self.db_engine_spec.execute(cursor, upsert_sql)
+                    conn.commit()
+                    print("UPSERTED")
+                except Exception as e:
+                    logger.warning(f"Error occured while UPSERT slice_custom_filters. SQL={upsert_sql}. {e}")
 
                 try:
                     # Check data saved

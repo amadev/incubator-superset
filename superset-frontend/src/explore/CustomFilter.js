@@ -23,7 +23,7 @@ const VALUE_INVALID_SYMBOLS = ["'", '"', '|'];
 export default class CustomFilter {
   constructor(customFilter) {
     this.slice_id = customFilter.slice_id;
-    this.key = customFilter.key || "empty_key";
+    this.key = customFilter.key || `key_${Math.random().toString(36).substring(2, 15)}`;
     this.value = customFilter.value;
     this.isExtra = !!customFilter.isExtra;
     this.isNew = !!customFilter.isNew;
