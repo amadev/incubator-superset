@@ -1723,7 +1723,7 @@ def chart_to_xlsx(
         slc = db.session.query(Slice).filter(Slice.id == slice_id).one()
         name = slc.slice_name
 
-    if not df:
+    if df is None:
         return BytesIO()
 
     columns = {}
