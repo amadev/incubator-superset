@@ -154,8 +154,6 @@ export function getExploreUrl({
   // Building the querystring (search) part of the URI
   const search = uri.search(true);
   const { slice_id, extra_filters, adhoc_filters, custom_filters, viz_type } = formData;
-  // const { slice_id, extra_filters, adhoc_filters, viz_type } = formData;
-  console.log(formData);
   if (slice_id) {
     const form_data = { slice_id };
     if (method === 'GET') {
