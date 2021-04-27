@@ -1777,9 +1777,8 @@ def chart_to_xlsx(
 
 
 class CustomFiltersDBUitls:
-
     def __init__(self, slice_id: int, custom_fitlers: list) -> None:
-        self.slice_id = slice_id
+        self.slice_id = int(slice_id)
         self.custom_fitlers = custom_fitlers
 
     def get_create_table_sql(self):
@@ -1801,28 +1800,23 @@ class CustomFiltersDBUitls:
         """
         return select_existing_sql_template.format(self.slice_id)
 
-    def get_upsert_filters_sql(self) -> str:
+    def get_upsert_filters_sql(self, escape_func) -> str:
         upsert_sql_template = """
-        INSERT INTO slice_custom_filters(slice_id, key, value) 
-        VALUES {} ON CONFLICT (slice_id, key) 
-          DO UPDATE SET value = EXCLUDED.value;
+        INSERT INTO slice_custom_filters(slice_id, key, value)
+        VALUES {}
         """
         upsert_rows = []
         for flt in self.custom_fitlers:
-            key = flt.get('key')
-            value = flt.get('value', '')
-            upsert_rows.append(f"({self.slice_id}, '{key}', '{value}')")
+            key = escape_func(flt.get("key"))
+            value = escape_func(flt.get("value", ""))
+            upsert_rows.append(f"({self.slice_id}, {key}, {value})")
 
-        upsert_sql = upsert_sql_template.format(
-            ", ".join([row for row in upsert_rows])
-        )
+        upsert_sql = upsert_sql_template.format(", ".join([row for row in upsert_rows]))
         return upsert_sql
 
-    def get_delete_filters_sql(self, existing_filter_key: str) -> str:
+    def get_delete_filters_sql(self, slice_id) -> str:
         delete_sql_template = """
-        DELETE FROM slice_custom_filters WHERE slice_id = {} AND key = '{}'
+        DELETE FROM slice_custom_filters WHERE slice_id = {}
         """
-        delete_sql = delete_sql_template.format(
-            self.slice_id, existing_filter_key
-        )
+        delete_sql = delete_sql_template.format(int(self.slice_id))
         return delete_sql

@@ -618,12 +618,28 @@ class Superset(BaseSupersetView):  # pylint: disable=too-many-public-methods
 
                 return json_success(json.dumps(job_metadata), status=202)
 
+            if form_data.get("custom_filters"):
+                form_data, slc = get_form_data(use_slice_data=True)
+                if slc:
+                    logger.info(
+                        "Storing custom filters, slice: %d, data: %s",
+                        slc.id,
+                        form_data["custom_filters"],
+                    )
+                    datasource = ConnectorRegistry.get_datasource(
+                        cast(str, datasource_type), datasource_id, db.session
+                    )
+                    datasource.database.add_custom_filters(
+                        slc.id, form_data["custom_filters"], datasource.schema
+                    )
+
             viz_obj = get_viz(
                 datasource_type=cast(str, datasource_type),
                 datasource_id=datasource_id,
                 form_data=form_data,
                 force=force,
             )
+
             return self.generate_json(viz_obj, response_type)
         except SupersetException as ex:
             logger.exception("Error happened in explore_json")
@@ -779,17 +795,7 @@ class Superset(BaseSupersetView):  # pylint: disable=too-many-public-methods
                 status=400,
             )
 
-        # TODO нужно передавать на фронт флаг результата обработки фильтров
-        custom_filters_processed = True
-        form_data["custom_filters_processed"] = custom_filters_processed
         if action in ("saveas", "overwrite"):
-            # Process received slice custom filters
-            if form_data.get("custom_filters"):
-                custom_filters_processed = datasource.database.add_custom_filters(
-                    slc.id, form_data['custom_filters'], datasource.schema
-                )
-                form_data["custom_filters_processed"] = custom_filters_processed
-
             return self.save_or_overwrite_slice(
                 slc,
                 slice_add_perm,
@@ -798,7 +804,6 @@ class Superset(BaseSupersetView):  # pylint: disable=too-many-public-methods
                 datasource_id,
                 cast(str, datasource_type),
                 datasource.name,
-                custom_filters_processed
             )
 
         standalone = (
@@ -827,7 +832,6 @@ class Superset(BaseSupersetView):  # pylint: disable=too-many-public-methods
             title = slc.slice_name
         else:
             title = _("Explore - %(table)s", table=table_name)
-
         return self.render_template(
             "superset/basic.html",
             bootstrap_data=json.dumps(
@@ -885,7 +889,6 @@ class Superset(BaseSupersetView):  # pylint: disable=too-many-public-methods
         datasource_id: int,
         datasource_type: str,
         datasource_name: str,
-        custom_filters_processed: bool,
     ) -> FlaskResponse:
         """Save or overwrite a slice"""
         slice_name = request.args.get("slice_name")
@@ -895,7 +898,6 @@ class Superset(BaseSupersetView):  # pylint: disable=too-many-public-methods
         if action == "saveas":
             if "slice_id" in form_data:
                 form_data.pop("slice_id")  # don't save old slice_id
-
             slc = Slice(owners=[g.user] if g.user else [])
 
         form_data["adhoc_filters"] = self.remove_extra_filters(
@@ -1925,10 +1927,14 @@ class Superset(BaseSupersetView):  # pylint: disable=too-many-public-methods
                         "queries": [
                             {
                                 "time_range": form_data.get("time_range", ""),
-                                "granularity": slice_form_data.get("granularity_sqla", ""),
+                                "granularity": slice_form_data.get(
+                                    "granularity_sqla", ""
+                                ),
                                 "filters": [],
                                 "extras": {
-                                    "time_range_endpoints": slice_form_data.get("time_range_endpoints", []),
+                                    "time_range_endpoints": slice_form_data.get(
+                                        "time_range_endpoints", []
+                                    ),
                                     "having": "",
                                     "having_druid": [],
                                 },
