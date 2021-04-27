@@ -20,7 +20,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Badge from 'src/common/components/Badge';
 import { t, styled } from '@superset-ui/core';
-import { InfoTooltipWithTrigger } from '@superset-ui/chart-controls';
+import { InfoTooltipWithTrigger } from '@arthanasti/chart-controls';
 
 import Button from 'src/components/Button';
 import ModalTrigger from 'src/components/ModalTrigger';

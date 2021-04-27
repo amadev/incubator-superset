@@ -20,27 +20,27 @@ import { Preset } from '@superset-ui/core';
 import {
   BigNumberChartPlugin,
   BigNumberTotalChartPlugin,
-} from '@superset-ui/legacy-preset-chart-big-number';
-import CalendarChartPlugin from '@superset-ui/legacy-plugin-chart-calendar';
-import ChordChartPlugin from '@superset-ui/legacy-plugin-chart-chord';
-import CountryMapChartPlugin from '@superset-ui/legacy-plugin-chart-country-map';
-import EventFlowChartPlugin from '@superset-ui/legacy-plugin-chart-event-flow';
-import ForceDirectedChartPlugin from '@superset-ui/legacy-plugin-chart-force-directed';
-import HeatmapChartPlugin from '@superset-ui/legacy-plugin-chart-heatmap';
-import HistogramChartPlugin from '@superset-ui/legacy-plugin-chart-histogram';
-import HorizonChartPlugin from '@superset-ui/legacy-plugin-chart-horizon';
-import MapBoxChartPlugin from '@superset-ui/legacy-plugin-chart-map-box';
-import PairedTTestChartPlugin from '@superset-ui/legacy-plugin-chart-paired-t-test';
-import ParallelCoordinatesChartPlugin from '@superset-ui/legacy-plugin-chart-parallel-coordinates';
-import PartitionChartPlugin from '@superset-ui/legacy-plugin-chart-partition';
-import PivotTableChartPlugin from '@superset-ui/legacy-plugin-chart-pivot-table';
-import RoseChartPlugin from '@superset-ui/legacy-plugin-chart-rose';
-import SankeyChartPlugin from '@superset-ui/legacy-plugin-chart-sankey';
-import SunburstChartPlugin from '@superset-ui/legacy-plugin-chart-sunburst';
-import TableChartPlugin from '@superset-ui/plugin-chart-table';
-import TreemapChartPlugin from '@superset-ui/legacy-plugin-chart-treemap';
-import { WordCloudChartPlugin } from '@superset-ui/plugin-chart-word-cloud';
-import WorldMapChartPlugin from '@superset-ui/legacy-plugin-chart-world-map';
+} from '@arthanasti/legacy-preset-chart-big-number';
+import CalendarChartPlugin from '@arthanasti/legacy-plugin-chart-calendar';
+import ChordChartPlugin from '@arthanasti/legacy-plugin-chart-chord';
+import CountryMapChartPlugin from '@arthanasti/legacy-plugin-chart-country-map';
+import EventFlowChartPlugin from '@arthanasti/legacy-plugin-chart-event-flow';
+import ForceDirectedChartPlugin from '@arthanasti/legacy-plugin-chart-force-directed';
+import HeatmapChartPlugin from '@arthanasti/legacy-plugin-chart-heatmap';
+import HistogramChartPlugin from '@arthanasti/legacy-plugin-chart-histogram';
+import HorizonChartPlugin from '@arthanasti/legacy-plugin-chart-horizon';
+import MapBoxChartPlugin from '@arthanasti/legacy-plugin-chart-map-box';
+import PairedTTestChartPlugin from '@arthanasti/legacy-plugin-chart-paired-t-test';
+import ParallelCoordinatesChartPlugin from '@arthanasti/legacy-plugin-chart-parallel-coordinates';
+import PartitionChartPlugin from '@arthanasti/legacy-plugin-chart-partition';
+import PivotTableChartPlugin from '@arthanasti/legacy-plugin-chart-pivot-table';
+import RoseChartPlugin from '@arthanasti/legacy-plugin-chart-rose';
+import SankeyChartPlugin from '@arthanasti/legacy-plugin-chart-sankey';
+import SunburstChartPlugin from '@arthanasti/legacy-plugin-chart-sunburst';
+import TableChartPlugin from '@arthanasti/plugin-chart-table';
+import TreemapChartPlugin from '@arthanasti/legacy-plugin-chart-treemap';
+import { WordCloudChartPlugin } from '@arthanasti/plugin-chart-word-cloud';
+import WorldMapChartPlugin from '@arthanasti/legacy-plugin-chart-world-map';
 import {
   AreaChartPlugin,
   BarChartPlugin,
@@ -52,13 +52,13 @@ import {
   LineChartPlugin,
   LineMultiChartPlugin,
   TimePivotChartPlugin,
-} from '@superset-ui/legacy-preset-chart-nvd3';
+} from '@arthanasti/legacy-preset-chart-nvd3';
 import { DeckGLChartPreset } from '@superset-ui/legacy-preset-chart-deckgl';
 import {
   EchartsPieChartPlugin,
   EchartsBoxPlotChartPlugin,
   EchartsTimeseriesChartPlugin,
-} from '@superset-ui/plugin-chart-echarts';
+} from '@arthanasti/plugin-chart-echarts';
 
 import FilterBoxChartPlugin from '../FilterBox/FilterBoxChartPlugin';
 import TimeTableChartPlugin from '../TimeTable/TimeTableChartPlugin';

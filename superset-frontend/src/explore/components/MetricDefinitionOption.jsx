@@ -18,7 +18,7 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ColumnOption, MetricOption } from '@superset-ui/chart-controls';
+import { ColumnOption, MetricOption } from '@arthanasti/chart-controls';
 
 import AggregateOption from './AggregateOption';
 import columnType from '../propTypes/columnType';

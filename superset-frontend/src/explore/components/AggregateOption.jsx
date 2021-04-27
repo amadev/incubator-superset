@@ -18,7 +18,7 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ColumnTypeLabel } from '@superset-ui/chart-controls';
+import { ColumnTypeLabel } from '@arthanasti/chart-controls';
 
 import aggregateOptionType from '../propTypes/aggregateOptionType';
 

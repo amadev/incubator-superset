@@ -373,79 +373,55 @@ class Database(
     ) -> bool:
         engine = self.get_sqla_engine(schema=schema)
         username = utils.get_username()
+        custom_fitlers_utils = utils.CustomFiltersDBUitls(slice_id, custom_fitlers)
 
         def _log_query(sql: str) -> None:
             if log_query:
                 log_query(engine.url, sql, schema, username, __name__, security_manager)
 
-        # Init SQL-queries & templates
-        create_table_sql = """
-        CREATE TABLE IF NOT EXISTS slice_custom_filters (
-            id serial not null
-                constraint slice_custom_filters_pkey primary key,
-            slice_id integer not null,
-            key varchar(50) not null,
-            value text not null,
-            CONSTRAINT slice_custom_filters_slice_id_key_uniq UNIQUE (slice_id, key)
-        );
-        """
-        upsert_sql_template = """
-        INSERT INTO slice_custom_filters(slice_id, key, value) 
-        VALUES {} ON CONFLICT (slice_id, key) 
-          DO UPDATE SET value = EXCLUDED.value;
-        """
-        delete_sql_template = "DELETE FROM slice_custom_filters WHERE slice_id = {} AND key = '{}'"
-        select_existing_sql_template = "SELECT * FROM slice_custom_filters WHERE slice_id = {};"
-
-        upsert_rows = []
-        for flt in custom_fitlers:
-            key = flt.get('key')
-            value = flt.get('value', '')
-            upsert_rows.append(f"({slice_id}, '{key}', '{value}')")
-
-        upsert_sql = upsert_sql_template.format(
-            ", ".join([row for row in upsert_rows])
-        )
+        # Init SQL-queries
+        create_table_sql = custom_fitlers_utils.get_create_table_sql()
+        upsert_sql = custom_fitlers_utils.get_upsert_filters_sql()
+        existing_filters_sql = custom_fitlers_utils.get_existing_filters_sql()
+        # Query DB
         with closing(engine.raw_connection()) as conn:
             with closing(conn.cursor()) as cursor:
                 # Create table slice_custom_filters if not exists
                 _log_query(create_table_sql)
                 try:
                     self.db_engine_spec.execute(cursor, create_table_sql)
-                    print("Table slice_custom_filters CREATED")  # Убрать
                 except Exception as e:
-                    logger.warning(f"Table/Index CREATE error: {e}")
+                    logger.warning(f"Table/Index CREATE exception: {e}")
                     return False
 
                 # Check are there filters to delete
                 existing_filters = None
                 try:
-                    self.db_engine_spec.execute(
-                        cursor, select_existing_sql_template.format(slice_id)
-                    )
+                    self.db_engine_spec.execute(cursor, existing_filters_sql)
                     existing_filters = cursor.fetchall()
-                    print("Existing filters received")  # Убрать
                 except Exception as e:
-                    logger.warning(f"Existing filters SELECT error: {e}")
+                    logger.warning(f"Existing filters SELECT exception: {e}")
 
                 if existing_filters:
-                    print(f"EXISTING FILTERS FOR SLICE_ID={slice_id} FOUND: {existing_filters}")  # Убрать
                     custom_fitlers_keys = [f['key'] for f in custom_fitlers]
-                    existing_filters_dict = {ef[2]: ef[-1] for ef in existing_filters}
-                    # Sync front with back first (DELETE from DB all keys, witch removed from front)
+                    existing_filters_dict = {
+                        ef[2]: ef[-1] for ef in existing_filters
+                    }
+                    # Sync front with back first
+                    # (DELETE from DB all keys, witch removed from front)
                     for ex_f_key in existing_filters_dict.keys():
                         if ex_f_key not in custom_fitlers_keys:
-                            delete_sql = delete_sql_template.format(slice_id, ex_f_key)
-                            print("NEED TO DELETE:", delete_sql)
+                            delete_sql = custom_fitlers_utils.get_delete_filters_sql(
+                                ex_f_key
+                            )
                             _log_query(delete_sql)
                             try:
                                 self.db_engine_spec.execute(cursor, delete_sql)
                                 conn.commit()
-                                print("DELETED")  # Убрать
                             except Exception as e:
                                 logger.warning(
                                     f"Error occured while DELETE FROM "
-                                    f"slice_custom_filters. SQL={delete_sql}. {e}"
+                                    f"slice_custom_filters exception: {e}"
                                 )
 
                 # Insert || Update
@@ -453,20 +429,11 @@ class Database(
                 try:
                     self.db_engine_spec.execute(cursor, upsert_sql)
                     conn.commit()
-                    print("UPSERTED")  # Убрать
                 except Exception as e:
                     logger.warning(
-                        f"Error occured while UPSERT slice_custom_filters. "
-                        f"SQL={upsert_sql}. {e}"
+                        f"Error occured while UPSERT slice_custom_filters "
+                        f"exception: {e}"
                     )
-
-                # TODO Убрать
-                try:
-                    # Check data saved
-                    self.db_engine_spec.execute(cursor, f"SELECT * FROM slice_custom_filters WHERE slice_id={slice_id};")
-                    print("SELECT EXECUTED", cursor.fetchall())
-                except Exception as e:
-                    print("slice_custom_filters SELECT error", e)
 
         return True
 

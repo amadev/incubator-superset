@@ -64,7 +64,7 @@ import {
   legacyValidateInteger,
   validateNonEmpty,
 } from '@superset-ui/core';
-import { ColumnOption } from '@superset-ui/chart-controls';
+import { ColumnOption } from '@arthanasti/chart-controls';
 import { formatSelectOptions, mainMetric } from 'src/modules/utils';
 import { TIME_FILTER_LABELS } from './constants';
 

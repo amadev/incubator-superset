@@ -25,7 +25,7 @@ import { formatNumber, formatTime, styled } from '@superset-ui/core';
 import {
   InfoTooltipWithTrigger,
   MetricOption,
-} from '@superset-ui/chart-controls';
+} from '@arthanasti/chart-controls';
 import moment from 'moment';
 
 import FormattedNumber from './FormattedNumber';

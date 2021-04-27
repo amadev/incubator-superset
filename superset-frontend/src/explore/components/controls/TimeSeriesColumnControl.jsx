@@ -22,7 +22,7 @@ import { Row, Col, FormControl } from 'react-bootstrap';
 import Popover from 'src/common/components/Popover';
 import Select from 'src/components/Select';
 import { t } from '@superset-ui/core';
-import { InfoTooltipWithTrigger } from '@superset-ui/chart-controls';
+import { InfoTooltipWithTrigger } from '@arthanasti/chart-controls';
 
 import BoundsControl from './BoundsControl';
 import CheckboxControl from './CheckboxControl';

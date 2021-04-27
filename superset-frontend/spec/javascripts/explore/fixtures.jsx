@@ -19,7 +19,7 @@
 
 import React from 'react';
 import { t } from '@superset-ui/core';
-import { ColumnOption } from '@superset-ui/chart-controls';
+import { ColumnOption } from '@arthanasti/chart-controls';
 
 export const controlPanelSectionsChartOptions = [
   {
