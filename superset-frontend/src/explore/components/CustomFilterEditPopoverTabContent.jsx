@@ -51,7 +51,7 @@ export default class CustomFilterEditPopoverTabContent extends React.Component {
     };
   }
 
-  componentDidUpdate(prevProps) {
+  UNSAFE_componentWillMount(prevProps) {
     // pass
   }
 

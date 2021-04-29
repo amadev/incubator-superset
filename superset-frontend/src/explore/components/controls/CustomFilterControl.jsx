@@ -71,7 +71,7 @@ export default class CustomFilterControl extends AdhocFilterControl {
     };
   }
 
-  componentDidMount() {
+  UNSAFE_componentWillMount() {
     //pass
   }
 

@@ -88,7 +88,7 @@ export default class AdhocFilterControl extends React.Component {
     };
   }
 
-  componentDidMount() {
+  UNSAFE_componentWillMount() {
     const { datasource } = this.props;
     if (datasource && datasource.type === 'table') {
       const dbId = datasource.database?.id;
