@@ -70,6 +70,6 @@ export default class CustomFilter {
       }
     }
     result += value;
-    return result.slice(0, 50) + "...";
+    return result.slice(0, 45);
   }
 }

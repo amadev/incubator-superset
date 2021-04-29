@@ -366,10 +366,7 @@ class Database(
 
     # pylint: disable=broad-except
     def add_custom_filters(
-        self,
-        slice_id: int,
-        custom_fitlers: list,
-        schema: Optional[str] = None
+        self, slice_id: int, custom_fitlers: list, schema: Optional[str] = None
     ) -> bool:
         engine = self.get_sqla_engine(schema=schema)
         username = utils.get_username()
@@ -379,61 +376,30 @@ class Database(
             if log_query:
                 log_query(engine.url, sql, schema, username, __name__, security_manager)
 
+        def escape(value):
+            return String("").literal_processor(dialect=engine.dialect)(value=value)
+
         # Init SQL-queries
         create_table_sql = custom_fitlers_utils.get_create_table_sql()
-        upsert_sql = custom_fitlers_utils.get_upsert_filters_sql()
-        existing_filters_sql = custom_fitlers_utils.get_existing_filters_sql()
+        upsert_sql = custom_fitlers_utils.get_upsert_filters_sql(escape)
+
         # Query DB
         with closing(engine.raw_connection()) as conn:
             with closing(conn.cursor()) as cursor:
                 # Create table slice_custom_filters if not exists
-                _log_query(create_table_sql)
                 try:
+                    _log_query(create_table_sql)
                     self.db_engine_spec.execute(cursor, create_table_sql)
-                except Exception as e:
-                    logger.warning(f"Table/Index CREATE exception: {e}")
-                    return False
-
-                # Check are there filters to delete
-                existing_filters = None
-                try:
-                    self.db_engine_spec.execute(cursor, existing_filters_sql)
-                    existing_filters = cursor.fetchall()
-                except Exception as e:
-                    logger.warning(f"Existing filters SELECT exception: {e}")
-
-                if existing_filters:
-                    custom_fitlers_keys = [f['key'] for f in custom_fitlers]
-                    existing_filters_dict = {
-                        ef[2]: ef[-1] for ef in existing_filters
-                    }
-                    # Sync front with back first
-                    # (DELETE from DB all keys, witch removed from front)
-                    for ex_f_key in existing_filters_dict.keys():
-                        if ex_f_key not in custom_fitlers_keys:
-                            delete_sql = custom_fitlers_utils.get_delete_filters_sql(
-                                ex_f_key
-                            )
-                            _log_query(delete_sql)
-                            try:
-                                self.db_engine_spec.execute(cursor, delete_sql)
-                                conn.commit()
-                            except Exception as e:
-                                logger.warning(
-                                    f"Error occured while DELETE FROM "
-                                    f"slice_custom_filters exception: {e}"
-                                )
-
-                # Insert || Update
-                _log_query(upsert_sql)
-                try:
+                    delete_sql = custom_fitlers_utils.get_delete_filters_sql()
+                    _log_query(delete_sql)
+                    self.db_engine_spec.execute(cursor, delete_sql)
+                    _log_query(upsert_sql)
                     self.db_engine_spec.execute(cursor, upsert_sql)
                     conn.commit()
-                except Exception as e:
-                    logger.warning(
-                        f"Error occured while UPSERT slice_custom_filters "
-                        f"exception: {e}"
-                    )
+                except Exception:
+                    conn.rollback()
+                    logger.exception("Error happened during custom filter storing")
+                    raise ValueError("Failed to save custom filters")
 
         return True
 

@@ -4692,6 +4692,18 @@
       ],
       "See all": [
         "Смотреть все"
+      ],
+      "Add Filter": [
+        "Добавить фильтр"
+      ],
+      "Add one or more key:value pairs": [
+        "Добавьте пары ключ: значение"
+      ],
+      "Custom Filter Creation": [
+        "Создание фильтра"
+      ],
+      "Custom Filters": [
+        "Пользовательские фильтры"
       ]
     }
   }

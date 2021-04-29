@@ -618,6 +618,25 @@ class Superset(BaseSupersetView):  # pylint: disable=too-many-public-methods
 
                 return json_success(json.dumps(job_metadata), status=202)
 
+            if form_data.get("custom_filters"):
+                form_data, slc = get_form_data(use_slice_data=True)
+                if slc:
+                    logger.info(
+                        "Storing custom filters, slice: %d, data: %s",
+                        slc.id,
+                        form_data["custom_filters"],
+                    )
+                    datasource = ConnectorRegistry.get_datasource(
+                        cast(str, datasource_type), datasource_id, db.session
+                    )
+                    datasource.database.add_custom_filters(
+                        slc.id, form_data["custom_filters"], datasource.schema
+                    )
+                    logger.info(
+                        "CustomFilters updated successfully for slice: %d",
+                        slc.id
+                    )
+
             viz_obj = get_viz(
                 datasource_type=cast(str, datasource_type),
                 datasource_id=datasource_id,
@@ -779,17 +798,7 @@ class Superset(BaseSupersetView):  # pylint: disable=too-many-public-methods
                 status=400,
             )
 
-        # TODO нужно передавать на фронт флаг результата обработки фильтров
-        custom_filters_processed = True
-        form_data["custom_filters_processed"] = custom_filters_processed
         if action in ("saveas", "overwrite"):
-            # Process received slice custom filters
-            if form_data.get("custom_filters"):
-                custom_filters_processed = datasource.database.add_custom_filters(
-                    slc.id, form_data['custom_filters'], datasource.schema
-                )
-                form_data["custom_filters_processed"] = custom_filters_processed
-
             return self.save_or_overwrite_slice(
                 slc,
                 slice_add_perm,
@@ -797,8 +806,7 @@ class Superset(BaseSupersetView):  # pylint: disable=too-many-public-methods
                 slice_download_perm,
                 datasource_id,
                 cast(str, datasource_type),
-                datasource.name,
-                custom_filters_processed
+                datasource.name
             )
 
         standalone = (
@@ -884,8 +892,7 @@ class Superset(BaseSupersetView):  # pylint: disable=too-many-public-methods
         slice_download_perm: bool,
         datasource_id: int,
         datasource_type: str,
-        datasource_name: str,
-        custom_filters_processed: bool,
+        datasource_name: str
     ) -> FlaskResponse:
         """Save or overwrite a slice"""
         slice_name = request.args.get("slice_name")
@@ -1925,10 +1932,14 @@ class Superset(BaseSupersetView):  # pylint: disable=too-many-public-methods
                         "queries": [
                             {
                                 "time_range": form_data.get("time_range", ""),
-                                "granularity": slice_form_data.get("granularity_sqla", ""),
+                                "granularity": slice_form_data.get(
+                                    "granularity_sqla", ""
+                                ),
                                 "filters": [],
                                 "extras": {
-                                    "time_range_endpoints": slice_form_data.get("time_range_endpoints", []),
+                                    "time_range_endpoints": slice_form_data.get(
+                                        "time_range_endpoints", []
+                                    ),
                                     "having": "",
                                     "having_druid": [],
                                 },

@@ -3688,6 +3688,7 @@ msgstr ""
 #: superset-frontend/src/views/CRUD/annotationlayers/AnnotationLayerModal.tsx:207
 #: superset-frontend/src/views/CRUD/csstemplates/CssTemplateModal.tsx:211
 #: superset-frontend/src/views/CRUD/data/database/DatabaseModal.tsx:332
+#: superset-frontend/src/explore/components/CustomFilterEditPopover.jsx:119
 msgid "Save"
 msgstr ""
 
@@ -4419,6 +4420,7 @@ msgstr ""
 #: superset-frontend/src/components/ErrorMessage/ErrorAlert.tsx:182
 #: superset-frontend/src/dashboard/components/filterscope/FilterScopeSelector.jsx:535
 #: superset-frontend/src/explore/components/AdhocFilterEditPopover.jsx:192
+#: superset-frontend/src/explore/components/CustomFilterEditPopover.jsx:106
 msgid "Close"
 msgstr ""
 
@@ -7425,4 +7427,20 @@ msgstr ""
 
 #: superset-frontend/src/visualizations/TimeTable/TimeTableChartPlugin.js:24
 msgid "Time-series Table"
+msgstr ""
+
+#: superset-frontend/src/explore/components/controls/CustomFilterControl.jsx:137
+msgid "Add one or more key:value pairs"
+msgstr ""
+
+#: superset-frontend/src/explore/components/controls/CustomFilterControl.jsx:152
+msgid "Add Filter"
+msgstr ""
+
+#: superset-frontend/src/explore/components/CustomFilterEditPopover.jsx:93
+msgid "Custom Filter Creation"
+msgstr ""
+
+#: superset-frontend/src/explore/controls.jsx:484
+msgid "Custom Filters"
 msgstr ""

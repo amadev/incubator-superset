@@ -90,7 +90,7 @@ export default class CustomFilterEditPopover extends AdhocFilterEditPopover {
           <Tabs.TabPane  // теперь табы не нужны, но в будущем можно будет добавить другой тип фильтра в новый таб
             className="adhoc-filter-edit-tab"
             key={"CustomFilter"}
-            tab={t("Add Custom Filter")}
+            tab={t("Custom Filter Creation")}
           >
             <CustomFilterEditPopoverTabContent
               customFilter={this.state.customFilter}
