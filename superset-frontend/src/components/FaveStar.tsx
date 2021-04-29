@@ -36,7 +36,7 @@ const StyledLink = styled.a`
 `;
 
 export default class FaveStar extends React.PureComponent<FaveStarProps> {
-  componentDidMount() {
+  UNSAFE_componentWillMount() {
     if (this.props.fetchFaveStar) {
       this.props.fetchFaveStar(this.props.itemId);
     }

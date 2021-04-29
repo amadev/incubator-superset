@@ -68,8 +68,6 @@ export default class CustomFilter {
       label += value;
     }
     label = label.length <= 65 ? label : label.slice(0, 62) + '...';
-    console.log(label.length);
-    console.log(label);
     return label;
   }
 }

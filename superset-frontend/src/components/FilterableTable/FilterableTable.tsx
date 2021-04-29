@@ -172,7 +172,7 @@ export default class FilterableTable extends PureComponent<
     this.container = React.createRef();
   }
 
-  componentDidMount() {
+  UNSAFE_componentWillMount() {
     this.fitTableToWidthIfNeeded();
   }
 
@@ -183,7 +183,7 @@ export default class FilterableTable extends PureComponent<
   getWidthsForColumns() {
     const PADDING = 40; // accounts for cell padding and width of sorting icon
     const widthsByColumnKey = {};
-    const cellContent = [].concat(
+    const cellContent = ([] as string[]).concat(
       ...this.props.orderedColumnKeys.map(key => {
         const cellContentList = this.list.map((data: Datum) =>
           this.getCellContent({ cellData: data[key], columnKey: key }),
@@ -385,7 +385,7 @@ export default class FilterableTable extends PureComponent<
             ...style,
             top:
               typeof style.top === 'number'
-                ? style.top - GRID_POSITION_ADJUSTMENT
+                ? +style.top - GRID_POSITION_ADJUSTMENT
                 : style.top,
           }}
           className={`${className} grid-cell grid-header-cell`}
@@ -408,7 +408,7 @@ export default class FilterableTable extends PureComponent<
     style: React.CSSProperties;
   }) {
     const columnKey = this.props.orderedColumnKeys[columnIndex];
-    const cellData = this.list.get(rowIndex)[columnKey];
+    const cellData = this.list.get(rowIndex)![columnKey];
     const content = this.getCellContent({ cellData, columnKey });
     const cellNode = (
       <div
@@ -417,7 +417,7 @@ export default class FilterableTable extends PureComponent<
           ...style,
           top:
             typeof style.top === 'number'
-              ? style.top - GRID_POSITION_ADJUSTMENT
+              ? +style.top - GRID_POSITION_ADJUSTMENT
               : style.top,
         }}
         className={`grid-cell ${this.rowClassName({ index: rowIndex })}`}

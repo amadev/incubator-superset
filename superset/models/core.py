@@ -367,7 +367,7 @@ class Database(
     # pylint: disable=broad-except
     def add_custom_filters(
         self, slice_id: int, custom_fitlers: list, schema: Optional[str] = None
-    ) -> bool:
+    ) -> None:
         engine = self.get_sqla_engine(schema=schema)
         username = utils.get_username()
         custom_fitlers_utils = utils.CustomFiltersDBUitls(slice_id, custom_fitlers)
@@ -400,8 +400,6 @@ class Database(
                     conn.rollback()
                     logger.exception("Error happened during custom filter storing")
                     raise ValueError("Failed to save custom filters")
-
-        return True
 
     def get_df(  # pylint: disable=too-many-locals
         self,

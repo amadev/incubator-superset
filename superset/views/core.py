@@ -806,7 +806,7 @@ class Superset(BaseSupersetView):  # pylint: disable=too-many-public-methods
                 slice_download_perm,
                 datasource_id,
                 cast(str, datasource_type),
-                datasource.name
+                datasource.name,
             )
 
         standalone = (
@@ -892,7 +892,7 @@ class Superset(BaseSupersetView):  # pylint: disable=too-many-public-methods
         slice_download_perm: bool,
         datasource_id: int,
         datasource_type: str,
-        datasource_name: str
+        datasource_name: str,
     ) -> FlaskResponse:
         """Save or overwrite a slice"""
         slice_name = request.args.get("slice_name")

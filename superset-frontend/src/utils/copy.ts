@@ -18,7 +18,7 @@
  */
 
 const copyTextToClipboard = (text: string) =>
-  new Promise((resolve, reject) => {
+  new Promise<void>((resolve, reject) => {
     const selection: Selection | null = document.getSelection();
     if (selection) {
       selection.removeAllRanges();

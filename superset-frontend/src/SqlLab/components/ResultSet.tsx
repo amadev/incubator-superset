@@ -165,7 +165,7 @@ export default class ResultSet extends React.PureComponent<
     this.handleExploreBtnClick = this.handleExploreBtnClick.bind(this);
   }
 
-  async componentDidMount() {
+  async UNSAFE_componentWillMount() {
     // only do this the first time the component is rendered/mounted
     this.reRunQueryIfSessionTimeoutErrorOnMount();
 

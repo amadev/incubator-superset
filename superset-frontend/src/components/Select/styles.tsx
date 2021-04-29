@@ -35,6 +35,13 @@ import { SupersetStyledSelectProps } from './SupersetStyledSelect';
 export const DEFAULT_CLASS_NAME = 'Select';
 export const DEFAULT_CLASS_NAME_PREFIX = 'Select';
 
+interface IProps {
+    children: ReactNode;
+    innerProps: any;
+    data: any;
+    props: any;
+}
+
 type RecursivePartial<T> = {
   [P in keyof T]?: RecursivePartial<T[P]>;
 };
@@ -313,7 +320,7 @@ const {
 } = defaultComponents as Required<DeepNonNullable<SelectComponentsType>>;
 
 export const DEFAULT_COMPONENTS: SelectComponentsType = {
-  Option: ({ children, innerProps, data, ...props }) => (
+  Option: ({ children, innerProps, data, ...props }: IProps) => (
     <ClassNames>
       {({ css }) => (
         <Option
@@ -327,12 +334,12 @@ export const DEFAULT_COMPONENTS: SelectComponentsType = {
       )}
     </ClassNames>
   ),
-  ClearIndicator: props => (
+  ClearIndicator: (props: InputProps)=> (
     <ClearIndicator {...props}>
       <i className="fa">×</i>
     </ClearIndicator>
   ),
-  DropdownIndicator: props => (
+  DropdownIndicator: (props: InputProps) => (
     <DropdownIndicator {...props}>
       <i
         className={`fa fa-caret-${

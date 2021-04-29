@@ -38,7 +38,7 @@ const flashObj = {
 };
 
 class FlashProvider extends React.PureComponent<Props> {
-  componentDidMount() {
+  UNSAFE_componentWillMount() {
     const flashMessages = this.props.common.flash_messages;
     flashMessages.forEach(message => {
       const [type, text] = message;

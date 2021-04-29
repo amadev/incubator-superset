@@ -332,7 +332,6 @@ class BaseViz:
         utils.split_adhoc_filters_into_base_filters(self.form_data)
 
     # def apply_custom_filters(self) -> None:
-    #     print("APPLYING CUSTOM FILTERS!")
     #     form_data = self.form_data
     #     custom_filters = form_data.get("custom_filters")
 

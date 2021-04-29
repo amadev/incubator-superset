@@ -82,7 +82,7 @@ class AceEditorWrapper extends React.PureComponent<Props, State> {
     this.onChange = this.onChange.bind(this);
   }
 
-  componentDidMount() {
+  UNSAFE_componentWillMount() {
     // Making sure no text is selected from previous mount
     this.props.actions.queryEditorSetSelectedText(this.props.queryEditor, null);
     this.setAutoCompleter(this.props);
