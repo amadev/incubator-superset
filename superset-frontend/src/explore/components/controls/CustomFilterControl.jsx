@@ -148,6 +148,7 @@ export default class CustomFilterControl extends AdhocFilterControl {
           buttonSize="small"
           buttonStyle="primary"
           onClick={this.onAddClick.bind(this)}
+          style={{marginTop: "5px"}}
         >
           {t('Add Filter')}
         </Button>

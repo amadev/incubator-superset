@@ -52,7 +52,6 @@ export default class CustomFilter {
 
   isValid() {
     if (this.key && (KEY_INVALID_SYMBOLS.some(s => this.key.includes(s)) || this.key.length >= 50)) {
-      // нужно уведолмять юзера
       return false;
     }
     if (this.value && VALUE_INVALID_SYMBOLS.some(s => this.value.includes(s))) {
@@ -62,14 +61,15 @@ export default class CustomFilter {
   }
 
   getDefaultLabel() {
-    let result = this.key + ":= ";
+    let label = this.key + ':= ';
     let value = this.value;
     if (value) {
-      if (value.length >= 15) {
-        value = value.slice(0, 12) + "...";
-      }
+      value = value.length >= 50 ? value : value.slice(0, 50);
+      label += value;
     }
-    result += value;
-    return result.slice(0, 45);
+    label = label.length <= 65 ? label : label.slice(0, 62) + '...';
+    console.log(label.length);
+    console.log(label);
+    return label;
   }
 }

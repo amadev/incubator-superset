@@ -7883,21 +7883,29 @@ msgstr "Нет графиков"
 msgid "See all"
 msgstr "Смотреть все"
 
+#: superset-frontend/src/explore/controls.jsx:484
+msgid "Custom Filters"
+msgstr "Конфигурация для запроса"
+
 #: superset-frontend/src/explore/components/controls/CustomFilterControl.jsx:137
 msgid "Add one or more key:value pairs"
 msgstr "Добавьте пары ключ: значение"
 
 #: superset-frontend/src/explore/components/controls/CustomFilterControl.jsx:152
 msgid "Add Filter"
-msgstr "Добавить фильтр"
+msgstr "Добавить значение"
 
 #: superset-frontend/src/explore/components/CustomFilterEditPopover.jsx:93
 msgid "Custom Filter Creation"
-msgstr "Добавить фильтр"
+msgstr "Создание фильтра"
 
-#: superset-frontend/src/explore/controls.jsx:484
-msgid "Custom Filters"
-msgstr "Пользовательские фильтры"
+#: superset-frontend/src/explore/components/CustomFilterEditPopoverTabContent.jsx:85
+msgid "Input filter key name"
+msgstr "Заполните значение ключа запроса"
+
+#: superset-frontend/src/explore/components/CustomFilterEditPopoverTabContent.jsx:91
+msgid "Input filter value"
+msgstr "Заполните значение"
 
 #~ msgid "Active Dashboard Filters"
 #~ msgstr "Активные фильтры дашбордов"

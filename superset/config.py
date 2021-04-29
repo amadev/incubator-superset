@@ -167,14 +167,16 @@ SQLALCHEMY_CUSTOM_PASSWORD_STORE = None
 # The limit of queries fetched for query search
 QUERY_SEARCH_LIMIT = 1000
 
+# Debug setting
+DEBUG = os.environ.get("FLASK_ENV") == "development"
+
 # Flask-WTF flag for CSRF
-WTF_CSRF_ENABLED = True
+WTF_CSRF_ENABLED = False if DEBUG else True
 
 # Add endpoints that need to be exempt from CSRF protection
 WTF_CSRF_EXEMPT_LIST = ["superset.views.core.log", "superset.charts.api.data"]
 
 # Whether to run the web server in debug mode or not
-DEBUG = os.environ.get("FLASK_ENV") == "development"
 FLASK_USE_RELOAD = True
 
 # Superset allows server-side python stacktraces to be surfaced to the
