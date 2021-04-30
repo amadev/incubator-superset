@@ -7899,11 +7899,11 @@ msgstr "Добавить значение"
 msgid "Custom Filter Creation"
 msgstr "Создание фильтра"
 
-#: superset-frontend/src/explore/components/CustomFilterEditPopoverTabContent.jsx:85
+#: superset-frontend/src/explore/components/CustomFilterEditPopoverTabContent.jsx:93
 msgid "Input filter key name"
 msgstr "Заполните значение ключа запроса"
 
-#: superset-frontend/src/explore/components/CustomFilterEditPopoverTabContent.jsx:91
+#: superset-frontend/src/explore/components/CustomFilterEditPopoverTabContent.jsx:106
 msgid "Input filter value"
 msgstr "Заполните значение"
 

@@ -42,8 +42,6 @@ export default class CustomFilterEditPopoverTabContent extends React.Component {
     this.onKeyChange = this.onKeyChange.bind(this);
     this.onValueChange = this.onValueChange.bind(this);
 
-    this.state = {};
-
     this.menuPortalProps = {
       menuPortalTarget: props.popoverRef,
       menuPosition: 'fixed',
@@ -81,18 +79,6 @@ export default class CustomFilterEditPopoverTabContent extends React.Component {
     const { customFilter } = this.props;
     const { key, value } = customFilter;
 
-    const keySelectProps = {
-      placeholder: t('Input filter key name'),
-      value: key ?? undefined,
-      onChange: this.onKeyChange,
-    };
-
-    const valueSelectProps = {
-      placeholder: t('Input filter value'),
-      value: value ?? undefined,
-      onChange: this.onValueChange,
-    };
-
     return (
       <>
         <FormGroup className="adhoc-filter-simple-column-dropdown">
@@ -104,7 +90,7 @@ export default class CustomFilterEditPopoverTabContent extends React.Component {
               onChange={this.onKeyChange}
               value={key}
               className="form-control input-sm"
-              placeholder={keySelectProps.placeholder}
+              placeholder={t('Input filter key name')}
               disabled={ false }
             />
         </FormGroup>
@@ -115,9 +101,9 @@ export default class CustomFilterEditPopoverTabContent extends React.Component {
               type="text"
               maxLength="2048"
               onChange={this.onValueChange}
-              value={value}
+              value={value || ''}
               className="form-control input-sm"
-              placeholder={valueSelectProps.placeholder}
+              placeholder={t('Input filter value')}
               disabled={ false }
             />
         </FormGroup>

@@ -7429,6 +7429,10 @@ msgstr ""
 msgid "Time-series Table"
 msgstr ""
 
+#: superset-frontend/src/explore/controls.jsx:484
+msgid "Custom Filters"
+msgstr ""
+
 #: superset-frontend/src/explore/components/controls/CustomFilterControl.jsx:137
 msgid "Add one or more key:value pairs"
 msgstr ""
@@ -7441,6 +7445,10 @@ msgstr ""
 msgid "Custom Filter Creation"
 msgstr ""
 
-#: superset-frontend/src/explore/controls.jsx:484
-msgid "Custom Filters"
+#: superset-frontend/src/explore/components/CustomFilterEditPopoverTabContent.jsx:93
+msgid "Input filter key name"
+msgstr ""
+
+#: superset-frontend/src/explore/components/CustomFilterEditPopoverTabContent.jsx:106
+msgid "Input filter value"
 msgstr ""

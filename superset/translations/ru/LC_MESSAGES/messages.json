@@ -4693,17 +4693,17 @@
       "See all": [
         "Смотреть все"
       ],
-      "Add Filter": [
-        "Добавить значение"
+      "Custom Filters": [
+        "Конфигурация для запроса"
       ],
       "Add one or more key:value pairs": [
         "Добавьте пары ключ: значение"
       ],
+      "Add Filter": [
+        "Добавить значение"
+      ],
       "Custom Filter Creation": [
         "Создание фильтра"
-      ],
-      "Custom Filters": [
-        "Конфигурация для запроса"
       ],
       "Input filter key name": [
         "Заполните значение ключа запроса"
